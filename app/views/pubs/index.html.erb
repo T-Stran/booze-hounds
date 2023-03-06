@@ -16,11 +16,7 @@
     <br>
   </div>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
+<div class="top_index">
   <div class="filters justify-content-center">
     <div class="filter"><p></p>Garden <input class="checkbox" type="checkbox" id="filter1" name="filter1" value="Garden"></div>
     <div class="filter"><p></p>Parking <input class="checkbox" type="checkbox" id="filter2" name="filter2" value="Parking"></div>
@@ -29,22 +25,29 @@
     <div class="filter"><p></p>Wheelchair accessible <input class="checkbox" type="checkbox" id="filter5" name="filter5" value="Wheelchair accessible"></div>
     <div class="filter"><p></p>Food Menu <input class="checkbox" type="checkbox" id="filter6" name="filter6" value="Food menu"></div>
   </div>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
 
   <div class="row justify-content-center">
     <% @pubs.each do |pub| %>
+      <div class="card">
         <h5><%= pub.name %></h5>
-        <br>
-        <h6>Address: <%= pub.address %></h6>
-        <br>
-        <h6>Description: <%= pub.description %></h6>
-        <br>
-        <h6>Opening/Closing times: <%= pub.opening_time - pub.closing_time %></h6>
-        <br>
-        <h6>Website: <%= pub.website %></h6>
-        <br>
-        <h6>Phone number: <%= pub.phone_number %></h6>
-      <% end %>
 
+        <h6><strong>Address:</strong> <%= pub.address %></h6>
+
+        <h6><strong>Description:</strong> <%= pub.description %></h6>
+
+        <h6><strong>Opening/Closing times:</strong> <%= pub.opening_time %></h6>
+
+        <h6 class="website-link"><strong>Website:</strong>  <%= link_to "#{pub.name}","#{pub.website}", target: "_blank" %></h6>
+
+        <h6><strong>Phone number:</strong> <%= pub.phone_number %></h6>
+        </div>
+      <% end %>
   </div>
 
 </div>

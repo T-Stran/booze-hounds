@@ -5,25 +5,25 @@
   height: 400px;
   width: 317px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255,255,255,1);
+  box-shadow: 0 0 2px rgba(0,0,0,1);
   display: flex;
   align-items: left;
   justify-content: space-around;
   font-size: 22px;
-  color: rgb(10, 255, 5);
+  color: black;
   padding: 20px;
   margin: 25px;
   border: 1px, solid, white;
   transition: 0.35s;
 }
 
-.card:hover {
-  transition: 0.35s;
-  color: rgba(255,255,255,1);
-  text-shadow: 0 0 10px rgb(10, 255, 5);
-  box-shadow: 0 0 80px rgba(255,255,255,1);
-  animation: shake 30s;
-  animation-iteration-count: infinite;
-  height: 430px;
-  width: 330px;
-}
+// .card:hover {
+//   transition: 0.35s;
+//   color: rgba(255,255,255,1);
+//   text-shadow: 0 0 10px rgb(10, 255, 5);
+//   box-shadow: 0 0 80px rgba(255,255,255,1);
+//   animation: shake 30s;
+//   animation-iteration-count: infinite;
+//   height: 430px;
+//   width: 330px;
+// }
