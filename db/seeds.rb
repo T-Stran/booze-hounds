@@ -30,7 +30,8 @@ theFloristArms = Pub.new(
   live_sport: false,
   wheelchair_accessible: true,
   food_menu: true,
-  location: "51.52870694749943, -0.051365300175300416"
+  latitude: 51.52870694749943,
+  longitude: -0.051365300175300416
 )
 pub.save!
 
@@ -49,7 +50,8 @@ threeColtsTavern = Pub.new(
   live_sport: true,
   wheelchair_accessible: false,
   food_menu: true,
-  location: "51.52478465764396, -0.05482580996306359"
+  latitude: 51.52478465764396,
+  longitude: -0.05482580996306359
 )
 pub.save!
 
@@ -68,7 +70,8 @@ howlAtMoon = Pub.new(
   live_sport: true,
   wheelchair_accessible: false,
   food_menu: true,
-  location: "51.533262555485706, -0.07930245837395342"
+  latitude: 51.533262555485706,
+  longitude: -0.07930245837395342
 )
 pub.save!
 
@@ -87,7 +90,8 @@ theGeorgeAndVulture = Pub.new(
   live_sport: false,
   wheelchair_accessible: false,
   food_menu: false,
-  location: "51.52932589475472, -0.08344002345484144"
+  latitude: 51.52932589475472,
+  longitude: -0.08344002345484144
 )
 pub.save!
 
@@ -106,6 +110,7 @@ theRedLion = Pub.new(
   live_sport: true,
   wheelchair_accessible: true,
   food_menu: true,
-  location: "51.528208725854704, -0.07961467186609548"
+  latitude: 51.528208725854704,
+  longitude: -0.07961467186609548
 )
 pub.save!
