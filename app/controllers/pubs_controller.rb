@@ -1,6 +1,7 @@
 class PubsController < ApplicationController
 
   def index
+    @pubs = Pub.all
     @markers = @pubs.geocoded.map do |pub|
       {
         lat: pub.latitude,
@@ -8,7 +9,6 @@ class PubsController < ApplicationController
       }
     end
   end
-
 
   # def myindex (if needed for my favourite pubs)
   #   @pubs = Pub.where(user_id: current_user.id)
