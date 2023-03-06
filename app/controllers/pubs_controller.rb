@@ -1,7 +1,14 @@
 class PubsController < ApplicationController
 
   def index
-    @pubs = Pub.all
+    @markers = @pubs.geocoded.map do |pub|
+      {
+        lat: pub.latitude,
+        lng: pub.longitude
+      }
+    end
+  end
+
   end
 
   # def myindex (if needed for my favourite pubs)
@@ -47,4 +54,5 @@ class PubsController < ApplicationController
   def pub_params
     params.require(:pub).permit(:name, :description, :armaments, :capacity, :price, :speed, :photo) #TO BE UPDATED WITH CORRECT PARAMS
   end
+
 end
