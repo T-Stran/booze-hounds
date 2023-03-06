@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= cl_image_tag("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678120224/BoozeHounds/a_gentlemanly_dog_with_a_tophat_drinking_a_beer_1_qsu58f.png") %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,17 +17,22 @@
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
+
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%# <%= cl_image_tag("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678123637/BoozeHounds/a_simple_shadow_outline_of_a_dogs_body_and_head._The_background_is_grey_1_hafwio.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "View dogs", "#", class: "dropdown-item" %>
+              <%= link_to "View pubs", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item dropdown">
+            <%# <%= cl_image_tag("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678123637/BoozeHounds/a_simple_shadow_outline_of_a_dogs_body_and_head._The_background_is_grey_1_hafwio.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "View dogs", "#", class: "dropdown-item" %>
+            <%= link_to "View pubs", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
           </li>
         <% end %>
       </ul>
