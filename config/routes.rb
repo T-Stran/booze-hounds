@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     resources :reviews
     resources :locals
   end
+
+
+  resources :pub
+
   resources :dogs
 end

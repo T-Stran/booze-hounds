@@ -1,3 +1,13 @@
+
+
+<h1>Index Page</h1>
+
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 <br>
 <div class="containerr">
   <div class="container">
@@ -13,6 +23,7 @@
     </div>
     <br>
   </div>
+
 
   <div class="filters justify-content-center">
     <div class="filter"><p></p>Garden <input class="checkbox" type="checkbox" id="filter1" name="filter1" value="Garden"></div>
