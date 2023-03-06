@@ -37,7 +37,7 @@ class PubsController < ApplicationController
   end
 
   def destroy
-    @pub = Pub.ind(params[:id])
+    @pub = Pub.find(params[:id])
     @pub.destroy
     redirect_to pubs_path, status: :see_other
   end
@@ -45,6 +45,8 @@ class PubsController < ApplicationController
   private
 
   def pub_params
-    params.require(:pub).permit(:name, :description, :armaments, :capacity, :price, :speed, :photo) #TO BE UPDATED WITH CORRECT PARAMS
+    params.require(:pub).permit(:name, :address, :description, :opening_time, :closing_time, :website, :phone_number,
+                                :pool_table, :non_alcoholic_drinks_selection, :garden, :parking, :live_sport,
+                                :wheelchair_accessible, :food_menu)
   end
 end
