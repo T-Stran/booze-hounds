@@ -1,23 +1,50 @@
-
-
 <h1>Index Page</h1>
 
+<br>
+<div class="containerr">
+  <div class="container">
+      <div class="searchbar">
+        <%= form_with url: pubs_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search pubs..."
+          %>
+          <%= submit_tag "GO!", class: "btn btn-dark" %>
+        <% end %>
+    </div>
+    <br>
+  </div>
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<br>
-<div class="container">
-    <div class="searchbar">
-      <%= form_with url: pubs_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search pubs..."
-        %>
-        <%= submit_tag "GO!", class: "btn btn-dark" %>
-      <% end %>
+  <div class="filters justify-content-center">
+    <div class="filter"><p></p>Garden <input class="checkbox" type="checkbox" id="filter1" name="filter1" value="Garden"></div>
+    <div class="filter"><p></p>Parking <input class="checkbox" type="checkbox" id="filter2" name="filter2" value="Parking"></div>
+    <div class="filter"><p></p>Live sport TV <input class="checkbox" type="checkbox" id="filter3" name="filter3" value="Live sport TV"></div>
+    <div class="filter"><p></p>NA drinks selection <input class="checkbox" type="checkbox" id="filter4" name="filter4" value="NA drinks selection"></div>
+    <div class="filter"><p></p>Wheelchair accessible <input class="checkbox" type="checkbox" id="filter5" name="filter5" value="Wheelchair accessible"></div>
+    <div class="filter"><p></p>Food Menu <input class="checkbox" type="checkbox" id="filter6" name="filter6" value="Food menu"></div>
   </div>
 
+  <div class="row justify-content-center">
+    <% @pubs.each do |pub| %>
+        <h5><%= pub.name %></h5>
+        <br>
+        <h6>Address: <%= pub.address %></h6>
+        <br>
+        <h6>Description: <%= pub.description %></h6>
+        <br>
+        <h6>Opening/Closing times: <%= pub.opening_time - pub.closing_time %></h6>
+        <br>
+        <h6>Website: <%= pub.website %></h6>
+        <br>
+        <h6>Phone number: <%= pub.phone_number %></h6>
+      <% end %>
+
+  </div>
+
+</div>
