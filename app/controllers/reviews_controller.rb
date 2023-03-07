@@ -10,18 +10,28 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @pub = Pub.find(params[:pub_id])
     @review = Review.new(review_params)
+    @review.user = current_user
+    @pub = Pub.find(params[:pub_id])
+    @review.pub = @pub
     if @review.save
-      redirect_to pubs_path(@pub)
+      redirect_to pub_path(@pub)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to new_pub_review_path(@pub), status: :see_other
+  end
+
+
   private
 
   def review_params
-    params.require(:review).permit(:comment, :rating, :pub_id, :user_id)
+    params.require(:review).permit(:content, :rating)
   end
 end
