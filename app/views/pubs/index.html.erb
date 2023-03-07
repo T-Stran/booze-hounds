@@ -1,25 +1,53 @@
+<h1>Index Page</h1>
+
 <br>
-<div class="container">
-    <div class="searchbar">
-      <%= form_with url: pubs_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search pubs..."
-        %>
-        <%= submit_tag "GO!", class: "btn btn-dark" %>
-      <% end %>
+<div class="containerr">
+  <div class="container">
+      <div class="searchbar">
+        <%= form_with url: pubs_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search pubs..."
+          %>
+          <%= submit_tag "GO!", class: "btn btn-dark" %>
+        <% end %>
+    </div>
+    <br>
   </div>
+
+<div class="top_index">
+  <div class="filters justify-content-center">
+    <div class="filter"><p></p>Garden <input class="checkbox" type="checkbox" id="filter1" name="filter1" value="Garden"></div>
+    <div class="filter"><p></p>Parking <input class="checkbox" type="checkbox" id="filter2" name="filter2" value="Parking"></div>
+    <div class="filter"><p></p>Live sport TV <input class="checkbox" type="checkbox" id="filter3" name="filter3" value="Live sport TV"></div>
+    <div class="filter"><p></p>NA drinks selection <input class="checkbox" type="checkbox" id="filter4" name="filter4" value="NA drinks selection"></div>
+    <div class="filter"><p></p>Wheelchair accessible <input class="checkbox" type="checkbox" id="filter5" name="filter5" value="Wheelchair accessible"></div>
+    <div class="filter"><p></p>Food Menu <input class="checkbox" type="checkbox" id="filter6" name="filter6" value="Food menu"></div>
+  </div>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
   <div class="row justify-content-center">
     <% @pubs.each do |pub| %>
-        <%= link_to pub_path(pub), class:"card col-5" do %>
-        <% if pub.photo.attached? %>
-          <%= cl_image_tag pub.photo.key, height: '150', width: '200' %>
-        <% else %>
-            <img src="https://media.sketchfab.com/models/0e97fb0190244216a056909bbd749b9f/thumbnails/77649cbaea4849aeb3c98a70547c39ba/ef0475805a5a4442a15e3b681a0ec389.jpeg", height: '150', width: '200'>
-        <% end %>
+      <div class="card">
         <h5><%= pub.name %></h5>
-        <h6>Rating: <%= pub.rating %><%= image_tag("gold_star.png", height: '20', width: '20') %></h6>
+
+        <h6><strong>Address:</strong> <%= pub.address %></h6>
+
+        <h6><strong>Description:</strong> <%= pub.description %></h6>
+
+        <h6><strong>Opening/Closing times:</strong> <%= pub.opening_time %></h6>
+
+        <h6 class="website-link"><strong>Website:</strong>  <%= link_to "#{pub.name}","#{pub.website}", target: "_blank" %></h6>
+
+        <h6><strong>Phone number:</strong> <%= pub.phone_number %></h6>
+        </div>
       <% end %>
-    <% end %>
+  </div>
+
 </div>

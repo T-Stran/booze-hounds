@@ -1,0 +1,29 @@
+.containerr {
+  background-color: white;
+}
+
+
+.filters {
+  border-radius: 40px;
+  padding: 20px;
+  background-color: rgba(120,120,120,0.3);
+  width: 250px;
+  box-shadow: 0 0 3px rgba(120,120,120,1);
+}
+
+.checkbox {
+  height: 13px;
+  width: 13px;
+}
+
+.checkbox:hover {
+  box-shadow: 0 0 2px rgba(60, 179, 113,1);
+}
+
+.top_index {
+  display: flex;
+}
+
+.website-link {
+  text-decoration: none;
+}
