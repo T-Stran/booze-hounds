@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
 
   resources :pub
+  resources :reviews
 
   resources :dogs
 end
