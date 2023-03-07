@@ -104,3 +104,10 @@ theRedLion = Pub.new(
   food_menu: true
 )
 theRedLion.save!
+
+# doggy = Dog.create(
+#   name: "NES",
+#   breed: "fluff",
+#   proffession: "doggo",
+#   age: 2
+# )
