@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "dogs/:id/edit", to: "dogs#edit"
   post "dogs", to: "dogs#create"
   resources :pub
+  resources :reviews
 
   resources :dogs
 end
