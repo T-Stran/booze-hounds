@@ -8,6 +8,11 @@ class PubsController < ApplicationController
         lng: pub.longitude
       }
     end
+    if params[:query].present?
+      @pubs = Pub.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @pubs = Pub.all
+    end
   end
 
   # def myindex (if needed for my favourite pubs)
