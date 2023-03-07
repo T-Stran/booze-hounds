@@ -21,6 +21,16 @@ class DogsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  # def create
+  #   @dog = Dog.create(dog_params)
+  #   if @dog.save!
+  #     flash[:success] = 'Dog created successfully!'
+  #     redirect_to dogs_path(@dog)
+  #   else
+  #     flash[:error] = 'ERROR: Activity was not saved!'
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
 
   def edit
     @dog = Dog.find(params[:id])
@@ -41,7 +51,7 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :profession, :age, :user_id)
+    params.require(:dog).permit(:name, :breed, :proffession, :age, :user_id)
   end
 
 end
