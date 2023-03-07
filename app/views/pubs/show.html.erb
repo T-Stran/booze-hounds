@@ -1,0 +1,18 @@
+<h1>Show Page</h1>
+<%= link_to "Back", pubs_path, class: "btn btn-warning"  %>
+
+<div class="container">
+  <div class="view-page">
+    <div class="card-view">
+
+      <h2><%= @pub.name %></h2>
+      <p></p>
+      <p><div class="view-content">Name: <%=@pub.name %></p></div>
+      <p><div class="view-content">Address: <%= @pub.address %></p></div>
+    </div>
+      <%= link_to "Add a Local!", new_pub_local_path(@pub), class: "btn btn-secondary" %>
+      <%= link_to "Leave a Review!", new_pub_review_path(@pub), class: "btn btn-secondary" %>
+      <%= link_to "Add to Favourites!", "", class: "btn btn-secondary" %>
+
+
+</div>
