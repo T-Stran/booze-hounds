@@ -1,0 +1,28 @@
+<h1>Show Page</h1>
+<%= link_to "Back", pubs_path, class: "btn btn-secondary"  %>
+
+<div class="card" style="width: 50%">
+  <img class="" src="..." alt="">
+  <div class="card-body">
+      <h5 class="card-title">Name:   <%= @pub.name %></h5>
+      <h5 class="card-text">Address:   <%= @pub.description %></p></h5>
+      <%= link_to "Add a Local!", new_pub_local_path(@pub), class: "btn btn-success" %>
+      <%= link_to "Leave a Review!", new_pub_review_path(@pub), class: "btn btn-success" %>
+      <%= link_to "Add to Favourites!", "", class: "btn btn-success" %>
+  </div>
+</div>
+
+<h2>Reviews</h2>
+
+<% @pub.reviews.each do |review| %>
+    <ol>
+    <div class="card m-4">
+      <div class="card-header p-3">
+          <div class="card-body">
+            <h4><%=review.content%></h4>
+            <h6><%= review.rating %></h6>
+            <p class = "btn btn-primary m-4 text-end">
+              <%= link_to "Delete Review", new_pub_review_path(@pub), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-proimary" %>
+            </p>
+    </ol>
+  <% end %>

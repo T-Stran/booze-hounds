@@ -28,7 +28,17 @@ Pub.destroy_all
 puts "Pubs destroyed"
 puts "generating new pubs"
 
+
 obj["data"].each do |line|
   Pub.create!(name: line["name"], address: line["street1"], phone_number: line["location_id"], pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample, garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample, wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample)
 end
 puts "end"
+
+
+# doggy = Dog.create(
+#   name: "NES",
+#   breed: "fluff",
+#   proffession: "doggo",
+#   age: 2
+# )
+
