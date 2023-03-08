@@ -1,7 +1,7 @@
 class DogsController < ApplicationController
 
   def index
-    @dogs = Dog.all
+    @dogs = Dog.where(user_id: current_user.id)
   end
 
   def show
@@ -51,7 +51,7 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :proffession, :age, :user_id)
+    params.require(:dog).permit(:name, :breed, :proffession, :age)
   end
 
 end

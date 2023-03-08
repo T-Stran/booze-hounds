@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "dogs/new", to: "dogs#new"
   get "dogs/:id/edit", to: "dogs#edit"
   post "dogs", to: "dogs#create"
+  delete "dogs/:id", to: "dogs#destroy"
   resources :pub
   resources :reviews
 
