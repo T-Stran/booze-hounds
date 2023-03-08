@@ -12,6 +12,5 @@ Rails.application.routes.draw do
   delete "dogs/:id", to: "dogs#destroy"
   resources :pub
   resources :reviews
-
   resources :dogs
 end

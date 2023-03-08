@@ -1,8 +1,17 @@
 class PubsController < ApplicationController
 
   def index
-    @pubs = Pub.all 
 
+
+    if params[:search].present?
+      search = Geocoder.search(params[:search]).first
+      @pubs = Pub.near([search.coordinates[0], search.coordinates[1]], 0.5)
+    elsif
+      params[:query].present?
+      @pubs = Pub.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @pubs = Pub.all
+    end
 
     @markers = @pubs.geocoded.map do |pub|
       {
@@ -10,14 +19,9 @@ class PubsController < ApplicationController
         lng: pub.longitude
       }
     end
-    if params[:query].present?
-      @pubs = Pub.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      @pubs = Pub.all
-    end
   end
 
-
+  
   # def myindex (if needed for my favourite pubs)
   #   @pubs = Pub.where(user_id: current_user.id)
   # end
