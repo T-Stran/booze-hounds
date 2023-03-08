@@ -15,6 +15,7 @@ class PubsController < ApplicationController
     end
   end
 
+
   # def myindex (if needed for my favourite pubs)
   #   @pubs = Pub.where(user_id: current_user.id)
   # end
