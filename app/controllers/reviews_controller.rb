@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def index
     @reviews = Review.all
   end
@@ -21,14 +20,12 @@ class ReviewsController < ApplicationController
     end
   end
 
-
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
     redirect_to new_pub_review_path(@pub), status: :see_other
   end
-
-
+  
   private
 
   def review_params
