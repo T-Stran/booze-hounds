@@ -14,8 +14,28 @@
     <br>
   </div>
 
+
+
+
   <div class="filtering">
-    <button class="filter-button">Filtering:</button>
+    <%= form_with model: @pub, method: "GET", class: "filtering" do |f| %>
+      <%= f.label :garden %>
+      <%= f.check_box :garden %>
+      <%= f.label :parking %>
+      <%= f.check_box :parking %>
+      <%= f.label :live_sport_tv %>
+      <%= f.check_box :live_sport_tv %>
+      <%= f.label :na_drinks_selection %>
+      <%= f.check_box :na_drinks_selection %>
+      <%= f.label :wheelchair_accessible %>
+      <%= f.check_box :wheelchair_accessible %>
+      <%= f.label :food_menu %>
+      <%= f.check_box :food_menu %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <%# <div class="filtering">
+    <button class="filter-button">Filters:</button>
         <div>
           <input class="checkbox" type="checkbox" id="filter1" name="filter1" value="Garden">
           <label for="filter1" class="filter">Garden</label>
@@ -41,7 +61,16 @@
           <label for="filte6" class="filter">Food menu</label>
         </div>
   </div>
-  <br>
+  <br> %>
+
+<%# 1) form
+2) get request
+3) add event listener to change on each checkbox, submit form on change (formTarget.submit())
+
+
+4) params
+5) filtering conditional statement, if params filter == garden, where value == garden %>
+
   <div class="top_index">
     <div id="map" style="width: 100%; height: 600px;"
       data-controller="map"
@@ -53,14 +82,14 @@
   </div>
   <div class="row justify-content-center">
     <% @pubs.each do |pub| %>
-      <div class="card">
-        <h5><%= pub.name %></h5>
-        <h6><strong>Address:</strong> <%= pub.address %></h6>
-        <h6><strong>Description:</strong> <%= pub.description %></h6>
-        <h6><strong>Opening/Closing times:</strong> <%= pub.opening_time %></h6>
-        <h6 class="website-link"><strong>Website:</strong>  <%= link_to "#{pub.name}","#{pub.website}", target: "_blank" %></h6>
-        <h6><strong>Phone number:</strong> <%= pub.phone_number %></h6>
-      </div>
+      <%= link_to pub_path(pub), class:"card col-5" do %>
+          <h5><%= pub.name %></h5>
+          <h6><strong>Address:</strong> <%= pub.address %></h6>
+          <h6><strong>Description:</strong> <%= pub.description %></h6>
+          <h6><strong>Opening/Closing times:</strong> <%= pub.opening_time %></h6>
+          <%# <h6 class="website-link"><strong>Website:</strong>  <%= link_to "#{pub.name}","#{pub.website}", target: "_blank" %>
+          <h6><strong>Phone number:</strong> <%= pub.phone_number %></h6>
+      <% end %>
     <% end %>
   </div>
 </div>

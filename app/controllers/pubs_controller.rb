@@ -1,7 +1,9 @@
 class PubsController < ApplicationController
 
   def index
-    @pubs = Pub.all
+    @pubs = Pub.all 
+
+
     @markers = @pubs.geocoded.map do |pub|
       {
         lat: pub.latitude,
