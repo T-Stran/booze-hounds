@@ -1,0 +1,16 @@
+<div>
+edit dog
+</div>
+<%= form_with model: @dog do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :breed %>
+  <%= f.text_field :breed %>
+  <%= f.label :profession %>
+  <%= f.text_field :profession %>
+  <%= f.label :age %>
+  <%= f.number_field :age %>
+  <div class="button-div">
+    <%= f.submit  class: "btn-new"%>
+  </div>
+<% end %>
