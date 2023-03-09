@@ -14,7 +14,9 @@
         <% else %>
           <p> attach a photo of a dog </p>
         <% end %>
-      <%# <%= cl_image_tag dog.photo.key %>
+
+        <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-4"%>
       </div>
     <% end %>
 </div>
