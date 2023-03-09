@@ -28,6 +28,9 @@ class PubsController < ApplicationController
 
   def show
     @pub = Pub.find(params[:id])
+    @review = Review.new
+    @local = Local.new
+    @dog = Dog.new
   end
 
   def new
