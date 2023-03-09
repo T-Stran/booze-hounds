@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   resources :room_messages
 
   resources :rooms
+  resources :favourites
 
 end
