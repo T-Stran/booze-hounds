@@ -66,3 +66,190 @@ puts "end"
 #   proffession: "doggo",
 #   age: 2
 # )
+
+# USER SEED
+puts "destroying users"
+User.destroy_all
+puts "creating users"
+
+dave = User.create!(
+  email: "dave@dave.com",
+  password: "daveisking",
+  username: "KingDave"
+)
+
+julio = User.create!(
+  email: "julio@julio.com",
+  password: "julio123",
+  username: "JulioCoolio"
+)
+
+atticus = User.create!(
+  email: "atticus@atticus.com",
+  password: "att456",
+  username: "Attaboy"
+)
+
+stella = User.create(
+  email: "stella@stella.com",
+  password: "stelltastic",
+  username: "AStellaADay"
+)
+
+lauren = User.create(
+  email: "lauren@lauren.com",
+  password: "laurenwhite",
+  username: "LDog"
+)
+
+samantha = User.create(
+  email: "samantha@samantha.com",
+  password: "samsam",
+  username: "Samanth247"
+)
+
+puts "users created"
+
+# DOG SEED
+
+dog_ages = [1, 2, 3, 4, 5, 6]
+
+dog_proffessions = ["Professional sausage thief", "Amature sausage thief", "Doctor", "Lawyer", "Hoover", "Digger",
+                    "Lawyer", "Burglar alarm", "Swimmer", "Sniffer"]
+puts "Destroying dogs"
+Dog.destroy_all
+puts "Creating dogs"
+
+oz = Dog.new(
+  name: "Oz",
+  breed: "German Shepherd",
+  age: 8,
+  proffession: dog_proffessions.sample,
+  user_id: dave.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375277/BoozeHounds/German_shepherd_vpkdw7.jpg")
+oz.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+oz.save!
+
+dingo = Dog.new(
+  name: "Dingo",
+  breed: "Labrador",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: atticus.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375278/BoozeHounds/labrador_bc8tm2.jpg")
+dingo.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+dingo.save!
+
+baz = Dog.new(
+  name: "Baz",
+  breed: "Golden Retriever",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: lauren.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375278/BoozeHounds/Golden_retriever_h08odv.jpg")
+baz.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+baz.save!
+
+joey = Dog.new(
+  name: "Joey",
+  breed: "Bulldog",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: dave.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375278/BoozeHounds/bulldog_lkqgbm.webp")
+joey.photo.attach(io: file, filename: "nes.webp", content_type: "image/webp")
+joey.save!
+
+hogan = Dog.new(
+  name: "Hogan",
+  breed: "French Bulldog",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: lauren.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375277/BoozeHounds/french_bulldog_qvqpsf.webp")
+hogan.photo.attach(io: file, filename: "nes.webp", content_type: "image/webp")
+hogan.save!
+
+bunji = Dog.new(
+  name: "Bunji",
+  breed: "Chihuahua",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: samantha.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375278/BoozeHounds/chihuahua_sgib8o.webp")
+bunji.photo.attach(io: file, filename: "nes.webp", content_type: "image/webp")
+bunji.save!
+
+dulili = Dog.new(
+  name: "Dulili",
+  breed: "Husky",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: julio.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375278/BoozeHounds/husky_vgowpp.jpg")
+dulili.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+dulili.save!
+
+nunkeri = Dog.new(
+  name: "Nunkeri",
+  breed: "Alaskan Malamute",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: julio.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375277/BoozeHounds/alaskan_malamute_teovtp.jpg")
+nunkeri.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+nunkeri.save!
+
+sheila = Dog.new(
+  name: "Sheila",
+  breed: "Poodle",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: stella.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375278/BoozeHounds/poodle_alzevg.webp")
+sheila.photo.attach(io: file, filename: "nes.webp", content_type: "image/webp")
+sheila.save!
+
+bindi = Dog.new(
+  name: "Bindi",
+  breed: "Border Collie",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: samantha.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375277/BoozeHounds/border_collie_uh44y6.jpg")
+bindi.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+bindi.save!
+
+bonzer = Dog.new(
+  name: "Bonzer",
+  breed: "Yorkshire Terrier",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: stella.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375278/BoozeHounds/yorkie_n5gg3r.jpg")
+bonzer.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+bonzer.save!
+
+roo = Dog.new(
+  name: "Roo",
+  breed: "Airedale Terrier",
+  age: dog_ages.sample,
+  proffession: dog_proffessions.sample,
+  user_id: atticus.id
+)
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375277/BoozeHounds/airedale_terrier_jz7lh9.jpg")
+roo.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+roo.save!
+
+puts "dogs created"

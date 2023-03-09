@@ -9,13 +9,3 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
-
-
-
-
-
-const selectElement = document.querySelector(".filtering");
-
-selectElement.addEventListener("change", (event) => {
-  f.submit
-});
