@@ -14,7 +14,12 @@
         <div class="chat-message-container">
           <div class="row no-gutters">
             <div class="col-auto text-center">
-              <img src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-732x549.jpg" class="avatar" alt="">
+
+              <% if room_message.user.photo.attached? %>
+                <%= cl_image_tag room_message.user.photo.key, class: "avatar" %>
+              <% else %>
+                <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678190796/BoozeHounds/dropdown_oddycz.png", class: "avatar" %>
+              <% end %>
             </div>
 
             <div class="col">
@@ -52,3 +57,4 @@
     <% end %>
   </div>
 </div>
+  
