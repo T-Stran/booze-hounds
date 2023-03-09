@@ -1,8 +1,8 @@
 class PubsController < ApplicationController
 
   def index
-    @pubs = Pub.all 
-
+    @pub = Pub.new
+    @pubs = Pub.all
 
     @markers = @pubs.geocoded.map do |pub|
       {
@@ -10,7 +10,11 @@ class PubsController < ApplicationController
         lng: pub.longitude
       }
     end
-    if params[:query].present?
+    if list_condition
+      selected_filters = params.keys.select { |key| params[key] == "1" }
+      selected_filters.each {|f| @pubs = @pubs.where(f => true) }
+      # @pubs = Pub.where("name ILIKE ?", "%#{query_string}%")
+    elsif params[:query].present?
       @pubs = Pub.where("name ILIKE ?", "%#{params[:query]}%")
     else
       @pubs = Pub.all
@@ -56,6 +60,10 @@ class PubsController < ApplicationController
   end
 
   private
+
+  def list_condition
+    params.keys.include?("garden") || params.keys.include?("parking") || params.keys.include?("live_sport") || params.keys.include?("wheelchair_accessible") || params.keys.include?("food_menu")
+  end
 
   def pub_params
     params.require(:pub).permit(:name, :address, :description, :opening_time, :closing_time, :website, :phone_number,

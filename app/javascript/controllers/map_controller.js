@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import {csrfToken } from '@rails/ujs'
 
 // Connects to data-controller="map"
   export default class extends Controller {
@@ -18,7 +19,6 @@ import { Controller } from "@hotwired/stimulus"
       this.#addMarkersToMap()
       this.#fitMapToMarkers()
 
-      // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     }
 
     #addMarkersToMap() {
