@@ -4,4 +4,5 @@ class Dog < ApplicationRecord
   validates :breed, presence: true, length: { minimum: 1 }
   validates :proffession, presence: true, length: { minimum: 1 }
   validates :age, presence: true
+  has_one_attached :photo
 end
