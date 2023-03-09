@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :locals
   end
 
+  get "pubs/:id", to: "pubs#random"
   get "dogs/new", to: "dogs#new"
   get "dogs/:id/edit", to: "dogs#edit"
   post "dogs", to: "dogs#create"

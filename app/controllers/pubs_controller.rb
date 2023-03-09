@@ -2,7 +2,6 @@ class PubsController < ApplicationController
 
   def index
 
-
     if params[:search].present?
       search = Geocoder.search(params[:search]).first
       @pubs = Pub.near([search.coordinates[0], search.coordinates[1]], 0.5)
@@ -21,7 +20,7 @@ class PubsController < ApplicationController
     end
   end
 
-  
+
   # def myindex (if needed for my favourite pubs)
   #   @pubs = Pub.where(user_id: current_user.id)
   # end
@@ -32,6 +31,12 @@ class PubsController < ApplicationController
 
   def new
     @pub = Pub.new(params[:id])
+  end
+
+  def random
+    @minimum = Pub.all.first.id
+    @max = Pub.all.last.id
+    @random = rand(@minimum..@max)
   end
 
   def create
