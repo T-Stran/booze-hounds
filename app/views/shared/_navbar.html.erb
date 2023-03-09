@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678204217/development/Logo_1_jzv838.png" %>
+        <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,6 +12,12 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
           <%= link_to "Home", "/", class: "nav-link" %>
+        </li>
+        <li class="btn">
+        <% min = Pub.all.first.id %>
+        <% max = Pub.all.last.id %>
+        <% random = rand(min..max) %>
+          <%= link_to "", pub_path(random), class: "nav-link fa-solid fa-dice" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">

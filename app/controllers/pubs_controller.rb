@@ -2,6 +2,8 @@ class PubsController < ApplicationController
 
   def index
 
+    @pub = Pub.new
+    @pubs = Pub.all
 
     if params[:search].present?
       search = Geocoder.search(params[:search]).first
@@ -19,19 +21,37 @@ class PubsController < ApplicationController
         lng: pub.longitude
       }
     end
+    if list_condition
+      selected_filters = params.keys.select { |key| params[key] == "1" }
+      selected_filters.each {|f| @pubs = @pubs.where(f => true) }
+      # @pubs = Pub.where("name ILIKE ?", "%#{query_string}%")
+    elsif params[:query].present?
+      @pubs = Pub.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @pubs = Pub.all
+    end
   end
 
-  
+
   # def myindex (if needed for my favourite pubs)
   #   @pubs = Pub.where(user_id: current_user.id)
   # end
 
   def show
     @pub = Pub.find(params[:id])
+    @review = Review.new
+    @local = Local.new
+    @dog = Dog.new
   end
 
   def new
     @pub = Pub.new(params[:id])
+  end
+
+  def random
+    @minimum = Pub.all.first.id
+    @max = Pub.all.last.id
+    @random = rand(@minimum..@max)
   end
 
   def create
@@ -62,10 +82,13 @@ class PubsController < ApplicationController
 
   private
 
+  def list_condition
+    params.keys.include?("garden") || params.keys.include?("parking") || params.keys.include?("live_sport") || params.keys.include?("wheelchair_accessible") || params.keys.include?("food_menu")
+  end
+
   def pub_params
     params.require(:pub).permit(:name, :address, :description, :opening_time, :closing_time, :website, :phone_number,
                                 :pool_table, :non_alcoholic_drinks_selection, :garden, :parking, :live_sport,
                                 :wheelchair_accessible, :food_menu)
   end
-
 end

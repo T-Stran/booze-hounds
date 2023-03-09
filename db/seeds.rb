@@ -12,6 +12,37 @@ require 'uri'
 require 'net/http'
 require 'openssl'
 
+pub_photos = %w[
+  ./app/assets/images/pub_photos/angel_and-crown.jpeg
+  ./app/assets/images/pub_photos/black_pub.jpeg
+  ./app/assets/images/pub_photos/gus_o-conner.jpeg
+  ./app/assets/images/pub_photos/haggon_horses.jpeg
+  ./app/assets/images/pub_photos/harringay_arms.jpeg
+  ./app/assets/images/pub_photos/horseshoe.png
+  ./app/assets/images/pub_photos/nags_head.jpeg
+  ./app/assets/images/pub_photos/o'riley_conways.jpeg
+  ./app/assets/images/pub_photos/railway_tavern.jpeg
+  ./app/assets/images/pub_photos/red_lion.jpeg
+  ./app/assets/images/pub_photos/rivington.jpeg
+  ./app/assets/images/pub_photos/shenanigans.jpeg
+  ./app/assets/images/pub_photos/sherlock_holm  es.jpeg
+  ./app/assets/images/pub_photos/sir_john_cockle.jpeg
+  ./app/assets/images/pub_photos/the_beer_shop.jpeg
+  ./app/assets/images/pub_photos/the_castle_inn.jpeg
+  ./app/assets/images/pub_photos/the_chandos.webp
+  ./app/assets/images/pub_photos/the_city_inn.png
+  ./app/assets/images/pub_photos/the_netherton.jpeg
+  ./app/assets/images/pub_photos/the_old_bank.png
+  ./app/assets/images/pub_photos/the_old_toll_bar.jpeg
+  ./app/assets/images/pub_photos/the_plough.webp
+  ./app/assets/images/pub_photos/the_sevens.jpeg
+  ./app/assets/images/pub_photos/the_ship.jpeg
+  ./app/assets/images/pub_photos/the_star.jpeg
+  ./app/assets/images/pub_photos/the_Stara.jpeg
+  ./app/assets/images/pub_photos/the_temple_bar.webp
+  ./app/assets/images/pub_photos/the_woodman.jpeg
+  ./app/assets/images/pub_photos/woodins_shades.jpeg
+]
 url = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.534359%2C%20-0.076776&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&language=en")
 url1 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radius=10&radiusUnit=km&language=en")
 url2 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
