@@ -1,5 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
+import {csrfToken } from '@rails/ujs'
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+z
 // Connects to data-controller="map"
   export default class extends Controller {
     static values = {
