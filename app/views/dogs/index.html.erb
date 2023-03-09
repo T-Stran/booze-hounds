@@ -14,5 +14,7 @@ all doggos
 
         <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
         <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-4"%>
+        <%= link_to "View", dog_path(dog), class: "btn btn-primary m-4"%>
+      </div>
     <% end %>
 </div>
