@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
-import {csrfToken } from '@rails/ujs'
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
-z
+
 // Connects to data-controller="map"
   export default class extends Controller {
     static values = {
@@ -43,6 +42,3 @@ z
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
     }
   }
-
-
-

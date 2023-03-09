@@ -3,7 +3,7 @@ class PubsController < ApplicationController
   def index
     @pub = Pub.new
     @pubs = Pub.all
-    
+
     if params[:search].present?
       search = Geocoder.search(params[:search]).first
       @pubs = Pub.near([search.coordinates[0], search.coordinates[1]], 0.5)
@@ -31,7 +31,7 @@ class PubsController < ApplicationController
     end
   end
 
-  
+
   # def myindex (if needed for my favourite pubs)
   #   @pubs = Pub.where(user_id: current_user.id)
   # end
@@ -84,5 +84,4 @@ class PubsController < ApplicationController
                                 :pool_table, :non_alcoholic_drinks_selection, :garden, :parking, :live_sport,
                                 :wheelchair_accessible, :food_menu)
   end
-
 end
