@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_140111) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_171048) do
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +58,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140111) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "pub_id", null: false
+    t.index ["pub_id"], name: "index_favourites_on_pub_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
   create_table "locals", force: :cascade do |t|
@@ -133,6 +144,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140111) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "dogs", "users"
+  add_foreign_key "favourites", "pubs"
+  add_foreign_key "favourites", "users"
   add_foreign_key "locals", "dogs"
   add_foreign_key "locals", "pubs"
   add_foreign_key "reviews", "pubs"
