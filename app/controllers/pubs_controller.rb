@@ -1,6 +1,7 @@
 class PubsController < ApplicationController
 
   def index
+
     @pub = Pub.new
     @pubs = Pub.all
 
@@ -45,6 +46,12 @@ class PubsController < ApplicationController
 
   def new
     @pub = Pub.new(params[:id])
+  end
+
+  def random
+    @minimum = Pub.all.first.id
+    @max = Pub.all.last.id
+    @random = rand(@minimum..@max)
   end
 
   def create

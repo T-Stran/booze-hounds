@@ -1,4 +1,4 @@
-<br>
+
 <div class="containerr">
   <div class="container">
       <div class="searchbar">
@@ -10,26 +10,26 @@
           %>
           <%= submit_tag "GO!", class: "btn btn-dark" %>
         <% end %>
-    </div>
-    <br>
+      </div>
   </div>
+  <br>
 
   <%= form_with method: "GET", class: "filtering" do |f| %>
-    <%= f.label :garden %>
+    <%= f.submit class: "submit-button", value: "Filter:" %>
     <%= f.check_box :garden, class: "checkbox" %>
-    <%= f.label :parking %>
+    <%= f.label :garden %>
     <%= f.check_box :parking, class: "checkbox" %>
-    <%= f.label :live_sport_tv %>
+    <%= f.label :parking %>
     <%= f.check_box :live_sport, class: "checkbox" %>
-    <%= f.label :non_alcoholic_drinks_selection %>
+    <%= f.label :live_sport %>
     <%= f.check_box :non_alcoholic_drinks_selection, class: "checkbox" %>
-    <%= f.label :wheelchair_accessible %>
+    <%= f.label :non_alcoholic_drinks_selection %>
     <%= f.check_box :wheelchair_accessible, class: "checkbox" %>
-    <%= f.label :food_menu %>
+    <%= f.label :wheelchair_accessible %>
     <%= f.check_box :food_menu, class: "checkbox" %>
-    <%= f.submit %>
+    <%= f.label :food_menu %>
   <% end %>
-
+  <br>
   <div class="top_index">
     <div id="map" style="width: 100%; height: 600px;"
       data-controller="map"
@@ -42,12 +42,13 @@
   <div class="row justify-content-center">
     <% @pubs.each do |pub| %>
       <%= link_to pub_path(pub), class:"card col-5" do %>
-          <h5><%= pub.name %></h5>
-          <h6><strong>Address:</strong> <%= pub.address %></h6>
-          <h6><strong>Description:</strong> <%= pub.description %></h6>
-          <h6><strong>Opening/Closing times:</strong> <%= pub.opening_time %></h6>
+          <%= cl_image_tag pub.photo.key, class:"pub-image-card" %>
+          <p class="pub-info-card"><strong><%= pub.name %></strong></p>
+          <p class="pub-info-card"><strong>Address:</strong> <%= pub.address %></p>
+          <p class="pub-info-card"><strong>Description:</strong> <%= pub.description %></p>
+          <p class="pub-info-card"><strong>Opening/Closing times:</strong> <%= pub.opening_time %></p>
           <%# <h6 class="website-link"><strong>Website:</strong>  <%= link_to "#{pub.name}","#{pub.website}", target: "_blank" %>
-          <h6><strong>Phone number:</strong> <%= pub.phone_number %></h6>
+          <p class="pub-info-card"><strong>Phone number:</strong> <%= pub.phone_number %></p>
       <% end %>
     <% end %>
   </div>
