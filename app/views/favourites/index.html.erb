@@ -1,0 +1,26 @@
+Your Favourites
+
+<div class="row justify-content-center">
+  <% @favourites.each do |favourite| %>
+          <ol>
+          <div class="card m-4">
+            <div class="card-header p-3">
+                <div class="card-body">
+                  <h4><%=favourite.pub.name%></h4>
+                  <% if favourite.pub.photo.attached? %>
+                    <%= cl_image_tag favourite.pub.photo.key, height: '150', width: '200' %>
+                  <% else %>
+                    <img src="https://media.sketchfab.com/models/0e97fb0190244216a056909bbd749b9f/thumbnails/77649cbaea4849aeb3c98a70547c39ba/ef0475805a5a4442a15e3b681a0ec389.jpeg", height: '150', width: '200'>
+                  <% end %>
+                  <p></p>
+                  <h6>Address: <%= pub.address("%d/%m/%Y") %></h6>
+                  <h6>Description: <%= pub.description("%d/%m/%Y") %></h6>
+                  <h6>Phone Number: <%= pub.phone_number %></h6>
+                  <%= link_to "Remove from Favourites", pub_path(@pub), class: "btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn" %>
+                  <%= link_to "Leave a Review", "", class: "btn" %>
+          </div>
+            </div>
+              </div>
+          </ol>
+        <% end %>
+</div>
