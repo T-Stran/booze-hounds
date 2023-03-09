@@ -13,35 +13,28 @@ require 'net/http'
 require 'openssl'
 
 pub_photos = %w[
-  ./app/assets/images/pub_photos/angel_and-crown.jpeg
-  ./app/assets/images/pub_photos/black_pub.jpeg
-  ./app/assets/images/pub_photos/gus_o-conner.jpeg
-  ./app/assets/images/pub_photos/haggon_horses.jpeg
-  ./app/assets/images/pub_photos/harringay_arms.jpeg
-  ./app/assets/images/pub_photos/horseshoe.png
-  ./app/assets/images/pub_photos/nags_head.jpeg
-  ./app/assets/images/pub_photos/o'riley_conways.jpeg
-  ./app/assets/images/pub_photos/railway_tavern.jpeg
-  ./app/assets/images/pub_photos/red_lion.jpeg
-  ./app/assets/images/pub_photos/rivington.jpeg
-  ./app/assets/images/pub_photos/shenanigans.jpeg
-  ./app/assets/images/pub_photos/sherlock_holm  es.jpeg
-  ./app/assets/images/pub_photos/sir_john_cockle.jpeg
-  ./app/assets/images/pub_photos/the_beer_shop.jpeg
-  ./app/assets/images/pub_photos/the_castle_inn.jpeg
-  ./app/assets/images/pub_photos/the_chandos.webp
-  ./app/assets/images/pub_photos/the_city_inn.png
-  ./app/assets/images/pub_photos/the_netherton.jpeg
-  ./app/assets/images/pub_photos/the_old_bank.png
-  ./app/assets/images/pub_photos/the_old_toll_bar.jpeg
-  ./app/assets/images/pub_photos/the_plough.webp
-  ./app/assets/images/pub_photos/the_sevens.jpeg
-  ./app/assets/images/pub_photos/the_ship.jpeg
-  ./app/assets/images/pub_photos/the_star.jpeg
-  ./app/assets/images/pub_photos/the_Stara.jpeg
-  ./app/assets/images/pub_photos/the_temple_bar.webp
-  ./app/assets/images/pub_photos/the_woodman.jpeg
-  ./app/assets/images/pub_photos/woodins_shades.jpeg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375905/BoozeHounds/pubs/pubs/the_old_bank_bwlxik.png
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/the_temple_bar_t5aalp.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/the_Stara_lwhjl1.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/gus_o-conners_yndvn5.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/o_riley_conways_jmllxh.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/the_star_mib1pf.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/the_castle_inn_ew5yyo.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/nags_head_sigyrm.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/the_ship_jmuqux.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/sherlock_holmes_jgyhle.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/black_pub_h0kulx.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/the_old_toll_bar_efhzye.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/the_netherton_mfmv3r.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377765/BoozeHounds/pubs/pubs/pubs%202/the_chandos_chud8p.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377762/BoozeHounds/pubs/pubs/pubs%202/the_city_inn_s0uu0z.png
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377761/BoozeHounds/pubs/pubs/pubs%202/sir_john_cockle_xdj4t1.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377761/BoozeHounds/pubs/pubs/pubs%202/horeshoe_yuchpp.png
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377761/BoozeHounds/pubs/pubs/pubs%202/the_sevens_gdlduq.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377761/BoozeHounds/pubs/pubs/pubs%202/the_woodman_qhlh4p.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377760/BoozeHounds/pubs/pubs/pubs%202/the_beer_shop_c7yzfs.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377760/BoozeHounds/pubs/pubs/pubs%202/railway_tavern_bwftbk.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377760/BoozeHounds/pubs/pubs/pubs%202/shenanigans_pq0mwk.jpg
 ]
 url = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.534359%2C%20-0.076776&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&language=en")
 url1 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radius=10&radiusUnit=km&language=en")
@@ -68,10 +61,12 @@ pub_description = ["Fashionably updated Victorian pub with wood floors, big wind
                    "Relaxed pub with a warm vibe pouring craft beer & gin drinks amid dark-wood decor & a vintage bar.",
                    "Victorian pub namechecked in the rhyme Pop Goes the Weasel, with courtyard garden and weekly quiz."]
 
-puts "Destroying all pubs"
+puts "Destroying everyting"
+Dog.destroy_all
+User.destroy_all
 Pub.destroy_all
-puts "Pubs destroyed"
-puts "generating new pubs"
+puts "Everything destroyed"
+puts "Generating DB"
 
 urls.each do |url_select|
   http = Net::HTTP.new(url_select.host, url_select.port)
@@ -85,23 +80,12 @@ urls.each do |url_select|
 
 
   obj["data"].each do |line|
-    Pub.create!(name: line["name"], address: line["address_obj"]["street1"], postcode: line["address_obj"]["postalcode"], description: pub_description.sample, opening_time: opening.sample, closing_time: closing.sample, phone_number: line["location_id"], pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample, garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample, wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample)
+    pub = Pub.new(name: line["name"], address: line["address_obj"]["street1"], postcode: line["address_obj"]["postalcode"], description: pub_description.sample, opening_time: opening.sample, closing_time: closing.sample, phone_number: line["location_id"], pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample, garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample, wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample)
+    file = URI.open(pub_photos.sample)
+    pub.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+    pub.save!
   end
 end
-puts "end"
-
-
-# doggy = Dog.create(
-#   name: "NES",
-#   breed: "fluff",
-#   proffession: "doggo",
-#   age: 2
-# )
-
-# USER SEED
-puts "destroying users"
-User.destroy_all
-puts "creating users"
 
 dave = User.create!(
   email: "dave@dave.com",
@@ -139,17 +123,14 @@ samantha = User.create(
   username: "Samanth247"
 )
 
-puts "users created"
 
 # DOG SEED
 
-dog_ages = [1, 2, 3, 4, 5, 6]
+dog_ages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 dog_proffessions = ["Professional sausage thief", "Amature sausage thief", "Doctor", "Lawyer", "Hoover", "Digger",
                     "Lawyer", "Burglar alarm", "Swimmer", "Sniffer"]
-puts "Destroying dogs"
-Dog.destroy_all
-puts "Creating dogs"
+
 
 oz = Dog.new(
   name: "Oz",
@@ -283,4 +264,4 @@ file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375277/B
 roo.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
 roo.save!
 
-puts "dogs created"
+puts "DB created"

@@ -1,4 +1,4 @@
-<br>
+
 <div class="containerr">
   <div class="container">
       <div class="searchbar">
@@ -10,9 +10,9 @@
           %>
           <%= submit_tag "GO!", class: "btn btn-dark" %>
         <% end %>
-    </div>
-    <br>
+      </div>
   </div>
+  <br>
 
   <%= form_with method: "GET", class: "filtering" do |f| %>
     <%= f.submit class: "submit-button", value: "Filter:" %>
@@ -42,13 +42,13 @@
   <div class="row justify-content-center">
     <% @pubs.each do |pub| %>
       <%= link_to pub_path(pub), class:"card col-5" do %>
-          <%#= img src="#{pub.photo}" alt="pub" %>
-          <h5><%= pub.name %></h5>
-          <h6><strong>Address:</strong> <%= pub.address %></h6>
-          <h6><strong>Description:</strong> <%= pub.description %></h6>
-          <h6><strong>Opening/Closing times:</strong> <%= pub.opening_time %></h6>
+          <%= cl_image_tag pub.photo.key, class:"pub-image-card" %>
+          <p class="pub-info-card"><strong><%= pub.name %></strong></p>
+          <p class="pub-info-card"><strong>Address:</strong> <%= pub.address %></p>
+          <p class="pub-info-card"><strong>Description:</strong> <%= pub.description %></p>
+          <p class="pub-info-card"><strong>Opening/Closing times:</strong> <%= pub.opening_time %></p>
           <%# <h6 class="website-link"><strong>Website:</strong>  <%= link_to "#{pub.name}","#{pub.website}", target: "_blank" %>
-          <h6><strong>Phone number:</strong> <%= pub.phone_number %></h6>
+          <p class="pub-info-card"><strong>Phone number:</strong> <%= pub.phone_number %></p>
       <% end %>
     <% end %>
   </div>
