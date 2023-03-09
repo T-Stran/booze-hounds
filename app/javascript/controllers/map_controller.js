@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import {csrfToken } from '@rails/ujs'
-
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+z
 // Connects to data-controller="map"
   export default class extends Controller {
     static values = {
@@ -19,7 +20,12 @@ import {csrfToken } from '@rails/ujs'
       this.#addMarkersToMap()
       this.#fitMapToMarkers()
 
+      this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl }))
+
+      // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     }
+
 
     #addMarkersToMap() {
       this.markersValue.forEach((marker) => {
@@ -37,3 +43,6 @@ import {csrfToken } from '@rails/ujs'
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
     }
   }
+
+
+

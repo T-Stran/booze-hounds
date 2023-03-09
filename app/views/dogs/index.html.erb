@@ -1,18 +1,54 @@
 <div>
-all doggos
+<h1> all doggos</h1>
 </div>
 <div class="row justify-content-center">
     <% @dogs.each do |dog| %>
       <div class="card">
         <h5><%= dog.name %></h5>
-
         <h6><strong>name:</strong> <%= dog.name %></h6>
-
         <h6><strong>breed:</strong> <%= dog.breed %></h6>
-
         <h6><strong>profession:</strong> <%= dog.proffession %></h6>
-
         <h6><strong>age:</strong> <%= dog.age %></h6>
+        <% if dog.photo.attached? %>
+          <div class="view-img"> <%= cl_image_tag dog.photo.key, height: 50, width: 50 %> </div>
+        <% else %>
+          <p> attach a photo of a dog </p>
+        <% end %>
+
+        <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-4"%>
       </div>
     <% end %>
+</div>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add a new dog
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add a new dog</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div class="modal-body">
+            <%= form_with model: @dog do |f| %>
+                  <%= f.label :name %>
+                  <%= f.text_field :name %>
+                  <%= f.label :breed %>
+                  <%= f.text_field :breed %>
+                  <%= f.label :profession %>
+                  <%= f.text_field :proffession %>
+                  <%= f.label :age %>
+                  <%= f.number_field :age %>
+                  <%= f.label :photo %>
+                  <%= f.file_field :photo %>
+                <div class="button-div">
+                  <%= f.submit  class: "btn-new"%>
+                </div>
+              <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

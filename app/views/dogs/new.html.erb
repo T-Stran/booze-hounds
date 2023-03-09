@@ -1,18 +1,18 @@
-<hr>
+
 <div>
   <strong>new dog</strong>
-  <hr>
+<hr>
 </div>
 <div class= "containerr">
   <div class = "card">
     <%= form_with model: @dog do |f| %>
-        <%= f.label :name %>
+        <%= f.label :Name %>
         <%= f.text_field :name %>
-        <%= f.label :breed %>
+        <%= f.label :Breed %>
         <%= f.text_field :breed %>
-        <%= f.label :proffession %>
+        <%= f.label :profession %>
         <%= f.text_field :proffession %>
-        <%= f.label :age %>
+        <%= f.label :Age %>
         <%= f.number_field :age %>
         <hr>
       <div class="button-div">
