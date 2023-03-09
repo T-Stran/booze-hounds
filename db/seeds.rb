@@ -68,10 +68,12 @@ pub_description = ["Fashionably updated Victorian pub with wood floors, big wind
                    "Relaxed pub with a warm vibe pouring craft beer & gin drinks amid dark-wood decor & a vintage bar.",
                    "Victorian pub namechecked in the rhyme Pop Goes the Weasel, with courtyard garden and weekly quiz."]
 
-puts "Destroying all pubs"
+puts "Destroying everyting"
+Dog.destroy_all
+User.destroy_all
 Pub.destroy_all
-puts "Pubs destroyed"
-puts "generating new pubs"
+puts "Everything destroyed"
+puts "Generating DB"
 
 urls.each do |url_select|
   http = Net::HTTP.new(url_select.host, url_select.port)
@@ -88,20 +90,6 @@ urls.each do |url_select|
     Pub.create!(name: line["name"], address: line["address_obj"]["street1"], postcode: line["address_obj"]["postalcode"], description: pub_description.sample, opening_time: opening.sample, closing_time: closing.sample, phone_number: line["location_id"], pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample, garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample, wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample)
   end
 end
-puts "end"
-
-
-# doggy = Dog.create(
-#   name: "NES",
-#   breed: "fluff",
-#   proffession: "doggo",
-#   age: 2
-# )
-
-# USER SEED
-puts "destroying users"
-User.destroy_all
-puts "creating users"
 
 dave = User.create!(
   email: "dave@dave.com",
@@ -139,17 +127,14 @@ samantha = User.create(
   username: "Samanth247"
 )
 
-puts "users created"
 
 # DOG SEED
 
-dog_ages = [1, 2, 3, 4, 5, 6]
+dog_ages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 dog_proffessions = ["Professional sausage thief", "Amature sausage thief", "Doctor", "Lawyer", "Hoover", "Digger",
                     "Lawyer", "Burglar alarm", "Swimmer", "Sniffer"]
-puts "Destroying dogs"
-Dog.destroy_all
-puts "Creating dogs"
+
 
 oz = Dog.new(
   name: "Oz",
@@ -283,4 +268,4 @@ file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375277/B
 roo.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
 roo.save!
 
-puts "dogs created"
+puts "DB created"
