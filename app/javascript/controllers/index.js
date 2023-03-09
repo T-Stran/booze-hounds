@@ -14,8 +14,4 @@ application.register("map", MapController)
 
 
 
-const selectElement = document.querySelector(".filtering");
 
-selectElement.addEventListener("change", (event) => {
-  f.submit
-});
