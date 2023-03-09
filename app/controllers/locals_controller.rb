@@ -2,17 +2,20 @@ class LocalsController < ApplicationController
 
   def show
     @local = Local.find(params[:id])
+    @dog = Dog.where(params[:user_id])
   end
 
   def new
-    @local = Local.new(params[:id])
+    @pub = Pub.find(params[:pub_id])
+    @local = Local.new
   end
 
   def create
+    @pub = Pub.find(params[:pub_id])
     @local = Local.new(local_params)
-    @local.user = current_user
+    @local.pub = @pub
     if @local.save
-      redirect_to local_path(@local)
+      redirect_to pub_path(@pub)
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,6 +40,7 @@ class LocalsController < ApplicationController
   private
 
   def local_params
-    params.require(:local).permit(:user_id, :dog_id)
+    params.require(:local).permit(:pub_id, :dog_id, :photo)
   end
+
 end
