@@ -141,15 +141,16 @@
                 </div>
               </div>
             </div>
+        <% end %>
           <% else %>
             <p> You need to sign in to leave a review </p>
         <% end %>
-          <% end %>
         </div>
         </div>
       </div>
         <%# this displays the local %>
       <div class="card-view-locals">
+        <% if user_signed_in? %>
           <% if @pub.locals.present? %>
             <% @pub.locals.each do |local| %>
               <div class="card-local">
