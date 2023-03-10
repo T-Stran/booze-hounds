@@ -9,6 +9,7 @@
 .navbar-lewagon h1{
   display: flex;
   font-family: 'Montserrat Alternates', sans-serif;
+  margin-left: 20px;
 
 }
 
@@ -29,10 +30,4 @@
 .nav-width {
   width: 105px;
   text-align: left;
-}
-
-.container-fluid {
-  align-items: flex-end;
-  margin-left: 10px;
-
 }
