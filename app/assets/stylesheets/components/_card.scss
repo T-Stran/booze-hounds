@@ -59,3 +59,63 @@
  font-size: 12px;
  padding-left: 5px;
 }
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-local {
+  display: flex;
+  margin: 10px;
+}
+.card-local img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-local h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-local p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-local .card-local-infos {
+  padding: 16px;
+}
+
+.card-view-locals {
+  overflow: hidden;
+  height: auto;
+  width: auto;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-view-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  line-height: 3.75rem;
+  flex: 0;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding-right: 3.75rem;
+}
