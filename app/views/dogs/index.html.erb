@@ -14,21 +14,22 @@
         <% else %>
           <p> attach a photo of a dog </p>
         <% end %>
-
         <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
         <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-4"%>
       </div>
     <% end %>
 </div>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDog">
   Add a new dog
 </button>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="addDog" tabindex="-1" aria-labelledby="addDogLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add a new dog</h1>
+        <h1 class="modal-title fs-5" id="addDogLabel">Add a new dog</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <div class="modal-body">
@@ -48,7 +49,6 @@
                 </div>
               <% end %>
         </div>
-      </div>
     </div>
   </div>
 </div>

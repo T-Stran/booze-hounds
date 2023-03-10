@@ -1,7 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid"> <h1>BoozeHounds</h1>
     <%= link_to "/", class: "navbar-brand" do %>
+<<<<<<< HEAD
       <%= image_tag "https://img.freepik.com/premium-vector/cool-dog-is-holding-root-beer-illustration_194428-2130.jpg?w=2000", class: "w-auto" %>
+=======
+      <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678204217/development/Logo_1_jzv838.png" %>
+        <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+>>>>>>> 06b297cbce9de0bd69d8a2547d90902ee9e80370
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,6 +17,12 @@
         <li class="nav-item active">
           <%= link_to "Home", "/", class: "nav-link"%>
           <%= link_to "Chat", rooms_path, class: "nav-link"%>
+        </li>
+        <li class="btn">
+        <% min = Pub.all.first.id %>
+        <% max = Pub.all.last.id %>
+        <% random = rand(min..max) %>
+          <%= link_to "", pub_path(random), class: "nav-link fa-solid fa-dice" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
