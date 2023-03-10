@@ -1,11 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #FDC348;
+  display: flex;
+  background: #fcfbfa;
   height: 60px;
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .navbar-lewagon h1{
+  display: flex;
   font-family: 'Montserrat Alternates', sans-serif;
 
 }
@@ -15,6 +17,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
+  display: flex;
   width: 350px;
   height: 50px;
 }
