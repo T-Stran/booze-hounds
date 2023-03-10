@@ -1,175 +1,176 @@
-
-<div class="containerr">
-  <h1><%= @pub.name %></h1>
-  <%# This section shows the pub and pub info %>
-  <div class="card" style="width: 50%">
-    <img class="" src="#" alt="">
-    <div class="card-body">
-        <h5 class="card-title">Name:   <%= @pub.name %></h5>
-        <h5 class="card-text">Address:   <%= @pub.description %></p></h5>
-        <%# <%= link_to "Add a Local!", new_pub_local_path(@pub), class: "btn btn-success" %>
-        <%# <%= link_to "Leave a Review!", new_pub_review_path(@pub), class: "btn btn-success" %>
-        <%= link_to "Add to Favourites!", "", class: "btn btn-success" %>
+<br>
+<div class="view-page-top">
+  <div class="view-container">
+    <div class="containerr">
+      <h1><%= @pub.name %></h1>
+      <p></p>
+      <%= link_to "Enter chat now!", rooms_path(@room), class: "chat-link" %>
+      <br>
+      <p></p>
+      <div class="show-card">
+        <img class="" src="#" alt="">
+        <div class="card-body">
+            <h5 class="card-title">Name:   <%= @pub.name %></h5>
+            <br>
+            <h5 class="card-text">Address:   <%= @pub.address %></p></h5>
+            <br>
+            <h5 class="card-text">Description:   <%= @pub.description %></p></h5>
+            <br>
+            <div class="card-body-button" >
+              <%= link_to "Add to Favourites!", "" %>
+            </div>
+        </div>
+      </div>
     </div>
+
+<%# reviews section %>
+      <div class="review-card">
+        <div class="show-card">
+          <div class="conatinerr">
+              <h2>Reviews</h2>
+              <% if user_signed_in? %>
+                <button type="button" class="review-button" data-bs-toggle="modal" data-bs-target="#reviewModal"> Add a review </button>
+                  <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="reviewModalLabel">Add a review</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                          <div class="modal-body">
+                            <%= simple_form_for([@pub, @review]) do |f| %>
+                                <%= f.input :content %>
+                                <%= f.input :rating %>
+                              <div class="button-div">
+                                <%= f.submit  class: "btn-new"%>
+                              </div>
+                            <% end %>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              <% else %>
+                <p> You need to sign in to create a review </p>
+              <% end %>
+            <%# this is the display reviews %>
+              <div class="card-view-locals">
+                <% if @pub.reviews.present? %>
+                <% @pub.reviews.each do |review| %>
+                  <ol>
+                    <div class="card-local">
+                    <div class="card-local-infos">
+                      <h4><%= review.content%></h4>
+                      <h6><%= review.rating %></h6>
+                      <p class = "btn btn-primary m-4 text-end">
+                        <%= link_to "Delete Review", new_pub_review_path(@pub), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-proimary" %>
+                      </p>
+                    </div>
+                    </div>
+                  </ol>
+                <% end %>
+                <% else %>
+                  <p> Be the first to add a review </p>
+                <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
 
-<div class="review-local-container">
-    <div class="review-container">
-      <div class="flex-conatinerr">
-        <div class="card-view-title">
-          <h2>Reviews</h2>
 
-        <% if user_signed_in? %>
-          <%# this is the add a review form %>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
-            Add a review
+
+  <%# locals section %>
+  <div class="locals-card">
+    <div class="show-card">
+      <h2>Locals</h2>
+      <% if user_signed_in? %>
+        <% if current_user.dogs.present? %>
+          <%# this button adds a local %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#localModal">
+            Add a local!
           </button>
-            <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+            <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="localModal" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="reviewModalLabel">Add a review</h1>
+                    <h1 class="modal-title fs-5" id="localModal">Add a local</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                     <div class="modal-body">
-                      <%= simple_form_for([@pub, @review]) do |f| %>
-                          <%= f.input :content %>
-                          <%= f.input :rating %>
-                        <div class="button-div">
-                          <%= f.submit  class: "btn-new"%>
+                      <%= simple_form_for [@pub, Local.new] do |f| %>
+                        <%= f.association :dog, collection: current_user.dogs %>
+                        <%= f.input :photo, as: :file %>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <%= f.submit "Save Changes", class: "btn btn-primary" %>
                         </div>
                       <% end %>
                     </div>
+                </div>
+              </div>
+          </div>
+        <% else %>
+            <button type="button" class="add-dog-button" data-bs-toggle="modal" data-bs-target="#addDog">
+              You need to add a dog before you can add a local
+            </button>
+            <div class="modal fade" id="addDog" tabindex="-1" aria-labelledby="addDog" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addDog">Add a new dog</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <%= form_with model: @dog do |f| %>
+                        <%= f.label :name %>
+                        <%= f.text_field :name %>
+                        <%= f.label :breed %>
+                        <%= f.text_field :breed %>
+                        <%= f.label :profession %>
+                        <%= f.text_field :proffession %>
+                        <%= f.label :age %>
+                        <%= f.number_field :age %>
+                        <%= f.label :photo %>
+                        <%= f.file_field :photo %>
+                      <div class="button-div">
+                        <%= f.submit  class: "btn-new"%>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
           <% else %>
             <p> You need to sign in to leave a review </p>
         <% end %>
+          <% end %>
+        </div>
         </div>
       </div>
-
-
-      <%# this is the display reviews %>
-    <div class="flex-containerr">
+        <%# this displays the local %>
       <div class="card-view-locals">
-        <% if @pub.reviews.present? %>
-          <% @pub.reviews.each do |review| %>
-            <ol>
+          <% if @pub.locals.present? %>
+            <% @pub.locals.each do |local| %>
               <div class="card-local">
-              <div class="card-local-infos">
-                <h4><%= review.content%></h4>
-                <h6><%= review.rating %></h6>
-                <p class = "btn btn-primary m-4 text-end">
-                  <%= link_to "Delete Review", new_pub_review_path(@pub), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-proimary" %>
-                </p>
+                <div class="card-local-img"> <%= cl_image_tag local.photo.key, height: 50, width: 50 %> </div>
+                <div class="card-local-infos">
+                  <p> <%= local.dog.name %> </p>
+                  <p> <%= local.dog.breed %> </p>
+                  <p> <%= local.dog.age %> </p>
+                  <p> <%= local.dog.proffession %> </p>
+                </div>
               </div>
-              </div>
-            </ol>
+            <% end %>
+          <% else %>
+            <h5> Be the first to add a local</h5>
           <% end %>
         <% else %>
-          <p> Be the first to add a review </p>
+          <h3> Sign in to add locals </h3>
         <% end %>
       </div>
     </div>
+    <%= link_to "<-- Back", pubs_path, class: "back-button"  %>
+    </div>
   </div>
-
-   <h1><%= link_to "ENTER BOOZEHOUND CHAT NOW!", rooms_path(@room), class: "btn btn-warning btn-lg" %></h1>
 </div>
-
-
-<%# locals section %>
-  <div class="review-container">
-    <div class="flex-containerr">
-      <div class="card-view-title">
-        <h2>Locals</h2>
-
-          <% if user_signed_in? %>
-            <% if current_user.dogs.present? %>
-              <%# this button adds a local %>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#localModal">
-                Add a local!
-              </button>
-                <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="localModal" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="localModal">Add a local</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                        <div class="modal-body">
-                          <%= simple_form_for [@pub, Local.new] do |f| %>
-                            <%= f.association :dog, collection: current_user.dogs %>
-                            <%= f.input :photo, as: :file %>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <%= f.submit "Save Changes", class: "btn btn-primary" %>
-                            </div>
-                          <% end %>
-                        </div>
-                    </div>
-                  </div>
-              </div>
-            <% else %>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDog">
-                  You need to add a dog before you can add a local
-                </button>
-                <div class="modal fade" id="addDog" tabindex="-1" aria-labelledby="addDog" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="addDog">Add a new dog</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <%= form_with model: @dog do |f| %>
-                            <%= f.label :name %>
-                            <%= f.text_field :name %>
-                            <%= f.label :breed %>
-                            <%= f.text_field :breed %>
-                            <%= f.label :profession %>
-                            <%= f.text_field :proffession %>
-                            <%= f.label :age %>
-                            <%= f.number_field :age %>
-                            <%= f.label :photo %>
-                            <%= f.file_field :photo %>
-                          <div class="button-div">
-                            <%= f.submit  class: "btn-new"%>
-                          </div>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-            </div>
-          </div>
-            <%# this displays the local %>
-        <div class="flex-containerr">
-          <div class="card-view-locals">
-              <% if @pub.locals.present? %>
-                <% @pub.locals.each do |local| %>
-                  <div class="card-local">
-                    <div class="card-local-img"> <%= cl_image_tag local.photo.key, height: 50, width: 50 %> </div>
-                    <div class="card-local-infos">
-                      <p> <%= local.dog.name %> </p>
-                      <p> <%= local.dog.breed %> </p>
-                      <p> <%= local.dog.age %> </p>
-                      <p> <%= local.dog.proffession %> </p>
-                    </div>
-                  </div>
-                <% end %>
-              <% else %>
-                <h1> Be the first to add a local</h1>
-              <% end %>
-            <% else %>
-              <h3> Sign in to add locals </h3>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
-</div>
-  <%= link_to "Back", pubs_path, class: "btn btn-secondary"  %>
