@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_122534) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_171048) do
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +44,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_122534) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dogs", force: :cascade do |t|
     t.string "name"
     t.string "breed"
@@ -51,6 +58,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_122534) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "pub_id", null: false
+    t.index ["pub_id"], name: "index_favourites_on_pub_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
   create_table "locals", force: :cascade do |t|
@@ -95,6 +111,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_122534) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "room_messages", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_messages_on_room_id"
+    t.index ["user_id"], name: "index_room_messages_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_rooms_on_name", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -103,6 +136,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_122534) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -110,8 +144,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_122534) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "dogs", "users"
+  add_foreign_key "favourites", "pubs"
+  add_foreign_key "favourites", "users"
   add_foreign_key "locals", "dogs"
   add_foreign_key "locals", "pubs"
   add_foreign_key "reviews", "pubs"
   add_foreign_key "reviews", "users"
+  add_foreign_key "room_messages", "rooms"
+  add_foreign_key "room_messages", "users"
 end

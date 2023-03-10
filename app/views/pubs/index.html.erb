@@ -1,4 +1,4 @@
-<br>
+
 <div class="containerr">
   <div class="container">
       <div class="searchbar">
@@ -10,67 +10,26 @@
           %>
           <%= submit_tag "GO!", class: "btn btn-dark" %>
         <% end %>
-    </div>
-    <br>
+      </div>
   </div>
+  <br>
 
-
-
-
-  <div class="filtering">
-    <%= form_with model: @pub, method: "GET", class: "filtering" do |f| %>
-      <%= f.label :garden %>
-      <%= f.check_box :garden %>
-      <%= f.label :parking %>
-      <%= f.check_box :parking %>
-      <%= f.label :live_sport_tv %>
-      <%= f.check_box :live_sport_tv %>
-      <%= f.label :na_drinks_selection %>
-      <%= f.check_box :na_drinks_selection %>
-      <%= f.label :wheelchair_accessible %>
-      <%= f.check_box :wheelchair_accessible %>
-      <%= f.label :food_menu %>
-      <%= f.check_box :food_menu %>
-      <%= f.submit %>
-    <% end %>
-  </div>
-  <%# <div class="filtering">
-    <button class="filter-button">Filters:</button>
-        <div>
-          <input class="checkbox" type="checkbox" id="filter1" name="filter1" value="Garden">
-          <label for="filter1" class="filter">Garden</label>
-        </div>
-        <div>
-          <input class="checkbox" type="checkbox" id="filter2" name="filter2" value="Garden">
-          <label for="filter2" class="filter">Parking</label>
-        </div>
-        <div>
-          <input class="checkbox" type="checkbox" id="filter3" name="filter3" value="Garden">
-          <label for="filter3" class="filter">Live Sport TV</label>
-        </div>
-        <div>
-          <input class="checkbox" type="checkbox" id="filter4" name="filter4" value="Garden">
-          <label for="filter4" class="filter">NA drinks selection</label>
-        </div>
-        <div>
-          <input class="checkbox" type="checkbox" id="filter5" name="filter5" value="Garden">
-          <label for="filter5" class="filter">Wheelchair accessible</label>
-        </div>
-        <div>
-          <input class="checkbox" type="checkbox" id="filter6" name="filter6" value="Garden">
-          <label for="filte6" class="filter">Food menu</label>
-        </div>
-  </div>
-  <br> %>
-
-<%# 1) form
-2) get request
-3) add event listener to change on each checkbox, submit form on change (formTarget.submit())
-
-
-4) params
-5) filtering conditional statement, if params filter == garden, where value == garden %>
-
+  <%= form_with method: "GET", class: "filtering" do |f| %>
+    <%= f.submit class: "submit-button", value: "Filter:" %>
+    <%= f.check_box :garden, class: "checkbox" %>
+    <%= f.label :garden %>
+    <%= f.check_box :parking, class: "checkbox" %>
+    <%= f.label :parking %>
+    <%= f.check_box :live_sport, class: "checkbox" %>
+    <%= f.label :live_sport %>
+    <%= f.check_box :non_alcoholic_drinks_selection, class: "checkbox" %>
+    <%= f.label :non_alcoholic_drinks_selection %>
+    <%= f.check_box :wheelchair_accessible, class: "checkbox" %>
+    <%= f.label :wheelchair_accessible %>
+    <%= f.check_box :food_menu, class: "checkbox" %>
+    <%= f.label :food_menu %>
+  <% end %>
+  <br>
   <div class="top_index">
     <div id="map" style="width: 100%; height: 600px;"
       data-controller="map"
@@ -83,12 +42,13 @@
   <div class="row justify-content-center">
     <% @pubs.each do |pub| %>
       <%= link_to pub_path(pub), class:"card col-5" do %>
-          <h5><%= pub.name %></h5>
-          <h6><strong>Address:</strong> <%= pub.address %></h6>
-          <h6><strong>Description:</strong> <%= pub.description %></h6>
-          <h6><strong>Opening/Closing times:</strong> <%= pub.opening_time %></h6>
+          <%= cl_image_tag pub.photo.key, class:"pub-image-card" %>
+          <p class="pub-info-card"><strong><%= pub.name %></strong></p>
+          <p class="pub-info-card"><strong>Address:</strong> <%= pub.address %></p>
+          <p class="pub-info-card"><strong>Description:</strong> <%= pub.description %></p>
+          <p class="pub-info-card"><strong>Opening/Closing times:</strong> <%= pub.opening_time %></p>
           <%# <h6 class="website-link"><strong>Website:</strong>  <%= link_to "#{pub.name}","#{pub.website}", target: "_blank" %>
-          <h6><strong>Phone number:</strong> <%= pub.phone_number %></h6>
+          <p class="pub-info-card"><strong>Phone number:</strong> <%= pub.phone_number %></p>
       <% end %>
     <% end %>
   </div>
