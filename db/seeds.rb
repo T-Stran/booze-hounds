@@ -62,6 +62,7 @@ pub_description = ["Fashionably updated Victorian pub with wood floors, big wind
                    "Victorian pub namechecked in the rhyme Pop Goes the Weasel, with courtyard garden and weekly quiz."]
 
 puts "Destroying everything"
+RoomMessage.destroy_all
 Dog.destroy_all
 User.destroy_all
 Pub.destroy_all
