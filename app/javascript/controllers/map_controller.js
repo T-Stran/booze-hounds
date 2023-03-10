@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
   export default class extends Controller {
@@ -19,18 +19,18 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
       this.#addMarkersToMap()
       this.#fitMapToMarkers()
 
-      this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl }))
+      // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+      //   mapboxgl: mapboxgl }))
 
       // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     }
 
     #addMarkersToMap() {
       this.markersValue.forEach((marker) => {
-        const popup = new mapboxgl.Popup().setHTML(marker.info_window_html) // Add this
+        const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
         new mapboxgl.Marker()
           .setLngLat([ marker.lng, marker.lat ])
-          .setPopup(popup) // Add this
+          .setPopup(popup)
           .addTo(this.map)
       });
     }
