@@ -2,7 +2,11 @@
   display: flex;
   background: #FDC348;
   height: 60px;
+  width: 100%;
   justify-content: space-between;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 
 .info {
