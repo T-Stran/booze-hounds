@@ -21,7 +21,7 @@
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDog">
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addDog">
   Add a new dog
 </button>
 <!-- Modal -->
@@ -33,21 +33,27 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <div class="modal-body">
-            <%= form_with model: @dog do |f| %>
-                  <%= f.label :name %>
-                  <%= f.text_field :name %>
-                  <%= f.label :breed %>
-                  <%= f.text_field :breed %>
-                  <%= f.label :profession %>
-                  <%= f.text_field :proffession %>
-                  <%= f.label :age %>
-                  <%= f.number_field :age %>
-                  <%= f.label :photo %>
-                  <%= f.file_field :photo %>
-                <div class="button-div">
-                  <%= f.submit  class: "btn-new"%>
-                </div>
-              <% end %>
+            <%= simple_form_for([@dog]) do |f| %>
+              <div class="form-bar">
+                <%= f.input :name %>
+              </div>
+              <div class="form-bar">
+                <%= f.input :breed %>
+              </div>
+              <div class="form-bar">
+                <%= f.input :age %>
+              </div>
+              <div class="form-bar">
+                <%= f.input :proffession %>
+              </div>
+              <div class="form-bar">
+                <%= f.input :photo, as: :file,
+                          required: true %>
+              </div>
+              <div class="form-actions">
+                <%= f.button :submit, "Create dog" %>
+              </div>
+            <% end %>
         </div>
     </div>
   </div>

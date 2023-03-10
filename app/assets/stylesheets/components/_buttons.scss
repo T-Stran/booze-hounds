@@ -1,10 +1,11 @@
 .btn {
-  background-color: white(0, 0, 0, 0);
+  background-color: #f2c747d4(0, 0, 0, 0);
   border-radius: 100px;
   border-color: black(255, 255, 255);
   box-shadow: 0px 0px 15px black(255, 0, 0);
   margin-bottom: 10px;
-  color: black(10, 255, 5)
+  color: white;
+  border: 1px solid black;
 }
 
 .btn:hover{
@@ -25,4 +26,15 @@
 
 .btn-dice {
   border-radius: 0px;
+}
+
+.btn-primary{
+  background-color: #f2c747d4(0, 0, 0, 0);
+  border-radius: 100px;
+  border-color: black(255, 255, 255);
+  box-shadow: 0px 0px 15px black(255, 0, 0);
+  margin-bottom: 10px;
+  color: black(10, 255, 5);
+  border: 1px solid black;
+  background: #f2c747d4;
 }
