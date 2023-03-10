@@ -16,8 +16,9 @@
   transition: 0.35s;
   text-decoration: none;
   padding: 0;
-  overflow: hidden;
+  // overflow: hidden;
   border: none;
+  text-align: center;
 }
 
 .card:hover {
@@ -189,4 +190,16 @@
 
 .back-button {
   margin-left: 50px;
+}
+
+
+
+.img-dog{
+  border-radius: 50%;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -30px;
+  width: 60px;
+  height: 60px;
 }
