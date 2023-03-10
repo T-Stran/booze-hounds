@@ -14,10 +14,10 @@
 </div>
 
 <div class="review-local-container">
+    <div class="review-container">
       <div class="flex-conatinerr">
         <div class="card-view-title">
           <h2>Reviews</h2>
-        </div>
 
         <% if user_signed_in? %>
           <%# this is the add a review form %>
@@ -46,11 +46,12 @@
           <% else %>
             <p> You need to sign in to create a review </p>
         <% end %>
+        </div>
       </div>
 
 
       <%# this is the display reviews %>
-      <div class="flex-containerr">
+    <div class="flex-containerr">
       <div class="card-view-locals">
         <% if @pub.reviews.present? %>
           <% @pub.reviews.each do |review| %>
@@ -69,12 +70,16 @@
         <% else %>
           <p> Be the first to add a review </p>
         <% end %>
+      </div>
     </div>
   </div>
-      <div class="flex-containerr">
-        <div class="card-view-title">
-          <h2>locals</h2>
-        </div>
+
+
+<%# locals section %>
+  <div class="review-container">
+    <div class="flex-containerr">
+      <div class="card-view-title">
+        <h2>Locals</h2>
 
           <% if user_signed_in? %>
             <% if current_user.dogs.present? %>
@@ -134,11 +139,12 @@
                   </div>
                 </div>
               <% end %>
-            <%# this displays the local %>
             </div>
-    </div>
-  <div class="flex-containerr">
-    <div class="card-view-locals">
+            </div>
+          </div>
+            <%# this displays the local %>
+        <div class="flex-containerr">
+          <div class="card-view-locals">
               <% if @pub.locals.present? %>
                 <% @pub.locals.each do |local| %>
                   <div class="card-local">
@@ -154,11 +160,12 @@
               <% else %>
                 <h1> Be the first to add a local</h1>
               <% end %>
-          <% else %>
-            <h3> Sign in to add locals </h3>
-          <% end %>
+            <% else %>
+              <h3> Sign in to add locals </h3>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
 
 
 </div>

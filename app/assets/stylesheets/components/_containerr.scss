@@ -90,6 +90,8 @@
   flex-wrap: wrap;
 }
 
-.review-local-container {
-
+.review-container {
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  border: 12px solid black;
 }
