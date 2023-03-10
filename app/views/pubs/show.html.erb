@@ -29,19 +29,23 @@
           <div class="conatinerr">
               <h2>Reviews</h2>
               <% if user_signed_in? %>
-                <button type="button" class="review-button" data-bs-toggle="modal" data-bs-target="#reviewModal"> Add a review </button>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
                   <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="reviewModalLabel">Add a review</h1>
+                          <h1 class="modal-title fs-5" id="reviewModalLabel">Leave a review</h1>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                           <div class="modal-body">
                             <%= simple_form_for([@pub, @review]) do |f| %>
+                              <div class="form-bar">
                                 <%= f.input :content %>
+                              </div>
+                              <div class="form-bar">
                                 <%= f.input :rating %>
-                              <div class="button-div">
+                              </div>
+                              <div class="form-actions">
                                 <%= f.submit  class: "btn-new"%>
                               </div>
                             <% end %>
@@ -52,22 +56,23 @@
               <% else %>
                 <p> You need to sign in to create a review </p>
               <% end %>
+
             <%# this is the display reviews %>
               <div class="card-view-locals">
                 <% if @pub.reviews.present? %>
-                <% @pub.reviews.each do |review| %>
-                  <ol>
-                    <div class="card-local">
-                    <div class="card-local-infos">
-                      <h4><%= review.content%></h4>
-                      <h6><%= review.rating %></h6>
-                      <p class = "btn btn-primary m-4 text-end">
-                        <%= link_to "Delete Review", new_pub_review_path(@pub), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-proimary" %>
-                      </p>
-                    </div>
-                    </div>
-                  </ol>
-                <% end %>
+                  <% @pub.reviews.each do |review| %>
+                    <ol>
+                      <div class="card-local">
+                      <div class="card-local-infos">
+                        <h4><%= review.content%></h4>
+                        <h6><%= review.rating %></h6>
+                        <p class = "btn btn-primary m-4 text-end">
+                          <%= link_to "Delete Review", new_pub_review_path(@pub), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-proimary" %>
+                        </p>
+                      </div>
+                      </div>
+                    </ol>
+                  <% end %>
                 <% else %>
                   <p> Be the first to add a review </p>
                 <% end %>
@@ -99,11 +104,15 @@
                   </div>
                     <div class="modal-body">
                       <%= simple_form_for [@pub, Local.new] do |f| %>
-                        <%= f.association :dog, collection: current_user.dogs %>
-                        <%= f.input :photo, as: :file %>
+                        <div class="form-bar">
+                          <%= f.association :dog, collection: current_user.dogs %>
+                        </div>
+                        <div class="form-bar">
+                          <%= f.input :photo, as: :file %>
+                        </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <%= f.submit "Save Changes", class: "btn btn-primary" %>
+                          <%= f.submit "Add your local", class: "btn btn-primary" %>
                         </div>
                       <% end %>
                     </div>
@@ -122,31 +131,42 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <%= form_with model: @dog do |f| %>
-                        <%= f.label :name %>
-                        <%= f.text_field :name %>
-                        <%= f.label :breed %>
-                        <%= f.text_field :breed %>
-                        <%= f.label :profession %>
-                        <%= f.text_field :proffession %>
-                        <%= f.label :age %>
-                        <%= f.number_field :age %>
-                        <%= f.label :photo %>
-                        <%= f.file_field :photo %>
-                      <div class="button-div">
-                        <%= f.submit  class: "btn-new"%>
+                    <%= simple_form_for([@dog]) do |f| %>
+                      <div class="form-bar">
+                        <%= f.input :name %>
+                      </div>
+                      <div class="form-bar">
+                        <%= f.input :breed %>
+                      </div>
+                      <div class="form-bar">
+                        <%= f.input :age %>
+                      </div>
+                      <div class="form-bar">
+                        <%= f.input :proffession %>
+                      </div>
+                      <div class="form-bar">
+                        <%= f.input :photo, as: :file,
+                                  required: true %>
+                      </div>
+                      <div class="form-actions">
+                        <%= f.button :submit, "Create dog" %>
                       </div>
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
-          <% end %>
+            <% end %>
+      <% else %>
+          <p> You need to sign in to leave a review </p>
+      <% end %>
         </div>
         </div>
       </div>
         <%# this displays the local %>
       <div class="card-view-locals">
+
+      <% if user_signed_in? %>
           <% if @pub.locals.present? %>
             <% @pub.locals.each do |local| %>
               <div class="card-local">
