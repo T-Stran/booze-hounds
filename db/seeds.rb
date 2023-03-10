@@ -61,7 +61,7 @@ pub_description = ["Fashionably updated Victorian pub with wood floors, big wind
                    "Relaxed pub with a warm vibe pouring craft beer & gin drinks amid dark-wood decor & a vintage bar.",
                    "Victorian pub namechecked in the rhyme Pop Goes the Weasel, with courtyard garden and weekly quiz."]
 
-puts "Destroying everyting"
+puts "Destroying everything"
 Dog.destroy_all
 User.destroy_all
 Pub.destroy_all
@@ -86,6 +86,8 @@ urls.each do |url_select|
     pub.save!
   end
 end
+
+puts "Pubs created"
 
 dave = User.create!(
   email: "dave@dave.com",
@@ -123,6 +125,7 @@ samantha = User.create(
   username: "Samanth247"
 )
 
+puts "Users created"
 
 # DOG SEED
 
@@ -263,5 +266,7 @@ roo = Dog.new(
 file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375277/BoozeHounds/airedale_terrier_jz7lh9.jpg")
 roo.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
 roo.save!
+
+puts "Dogs created"
 
 puts "DB created"
