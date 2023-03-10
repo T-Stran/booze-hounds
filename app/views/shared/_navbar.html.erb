@@ -13,7 +13,7 @@
         <li class="nav-item active">
           <%= link_to "Home", "/", class: "nav-link" %>
         </li>
-        <li class="btn">
+        <li class="btn-dice">
         <% min = Pub.all.first.id %>
         <% max = Pub.all.last.id %>
         <% random = rand(min..max) %>
