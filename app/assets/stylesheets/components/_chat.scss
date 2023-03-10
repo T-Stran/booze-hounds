@@ -1,6 +1,8 @@
+@import "btn";
+
 avatar {
   max-height:30px;
-  border-radius: 15px;
+  border-radius: 50%;
   width:auto;
   vertical-align:middle;
 }
@@ -18,11 +20,21 @@ avatar {
   border: 1px solid lighten($secondary, 40%);
   background: lighten($secondary, 50%);
   height: 50vh;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px;
   overflow-y: auto;
 }
 
 .chat-input {
-  border-top: 0 none;
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px;
 }
+
+.container-chat {
+
+  margin-top: 25px;
+  margin-left: 60px;
+  margin-right: 90px;
+  }
+.container-chat-groups {
+  width:auto;
+  display: flex;
+  }

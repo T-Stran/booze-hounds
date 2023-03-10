@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="container-fluid"> <h1>BoozeHounds</h1>
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678204217/development/Logo_1_jzv838.png" %>
+      <%= image_tag "https://img.freepik.com/premium-vector/cool-dog-is-holding-root-beer-illustration_194428-2130.jpg?w=2000", class: "w-auto" %>
         <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
     <% end %>
 
@@ -11,7 +11,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
-          <%= link_to "Home", "/", class: "nav-link" %>
+          <%= link_to "Home", "/", class: "nav-link"%>
+          <%= link_to "Chat", rooms_path, class: "nav-link"%>
         </li>
         <li class="btn">
         <% min = Pub.all.first.id %>
