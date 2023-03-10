@@ -3,7 +3,7 @@
   background-size: cover;
   background-position: center;
   height: 350px;
-  width: 500px;
+  width: 400px;
   border-radius: 10px;
   box-shadow: 0 0 2px rgba(0,0,0,1);
   display: flex;
@@ -20,15 +20,13 @@
   border: none;
 }
 
-// .card:hover {
-//   transition: 0.35s;
-//   color: rgba(0,0,0,1);
-//   text-shadow: 0 0 10px rgb(0, 0, 5);
-//   box-shadow: 0 0 80px rgba(0,0,0,1);
-//   animation-iteration-count: infinite;
-//   height: 410px;
-//   width: 320px;
-// }
+.card:hover {
+  transition: 0.35s;
+  color: rgba(0,0,0,1);
+  box-shadow: 0 0 80px rgba(0,0,0,1);
+  height: 360px;
+  width: 415px;
+}
 
 .view-card {
   background-color: rgba(0,0,0,0.0);
