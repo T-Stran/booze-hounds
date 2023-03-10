@@ -1,29 +1,30 @@
 <div>
 <h1> all doggos</h1>
 </div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDog">
+  Add a new dog
+</button>
+
 <div class="row justify-content-center">
     <% @dogs.each do |dog| %>
       <div class="card">
-        <h5><%= dog.name %></h5>
-        <h6><strong>name:</strong> <%= dog.name %></h6>
-        <h6><strong>breed:</strong> <%= dog.breed %></h6>
-        <h6><strong>profession:</strong> <%= dog.proffession %></h6>
-        <h6><strong>age:</strong> <%= dog.age %></h6>
         <% if dog.photo.attached? %>
-          <div class="view-img"> <%= cl_image_tag dog.photo.key, height: 50, width: 50 %> </div>
+          <%= cl_image_tag dog.photo.key, height: 50, width: 50, class: "img-dog" %>
         <% else %>
           <p> attach a photo of a dog </p>
         <% end %>
+        <h5><%= dog.name %></h5>
+        <h6><strong>breed:</strong> <%= dog.breed %></h6>
+        <h6><strong>profession:</strong> <%= dog.proffession %></h6>
+        <h6><strong>age:</strong> <%= dog.age %></h6>
         <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
         <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-4"%>
       </div>
     <% end %>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDog">
-  Add a new dog
-</button>
 <!-- Modal -->
 <div class="modal fade" id="addDog" tabindex="-1" aria-labelledby="addDogLabel" aria-hidden="true" >
   <div class="modal-dialog">
