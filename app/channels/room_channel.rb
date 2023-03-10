@@ -1,4 +1,4 @@
-class RoomChannel < ApplicationCable::Channel
+class RoomChannel < ApplicationCable::Channel::Base
   def subscribed
     room = Room.find params[:room]
     stream_for room

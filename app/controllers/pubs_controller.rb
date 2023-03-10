@@ -18,7 +18,8 @@ class PubsController < ApplicationController
     @markers = @pubs.geocoded.map do |pub|
       {
         lat: pub.latitude,
-        lng: pub.longitude
+        lng: pub.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {pub: pub})
       }
     end
     if list_condition

@@ -19,7 +19,7 @@ class DogsController < ApplicationController
     if @dog.save
       redirect_to dogs_path
     else
-      render :new, status: :unprocessable_entity
+      redirect_to dogs_path
     end
   end
   # def create

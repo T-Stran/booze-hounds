@@ -1,5 +1,4 @@
 .containerr {
-  background-color: white;
   margin-left: 50px;
   margin-right: 50px;
 }
@@ -43,6 +42,7 @@
 }
 
 .filtering {
+  background-color: white;
   display: flex;
   justify-content: space-between;
   background-color: none;
@@ -75,7 +75,6 @@
 
 .checkbox + label:hover {
   border-radius: 5px;
-  // padding: 5px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   transition: 0.3s;
 }
@@ -96,5 +95,12 @@
 .review-container {
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
   border-radius: 5px;
-  border: 12px solid black;
+}
+
+.add-dog-button {
+  font-size: 16px;
+}
+
+.view-container {
+  display: flex;
 }
