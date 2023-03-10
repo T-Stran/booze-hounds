@@ -1,6 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <h1> Booze|Hounds </h1>
+  <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "https://img.freepik.com/premium-vector/cool-dog-is-holding-root-beer-illustration_194428-2130.jpg?w=2000", class: "w-auto" %>
         <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
@@ -15,7 +16,7 @@
   </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <li class="btn">
+        <li class="btn-dice">
         <% min = Pub.all.first.id %>
         <% max = Pub.all.last.id %>
         <% random = rand(min..max) %>
