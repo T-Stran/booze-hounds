@@ -26,6 +26,7 @@ avatar {
 
 .chat-input {
   border-radius: 5px;
+  height: 5vh;
 }
 
 .container-chat {
@@ -38,3 +39,7 @@ avatar {
   width:auto;
   display: flex;
   }
+
+.container-fluid {
+  margin-left: 20px;
+}

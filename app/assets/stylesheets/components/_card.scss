@@ -16,8 +16,9 @@
   transition: 0.35s;
   text-decoration: none;
   padding: 0;
-  overflow: hidden;
+  // overflow: hidden;
   border: none;
+  text-align: center;
 }
 
 .card:hover {
@@ -235,6 +236,7 @@
   margin-left: 50px;
 }
 
+
 // .show-card{
 //   background-color: white;
 //   background-size: cover;
@@ -257,3 +259,16 @@
 //   border: none;
 
 // }
+
+
+
+.img-dog{
+  border-radius: 50%;
+  position: absolute;
+  top: -62.5px;
+  left: 50%;
+  margin-left: -62.5px;
+  width: 125px;
+  height: 125px;
+}
+
