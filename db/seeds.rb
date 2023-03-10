@@ -78,7 +78,7 @@ urls.each do |url_select|
   response = http.request(request)
   obj = JSON.parse(response.read_body)
 
-
+  
   obj["data"].each do |line|
     pub = Pub.new(name: line["name"], address: line["address_obj"]["street1"], postcode: line["address_obj"]["postalcode"], description: pub_description.sample, opening_time: opening.sample, closing_time: closing.sample, phone_number: line["location_id"], pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample, garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample, wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample)
     file = URI.open(pub_photos.sample)
