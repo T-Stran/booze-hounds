@@ -49,8 +49,8 @@
   justify-content: space-between;
   background-color: none;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  padding: 10px;
-  border-radius: 5px;
+  padding: 11px;
+  border-radius: 25px;
 }
 
 .filter-button {
@@ -104,5 +104,9 @@
 }
 
 .view-container {
+  display: flex;
+}
+
+.show-flex-box{
   display: flex;
 }

@@ -1,9 +1,9 @@
-<div>
-<h1> all doggos</h1>
+<div class="m-3">
+<h1> All Dogs</h1>
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDog">
+<button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addDog">
   Add a new dog
 </button>
 
@@ -16,12 +16,13 @@
           <p> attach a photo of a dog </p>
         <% end %>
         <br>
+        <br>
         <h5><%= dog.name %></h5>
-        <h6><strong>breed:</strong> <%= dog.breed %></h6>
-        <h6><strong>profession:</strong> <%= dog.proffession %></h6>
-        <h6><strong>age:</strong> <%= dog.age %></h6>
-        <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-4", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-        <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-4"%>
+        <h6><strong>Breed:</strong> <%= dog.breed %></h6>
+        <h6><strong>Profession:</strong> <%= dog.proffession %></h6>
+        <h6><strong>Age:</strong> <%= dog.age %></h6>
+        <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-2 ", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-2"%>
       </div>
     <% end %>
 </div>
