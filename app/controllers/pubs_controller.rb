@@ -2,18 +2,49 @@ class PubsController < ApplicationController
 
   def index
 
-    @pub = Pub.new
-    @pubs = Pub.all
+    # @pub = Pub.new
+    # @pubs = Pub.all
 
     if params[:search].present?
-      search = Geocoder.search(params[:search]).first
-      @pubs = Pub.near([search.coordinates[0], search.coordinates[1]], 0.5)
-    elsif
-      params[:query].present?
+      Query.create(title: params[:search])
+      @search = Geocoder.search(params[:search]).first
+      @pubs = Pub.near([@search.coordinates[0], @search.coordinates[1]], 0.5)
+      # if list_condition
+      #   @pubs = Pub.near([@search.coordinates[0], @search.coordinates[1]], 0.5)
+      #   selected_filters = params.keys.select { |key| params[key] == "1" }
+      #   selected_filters.each { |f| @pubs = @pubs.where(f => true) && Pub.near([@search.coordinates[0], @search.coordinates[1]], 0.5) }
+      # end
+    elsif params[:query].present?
       @pubs = Pub.where("name ILIKE ?", "%#{params[:query]}%")
+    # elsif list_condition
+      selected_filters = params.keys.select { |key| params[key] == "1" }
+      selected_filters.each { |f| @pubs = @pubs.where(f == true && "name ILIKE ?", "%#{params[:query]}%") }
+
+    elsif list_condition
+
+      @query = Query.last.title
+      @search = Geocoder.search(@query).first
+      @pubs = Pub.near([@search.coordinates[0], @search.coordinates[1]], 0.5)
+      selected_filters = params.keys.select { |key| params[key] == "1" }
+      selected_filters.each { |f| @pubs = @pubs.where(f => true) }
+      #  not in use @pubs = Pub.where("name ILIKE ?", "%#{query_string}%")
     else
       @pubs = Pub.all
     end
+    # if params[:garden].present?
+    #   @pubs = @pubs.where(garden: true)
+    # end
+
+    # if list_condition
+    #   if params[:search].present?
+    #     search = Geocoder.search(params[:search]).first
+    #     @pubs = Pub.near([search.coordinates[0], search.coordinates[1]], 0.5)
+    #     selected_filters = params.keys.select { |key| params[key] == "1" }
+    #     selected_filters.each { |f| @pubs = @pubs.where(f => true && Pub.near([search.coordinates[0], search.coordinates[1]], 0.5)) }
+    #   end
+    #   raise
+    # end
+
 
     @markers = @pubs.geocoded.map do |pub|
       {
@@ -22,15 +53,15 @@ class PubsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {pub: pub})
       }
     end
-    if list_condition
-      selected_filters = params.keys.select { |key| params[key] == "1" }
-      selected_filters.each {|f| @pubs = @pubs.where(f => true) }
-      # @pubs = Pub.where("name ILIKE ?", "%#{query_string}%")
-    elsif params[:query].present?
-      @pubs = Pub.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      @pubs = Pub.all
-    end
+
+
+    # @markers = @pubs.geocoded.map do |pub|
+    #   {
+    #     lat: pub.latitude,
+    #     lng: pub.longitude,
+    #     info_window_html: render_to_string(partial: "info_window", locals: {pub: pub})
+    #   }
+    # end
   end
 
 
