@@ -13,7 +13,6 @@
       </div>
   </div>
   <br>
-
   <%= form_with method: "GET", class: "filtering" do |f| %>
     <%= f.submit class: "submit-button", value: "Filter:" %>
     <%= f.check_box :garden, class: "checkbox" %>
@@ -30,26 +29,32 @@
     <%= f.label :food_menu %>
   <% end %>
   <br>
-  <div class="top_index">
-    <div id="map" style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
 
-  </div>
-  <div class="row justify-content-center">
-    <% @pubs.each do |pub| %>
-      <%= link_to pub_path(pub), class:"card col-5" do %>
-          <%= cl_image_tag pub.photo.key, cloud_name: 'booze_hounds' %>
-          <p class="pub-info-card"><strong><%= pub.name %></strong></p>
-          <p class="pub-info-card"><strong>Address:</strong> <%= pub.address %></p>
-          <p class="pub-info-card"><strong>Description:</strong> <%= pub.description %></p>
-          <p class="pub-info-card"><strong>Opening/Closing times:</strong> <%= pub.opening_time %></p>
-          <%# <h6 class="website-link"><strong>Website:</strong>  <%= link_to "#{pub.name}","#{pub.website}", target: "_blank" %>
-          <p class="pub-info-card"><strong>Phone number:</strong> <%= pub.phone_number %></p>
+  We have found <em><%= @pubs.all.count %></em> results for your search of:
+  <% filter_results = params.keys.select { |key| params[key] == "1" } %>
+  <% filter_results %>
+  <em><%= filter_results.map(&:capitalize).join(", ") %></em>
+  <%# { |word| word.gsub('_', ' ') } %>
+  <div class="index-columns">
+    <div class="row justify-content-center">
+      <% @pubs.each do |pub| %>
+        <%= link_to pub_path(pub), class:"card col-5" do %>
+            <%= cl_image_tag pub.photo.key, class:"pub-image-card" %>
+            <p class="pub-info-card" id="pub-name" ><strong><%= pub.name %></strong></p>
+            <p class="pub-info-card"><strong>Opening/Closing times:</strong> <%= pub.opening_time %>am - <%= pub.closing_time %>pm</p>
+            <p class="pub-info-card"><strong>Description:</strong> <%= pub.description %></p>
+            <p class="pub-info-card"><strong>Address:</strong> <%= pub.address %></p>
+            <p class="pub-info-card"><strong>Phone number:</strong> <%= pub.phone_number %></p>
+        <% end %>
+
       <% end %>
-    <% end %>
+    </div>
+    <div class="top_index">
+      <div id="map" style="width: 500px; height: 720px"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
   </div>
 </div>

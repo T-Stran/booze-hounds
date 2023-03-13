@@ -1,12 +1,13 @@
-<div class="m-3">
-<h1> All Dogs</h1>
+<div class="flex-box-dogs">
+  <div class="page-title">
+  <h1> All Dogs</h1>
+  </div>
+  <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addDog">
+    Add a new dog
+  </button>
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addDog">
-  Add a new dog
-</button>
-
 <div class="row justify-content-center">
     <% @dogs.each do |dog| %>
       <div class="card">
@@ -17,12 +18,14 @@
         <% end %>
         <br>
         <br>
-        <h5><%= dog.name %></h5>
+        <h5> <strong> <%= dog.name %> </strong></h5>
         <h6><strong>Breed:</strong> <%= dog.breed %></h6>
         <h6><strong>Profession:</strong> <%= dog.proffession %></h6>
         <h6><strong>Age:</strong> <%= dog.age %></h6>
-        <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-2 ", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-        <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-2"%>
+        <div class="local-review-buttons justify-content-space-around">
+          <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-2 ", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-2"%>
+        </div>
       </div>
     <% end %>
 </div>
