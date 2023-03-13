@@ -20,11 +20,25 @@
             <br>
             <h5 class="card-text">Description:   <%= @pub.description %></p></h5>
             <br>
-            <%# <div class="btn" >
-              <%= link_to "Add to Favourites!", "" %>
-            <%# </div> %>
+
+            <div class="card-body-button" >
+              <%= link_to "Add to Favourites!", add_favourite_path(@pub) %>
+            </div>
+        </div>
+      </div>
+    </div>
+
+<%# reviews section %>
+      <div class="review-card">
+        <div class="show-card">
+          <div class="conatinerr">
+              <h2>Reviews</h2>
+              <% if user_signed_in? %>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
+                
             <% if user_signed_in? %>
                 <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
+
                   <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -178,8 +192,7 @@
           <% if @pub.locals.present? %>
             <% @pub.locals.each do |local| %>
               <div class="card-local">
-                <div class="card-local-img"> <%= cl_image_tag local.photo.key, height: 50, width: 50 %> </div>
-                <div class="card-local-infos">
+
                   <p> <%= local.dog.name %> </p>
                   <p> <%= local.dog.breed %> </p>
                   <p> <%= local.dog.age %> </p>
@@ -202,3 +215,4 @@
 </div>
 </div>
 </div>
+<%# create a button linked to the #create of the favourites controller then pass the params to the favourite object and create an instance %>
