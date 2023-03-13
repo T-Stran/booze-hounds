@@ -18,10 +18,36 @@
   overflow: hidden;
   border: none;
   text-align: left;
+  columns: 5;
   #pub-name {
     transition: 0.35s;;
   }
 }
+
+// .dogs {
+//   background-color: white;
+//   background-size: cover;
+//   background-position: center;
+//   height: 520px;
+//   width: 400px;
+//   border-radius: 10px;
+//   box-shadow: 0 0 2px rgba(0,0,0,0.3);
+//   display: flex;
+//   align-items: left;
+//   justify-content: space-around;
+//   color: black;
+//   margin: 15px;
+//   border: 1px, solid, white;
+//   transition: 0.35s;
+//   text-decoration: none;
+//   padding: 0;
+//   // overflow: hidden;
+//   border: none;
+//   text-align: left;
+//   #pub-name {
+//     transition: 0.35s;;
+//   }
+// }
 
 .card:hover {
   transition: 0.35s;
@@ -347,3 +373,8 @@
   margin-left: 20px;
 }
 
+.view-page-top{
+  display: flex;
+  justify-content: space-between;
+
+}
