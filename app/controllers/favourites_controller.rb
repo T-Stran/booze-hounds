@@ -1,6 +1,6 @@
 class FavouritesController < ApplicationController
   def index
-    @favourites = Favourite.all
+    @favourites = Favourite.where(user_id: current_user.id)
   end
 
   def new
@@ -9,14 +9,36 @@ class FavouritesController < ApplicationController
   end
 
   def create
-    @pub = Pub.find(params[:pub_id])
-    @favourite = Favourite.new(favourite_params)
-    @favourite.pub = @pub
+
+    # @pub = Pub.find(params[:pub_id])
+    # @favourite = Favourite.new(favourite_params)
+    # @favourite.pub = @pub
+    # @favourite.user = current_user
+    # raise
+    # if @favourite.save
+    #   redirect_to user_favourites_path(@favourite)
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
+  end
+
+  def add_favourite
+    @pub = Pub.find(params[:id])
+    @favourite = Favourite.new
     @favourite.user = current_user
+    @favourite.pub = @pub
+
     if @favourite.save
-      redirect_to favourite_path(@favourite)
+      redirect_to pub_path(@pub), notice: "The pub was sucesfully added to favourites"
+    end
+  end
+
+  def destroy
+    @favourite = Favourite.find(params[:id])
+    if @favourite.destroy!
+      redirect_to user_favourites_path(:user_id), status: :see_other
     else
-      redirect_to pub_path(@pub)
+      render :index, status: :unprocessable_entit
     end
   end
 

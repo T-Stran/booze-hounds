@@ -43,6 +43,7 @@ class PubsController < ApplicationController
     @review = Review.new
     @local = Local.new
     @dog = Dog.new
+    @favourite = Favourite.new
   end
 
   def new

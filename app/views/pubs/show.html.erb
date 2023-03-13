@@ -17,7 +17,7 @@
             <h5 class="card-text">Description:   <%= @pub.description %></p></h5>
             <br>
             <div class="card-body-button" >
-              <%= link_to "Add to Favourites!", "" %>
+              <%= link_to "Add to Favourites!", add_favourite_path(@pub) %>
             </div>
         </div>
       </div>
@@ -170,8 +170,7 @@
           <% if @pub.locals.present? %>
             <% @pub.locals.each do |local| %>
               <div class="card-local">
-                <div class="card-local-img"> <%= cl_image_tag local.photo.key, height: 50, width: 50 %> </div>
-                <div class="card-local-infos">
+
                   <p> <%= local.dog.name %> </p>
                   <p> <%= local.dog.breed %> </p>
                   <p> <%= local.dog.age %> </p>
@@ -191,3 +190,4 @@
     </div>
   </div>
 </div>
+<%# create a button linked to the #create of the favourites controller then pass the params to the favourite object and create an instance %>
