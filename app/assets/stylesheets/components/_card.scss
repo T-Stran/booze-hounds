@@ -75,7 +75,7 @@
   background-size: cover;
   background-position: center;
   height: auto;
-  width: auto;
+  width: 40pc;
   border-radius: 10px;
   box-shadow: 0 0 2px rgba(0,0,0,1);
   display: flex;
@@ -113,12 +113,28 @@
   align-items: center;
 }
 
+
+.flex-box-local-reviews{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-box-local{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-box-review{
+  display: flex;
+  flex-direction: column;
+  ;
+}
 .card-local {
   background-color: white;
   background-size: cover;
   // background-position: center;
   height: auto;
-  width: 80pc;
+  width: 40pc;
   border-radius: 10px;
   box-shadow: 0 0 2px rgba(0,0,0,1);
   display: flex;
@@ -127,15 +143,14 @@
   font-size: 22px;
   color: black;
   margin: 25px;
+  margin-left: 0px;
+  margin-top: 0px;
   border: 1px, solid, white;
   transition: 0.35s;
   text-decoration: none;
   padding: 0;
   overflow: hidden;
   border: none;
-}
-.flex-box-local{
-  display: flex;
 }
 
 .card-local img {
@@ -145,7 +160,7 @@
 }
 
 .card-body {
-  padding: 10px;
+  padding: 15px;
 }
 .card-local h2 {
   font-size: 16px;
@@ -272,3 +287,24 @@
   height: 125px;
 }
 
+.local-review-buttons {
+  display: flex;
+  justify-content: space-around;
+  }
+
+.pub-image-card-show {
+  width: 40pc;
+  height: 350px;
+  border-radius: 10px
+}
+
+.flex-box-dogs {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.page-title{
+  margin-top: 5px;
+  margin-left: 20px;
+}
