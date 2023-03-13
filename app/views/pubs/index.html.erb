@@ -30,6 +30,7 @@
   <% end %>
   <br>
 
+
   We have found <em><%= @pubs.length %></em> results for your search of:
   <% filter_results = params.keys.select { |key| params[key] == "1" } %>
   <% filter_results %>
@@ -46,6 +47,7 @@
             <p class="pub-info-card"><strong>Address:</strong> <%= pub.address %></p>
             <p class="pub-info-card"><strong>Phone number:</strong> <%= pub.phone_number %></p>
         <% end %>
+
       <% end %>
     </div>
     <div class="top_index">

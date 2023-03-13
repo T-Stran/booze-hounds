@@ -4,4 +4,5 @@ class Pub < ApplicationRecord
   has_many :reviews
   has_many :locals
   has_one_attached :photo
+  has_many :favourites
 end
