@@ -55,8 +55,14 @@
                               <div class="form-bar">
                                 <%= f.input :content %>
                               </div>
-                              <div class="form-bar">
+                              <div class="form-bar rating">
                                 <%= f.input :rating %>
+                                <br>
+                                <input name="review[rating]" id="e5" type="radio" value="5"><label for="e5">★</label>
+                                <input name="review[rating]" id="e4" type="radio" value="4"><label for="e4">★</label>
+                                <input name="review[rating]" id="e3" type="radio" value="3"><label for="e3">★</label>
+                                <input name="review[rating]" id="e2" type="radio" value="2"><label for="e2">★</label>
+                                <input name="review[rating]" id="e1" type="radio" value="1"><label for="e1">★</label>
                               </div>
                               <div class="form-actions">
                                 <%= f.submit  class: "btn-new"%>
@@ -69,6 +75,36 @@
               <% else %>
                 <p> You need to sign in to create a review </p>
               <% end %>
+
+            </div>
+        </div>
+      <%# </div> %>
+    <%# </div> %>
+  </div>
+  </div>
+<%# reviews section %>
+<br>
+       <h2>Reviews</h2>
+
+       <div class="flex-box-local">
+
+
+          <%# <div class="conatinerr"> %>
+            <%# this is the display reviews %>
+                <% if @pub.reviews.present? %>
+                  <% @pub.reviews.each do |review| %>
+                 <div class="card-local">
+                      <%# <div class="card-local-infos"> %>
+                        <h4><%= review.content%></h4>
+                        <br>
+                        <h6><% review.rating.to_i.times do %></h6>
+                        <span>★</span>
+                        <% end %>
+
+                        <%# <p class = "btn btn-primary m-4 text-end"> %>
+                          <%# <br><%= link_to "Delete Review", new_pub_review_path(@pub), class: "btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-primary" %>
+                        </p>
+
             <% if user_signed_in? %>
           <% if current_user.dogs.present? %>
             <%# this button adds a local %>
@@ -95,6 +131,7 @@
                             <%= f.submit "Add your local", class: "btn btn-primary" %>
                           </div>
                         <% end %>
+
                       </div>
                   </div>
                 </div>
