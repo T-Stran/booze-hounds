@@ -42,7 +42,7 @@
   <div class="row justify-content-center">
     <% @pubs.each do |pub| %>
       <%= link_to pub_path(pub), class:"card col-5" do %>
-          <%= cl_image_tag pub.photo.key, class:"pub-image-card" %>
+          <%= cl_image_tag pub.photo.key, cloud_name: 'booze_hounds' %>
           <p class="pub-info-card"><strong><%= pub.name %></strong></p>
           <p class="pub-info-card"><strong>Address:</strong> <%= pub.address %></p>
           <p class="pub-info-card"><strong>Description:</strong> <%= pub.description %></p>
