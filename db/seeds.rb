@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
-require "json"
+# require "json"
+require "csv"
 
 require 'uri'
 require 'net/http'
@@ -36,18 +37,18 @@ pub_photos = %w[
   https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377760/BoozeHounds/pubs/pubs/pubs%202/railway_tavern_bwftbk.jpg
   https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377760/BoozeHounds/pubs/pubs/pubs%202/shenanigans_pq0mwk.jpg
 ]
-url = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.534359%2C%20-0.076776&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&language=en")
-url1 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radius=10&radiusUnit=km&language=en")
-url2 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-url3 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.532860606366484%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-url4 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53871450324322%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-url5 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53871450324322%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radiusUnit=km&language=en")
-url6 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.5335831709218%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radiusUnit=km&language=en")
-url7 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.5335831709218%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-url8 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53766272720548%2C%20-0.09112269928287485%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-url9 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53766272720548%2C%20-0.09112269928287485%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radiusUnit=km&language=en")
+# url = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.534359%2C%20-0.076776&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&language=en")
+# url1 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radius=10&radiusUnit=km&language=en")
+# url2 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
+# url3 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.532860606366484%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
+# url4 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53871450324322%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
+# url5 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53871450324322%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radiusUnit=km&language=en")
+# url6 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.5335831709218%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radiusUnit=km&language=en")
+# url7 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.5335831709218%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
+# url8 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53766272720548%2C%20-0.09112269928287485%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
+# url9 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53766272720548%2C%20-0.09112269928287485%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radiusUnit=km&language=en")
 
-urls = [url, url1, url2, url3, url4, url5, url6, url7, url8, url9]
+# urls = [url, url1, url2, url3, url4, url5, url6, url7, url8, url9]
 
 opening = [9, 10, 11]
 closing = [11, 12]
@@ -62,30 +63,51 @@ pub_description = ["Fashionably updated Victorian pub with wood floors, big wind
                    "Victorian pub namechecked in the rhyme Pop Goes the Weasel, with courtyard garden and weekly quiz."]
 
 puts "Destroying everything"
+RoomMessage.destroy_all
 Dog.destroy_all
 User.destroy_all
 Pub.destroy_all
 puts "Everything destroyed"
 puts "Generating DB"
 
-urls.each do |url_select|
-  http = Net::HTTP.new(url_select.host, url_select.port)
-  http.use_ssl = true
+# urls.each do |url_select|
+#   http = Net::HTTP.new(url_select.host, url_select.port)
+#   http.use_ssl = true
 
-  request = Net::HTTP::Get.new(url_select)
-  request["accept"] = 'application/json'
+#   request = Net::HTTP::Get.new(url_select)
+#   request["accept"] = 'application/json'
 
-  response = http.request(request)
-  obj = JSON.parse(response.read_body)
+#   response = http.request(request)
+#   obj = JSON.parse(response.read_body)
 
 
-  obj["data"].each do |line|
-    pub = Pub.new(name: line["name"], address: line["address_obj"]["street1"], postcode: line["address_obj"]["postalcode"], description: pub_description.sample, opening_time: opening.sample, closing_time: closing.sample, phone_number: line["location_id"], pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample, garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample, wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample)
-    file = URI.open(pub_photos.sample)
-    pub.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
-    pub.save!
-  end
+#   obj["data"].each do |line|
+#     pub = Pub.new(name: line["name"], address: line["address_obj"]["street1"], postcode: line["address_obj"]["postalcode"], description: pub_description.sample, opening_time: opening.sample, closing_time: closing.sample, phone_number: line["location_id"], pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample, garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample, wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample)
+#     file = URI.open(pub_photos.sample)
+#     pub.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+#     pub.save!
+#   end
+# end
+
+# csv_text = File.read(Rails.root.join('lib', 'seeds', 'open_pubs_hackney.csv'))
+# puts csv_text
+
+
+filepath = Rails.root.join('db', 'pubs.csv')
+
+CSV.foreach(filepath) do |row|
+  pub = Pub.new(name: row[1], address: row[2], postcode: row[3], description: pub_description.sample,
+                opening_time: opening.sample, closing_time: closing.sample,
+                pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample,
+                garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample,
+                wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample,
+                phone_number: "07#{rand(10**8)}")
+  file = URI.open(pub_photos.sample)
+  pub.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+  pub.save!
 end
+
+
 
 puts "Pubs created"
 

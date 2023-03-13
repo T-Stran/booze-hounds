@@ -6,3 +6,15 @@
   text-align: center;
   font-size: 12px;
 }
+
+.popup-marker {
+  padding-top: 10px;
+}
+
+#map {
+  border-radius: 10px;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+  margin-top: 10px;
+}

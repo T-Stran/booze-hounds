@@ -7,13 +7,12 @@
           <%= text_field_tag :search,
             params[:search],
             class: "form-control",
-            placeholder: "Search pubs..."
+            placeholder: "Enter your postcode..."
           %>
           <%= submit_tag "GO!", class: "btn btn-dark" %>
         <% end %>
     </div>
 </div>
-
 
 
 <div id="pubCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -22,10 +21,10 @@
       <%= image_tag("doggos.webp") %>
     </div>
     <div class="carousel-item" data-bs-interval="4000">
-      <%= image_tag("doggos.webp") %>
+      <%= image_tag("dog_pints.webp") %>
     </div>
     <div class="carousel-item" data-bs-interval="4000">
-      <%= image_tag("doggos.webp") %>
+      <%= image_tag("dog_bar.webp") %>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#pubCarousel" data-bs-slide="prev">
