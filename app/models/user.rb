@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :dogs
-
+  has_many :favourites
   def gravatar_url
     gravatar_id = Digest::MD5::hexdigest(email).downcase
     "https://gravatar.com/avatar/#{gravatar_id}.png"

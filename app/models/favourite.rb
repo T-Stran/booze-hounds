@@ -1,4 +1,4 @@
 class Favourite < ApplicationRecord
   belongs_to :user
-  has_many :pubs
+  belongs_to :pub
 end

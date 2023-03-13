@@ -1,4 +1,4 @@
-Your Favourites
+<h1>Your Favourites</h1>
 
 <div class="row justify-content-center">
   <% @favourites.each do |favourite| %>
@@ -13,11 +13,10 @@ Your Favourites
                     <img src="https://media.sketchfab.com/models/0e97fb0190244216a056909bbd749b9f/thumbnails/77649cbaea4849aeb3c98a70547c39ba/ef0475805a5a4442a15e3b681a0ec389.jpeg", height: '150', width: '200'>
                   <% end %>
                   <p></p>
-                  <h6>Address: <%= pub.address("%d/%m/%Y") %></h6>
-                  <h6>Description: <%= pub.description("%d/%m/%Y") %></h6>
-                  <h6>Phone Number: <%= pub.phone_number %></h6>
-                  <%= link_to "Remove from Favourites", pub_path(@pub), class: "btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn" %>
-                  <%= link_to "Leave a Review", "", class: "btn" %>
+                  <h6>Address: <%= favourite.pub.address %></h6>
+                  <h6>Description: <%= favourite.pub.description %></h6>
+                  <h6>Phone Number: <%= favourite.pub.phone_number %></h6>
+                  <%= link_to "Remove from Favourites", user_favourite_path(current_user.id, favourite.id), class: "btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn" %>
           </div>
             </div>
               </div>

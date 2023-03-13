@@ -22,9 +22,27 @@
             <h5 class="card-text"><strong> Description:  </strong>  <%= @pub.description %></p></h5>
             <br>
 
+
           <div class="local-review-buttons">
+
+            <div class="card-body-button" >
+              <%= link_to "Add to Favourites!", add_favourite_path(@pub) %>
+            </div>
+        </div>
+      </div>
+    </div>
+
+<%# reviews section %>
+      <div class="review-card">
+        <div class="show-card">
+          <div class="conatinerr">
+              <h2>Reviews</h2>
+              <% if user_signed_in? %>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
+                
             <% if user_signed_in? %>
                 <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
+
                   <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -149,6 +167,18 @@
                 <%# <p class = "btn btn-primary m-4 text-end"> %>
                   <%# <br><%= link_to "Delete Review", new_pub_review_path(@pub), class: "btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-primary" %>
                 </p>
+
+    <div class="flex-box-local">
+      <% if user_signed_in? %>
+          <% if @pub.locals.present? %>
+            <% @pub.locals.each do |local| %>
+              <div class="card-local">
+
+                  <p> <%= local.dog.name %> </p>
+                  <p> <%= local.dog.breed %> </p>
+                  <p> <%= local.dog.age %> </p>
+                  <p> <%= local.dog.proffession %> </p>
+                </div>
               </div>
             </div>
             <% end %>
@@ -185,3 +215,4 @@
   </div>
 </div>
 </div>
+
