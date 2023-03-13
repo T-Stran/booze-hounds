@@ -44,6 +44,7 @@ class PubsController < ApplicationController
     @local = Local.new
     @dog = Dog.new
     @favourite = Favourite.new
+    @room = Room.new
   end
 
   def new

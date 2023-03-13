@@ -4,7 +4,11 @@
     <div class="containerr">
       <h1><%= @pub.name %></h1>
       <p></p>
-      <%= link_to "Enter chat now!", rooms_path(@room), class: "chat-link" %>
+      <% unless @pub.room.nil? %>
+        <%= link_to "Enter chat now!", pub_room_path(@pub, @pub.room), class: "chat-link" %>
+      <% else %>
+        <%= link_to "Create a room!", new_pub_room_path(@pub), class: "chat-link" %>
+      <% end %>
       <br>
       <p></p>
       <div class="show-card">
@@ -22,6 +26,7 @@
         </div>
       </div>
     </div>
+
 
 <%# reviews section %>
       <div class="review-card">
