@@ -16,9 +16,9 @@ class PubsController < ApplicationController
       # end
     elsif params[:query].present?
       @pubs = Pub.where("name ILIKE ?", "%#{params[:query]}%")
-    # elsif list_condition
-      selected_filters = params.keys.select { |key| params[key] == "1" }
-      selected_filters.each { |f| @pubs = @pubs.where(f == true && "name ILIKE ?", "%#{params[:query]}%") }
+      # elsif list_condition
+      # selected_filters = params.keys.select { |key| params[key] == "1" }
+      # selected_filters.each { |f| @pubs = @pubs.where(f == true && "name ILIKE ?", "%#{params[:query]}%") }
 
     elsif list_condition
 
@@ -31,6 +31,7 @@ class PubsController < ApplicationController
     else
       @pubs = Pub.all
     end
+
     # if params[:garden].present?
     #   @pubs = @pubs.where(garden: true)
     # end

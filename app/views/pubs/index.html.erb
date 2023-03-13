@@ -29,7 +29,8 @@
     <%= f.label :food_menu %>
   <% end %>
   <br>
-  We have found <em><%= @pubs.all.count %></em> results for your search of:
+
+  We have found <em><%= @pubs.length %></em> results for your search of:
   <% filter_results = params.keys.select { |key| params[key] == "1" } %>
   <% filter_results %>
   <em><%= filter_results.map(&:capitalize).join(", ") %></em>
