@@ -1,26 +1,32 @@
 .footer {
   display: flex;
-  background: #FDC348;
-  height: 60px;
+  background: #fcfbfa;
+  height: 64px;
   width: 100%;
   justify-content: space-between;
-  left: 0;
+  position: fixed;
   bottom: 0;
+  left: 0;
 }
 
 .info {
   padding-top: 20px;
-  padding-left: 5px;
+  padding-left: 10px;
 }
 
 .icons {
   text-align: end;
   padding-top: 15px;
-  padding-right: 5px;
+  padding-right: 15px;
+
 
 }
 
 .footer h3 {
   align-content: end;
   padding: 2px;
+}
+
+.fa-brands {
+  margin-right: 15px;
 }

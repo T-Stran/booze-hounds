@@ -4,6 +4,11 @@
   background: #fcfbfa;
   height: 60px;
   font-family: 'Montserrat Alternates', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .navbar-lewagon h1{
