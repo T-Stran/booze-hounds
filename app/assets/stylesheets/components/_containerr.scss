@@ -39,10 +39,6 @@
 
 }
 
-#map {
-  border-radius: 10px;
-}
-
 .filtering {
   background-color: white;
   display: flex;
@@ -51,6 +47,10 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   padding: 11px;
   border-radius: 25px;
+  position: sticky;
+  top: 15px;
+  align-self: flex-start;
+  z-index: 100;
 }
 
 .filter-button {
@@ -73,6 +73,7 @@
 .checkbox + label {
   border-radius: 5px;
   padding: 5px;
+  cursor:pointer;
 }
 
 .checkbox + label:hover {
@@ -108,5 +109,9 @@
 }
 
 .show-flex-box{
+  display: flex;
+}
+
+.index-columns {
   display: flex;
 }
