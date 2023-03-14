@@ -181,6 +181,8 @@
 .flex-box-local-reviews{
   display: flex;
   justify-content: space-between;
+  width: 85pc;
+  margin-right: 0px
 }
 
 .flex-box-local{
@@ -199,16 +201,17 @@
   // background-position: center;
   height: auto;
   width: 40pc;
-  border-radius: 10px;
+  border-radius: 1pc;
   box-shadow: 0 0 2px rgba(0,0,0,1);
   display: flex;
   align-items: left;
   // justify-content: space-around;
   font-size: 22px;
   color: black;
-  margin: 25px;
+  margin: 1pc;
   margin-left: 0px;
   margin-top: 0px;
+  margin-right: 1.5801pc;
   border: 1px, solid, white;
   transition: 0.35s;
   text-decoration: none;
@@ -219,12 +222,12 @@
 
 .card-local img {
   height: 100%;
-  width: 120px;
+  width: 8pc;
   object-fit: cover;
 }
 
 .card-body {
-  padding: 15px;
+  padding: 1pc;
 }
 .card-local h2 {
   font-size: 16px;
@@ -241,7 +244,7 @@
 }
 
 .card-local .card-local-infos {
-  padding: 16px;
+  padding: 1pc;
 }
 
 .card-view-locals {
@@ -276,6 +279,10 @@
   color: black;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
   text-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-body-button {
+  width: 84pc;
 }
 
 .card-body-button > a {
@@ -388,7 +395,7 @@
 
 .pub-image-card-show {
   width: 40pc;
-  height: 350px;
+  height: 22pc;
   border-radius: 10px
 }
 
@@ -411,4 +418,9 @@
 .icon-filter-card {
   display: flex;
   justify-content: space-evenly;
+}
+
+.icon-filter-card img {
+  width: 2pc;
+  height: 2pc;
 }
