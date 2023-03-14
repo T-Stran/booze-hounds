@@ -6,7 +6,7 @@
     <br>
     <p></p>
   </div>
-  <%= link_to "Enter chat now!", rooms_path(@room), class: "btn-primary" %>
+
 <%# Pub image and information %>
     <div class="show-flex-box">
             <%= cl_image_tag @pub.photo.key, class:"pub-image-card-show" %>
@@ -132,7 +132,8 @@
         </div>
       </div>
     </div>
-  <div class="card-body-button" ><%# reviews section %>
+  <div class="card-body-button" >
+  <%# reviews section %>
   <br>
 
     <div class="flex-box-local-reviews">
@@ -187,7 +188,7 @@
 
 <div class="icon-filter-card">
   <% if @pub.garden? %>
-    <%= image_tag "garden_icon.png" %>
+    <%= image_tag "/app/assets/images/filter_icons/garden_icon.png" %>
   <% end %>
   <% if @pub.non_alcoholic_drinks_selection? %>
     <%= image_tag "/app/assets/images/filter_icons/non_alcoholic_selection_icon.png"%>
