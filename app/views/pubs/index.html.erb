@@ -13,19 +13,19 @@
       </div>
   </div>
   <br>
-  <%= form_with method: "GET", class: "filtering" do |f| %>
+  <%= form_with method: "GET", id: "filter-checkbox", class: "filtering" do |f| %>
     <%= f.submit class: "submit-button", value: "Filter:" %>
-    <%= f.check_box :garden, class: "checkbox" %>
+    <%= f.check_box :garden, class: "checkbox", id: "garden-checkbox" %>
     <%= f.label :garden %>
-    <%= f.check_box :parking, class: "checkbox" %>
+    <%= f.check_box :parking, class: "checkbox", id: "parking-checkbox" %>
     <%= f.label :parking %>
-    <%= f.check_box :live_sport, class: "checkbox" %>
+    <%= f.check_box :live_sport, class: "checkbox", id: "live-sport-checkbox" %>
     <%= f.label :live_sport %>
-    <%= f.check_box :non_alcoholic_drinks_selection, class: "checkbox" %>
-    <%= f.label :non_alcoholic_drinks_selection %>
-    <%= f.check_box :wheelchair_accessible, class: "checkbox" %>
-    <%= f.label :wheelchair_accessible %>
-    <%= f.check_box :food_menu, class: "checkbox" %>
+    <%= f.check_box :NA_drinks, class: "checkbox", id: "non-alcoholic-drinks-selection-checkbox" %>
+    <%= f.label :NA_drinks %>
+    <%= f.check_box :accessiblity, class: "checkbox", id: "wheelchair-accessible-checkbox" %>
+    <%= f.label :accessiblity %>
+    <%= f.check_box :food_menu, class: "checkbox", id: "food-menu-checkbox" %>
     <%= f.label :food_menu %>
   <% end %>
   <br>
