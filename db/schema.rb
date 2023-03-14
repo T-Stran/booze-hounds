@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_13_143241) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,6 +97,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_143241) do
     t.integer "opening_time"
     t.integer "closing_time"
     t.string "postcode"
+  end
+
+  create_table "queries", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_queries_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -39,18 +39,22 @@
 
 }
 
-#map {
-  border-radius: 10px;
-}
-
 .filtering {
+  height: 60px;
+  font-size: 13px;
   background-color: white;
   display: flex;
   justify-content: space-between;
+  text-align: center;
   background-color: none;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  padding: 10px;
-  border-radius: 5px;
+  padding: 11px;
+  border-radius: 25px;
+  position: sticky;
+  top: 70px;
+  align-self: flex-start;
+  z-index: 100;
+  table-layout: fixed;
 }
 
 .filter-button {
@@ -73,6 +77,73 @@
 .checkbox + label {
   border-radius: 5px;
   padding: 5px;
+  cursor:pointer;
+}
+
+#garden-checkbox + label {
+  background-image: url("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/garden_icon_ia0e5w.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 110px;
+  height: 35px;
+  text-align: right;
+  padding: 10px;
+}
+
+#parking-checkbox + label {
+  background-image: url("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/parking_icon_nlwurh.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 110px;
+  height: 35px;
+  text-align: right;
+  padding: 10px;
+}
+
+#live-sport-checkbox + label {
+  background-image: url("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/live_sport_icon_iqrj1u.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 110px;
+  height: 35px;
+  text-align: right;
+  padding: 10px;
+}
+
+#non-alcoholic-drinks-selection-checkbox + label {
+  background-image: url("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/non_alcoholic_selection_icon_wjvx3v.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 110px;
+  height: 35px;
+  text-align: right;
+  padding: 10px;
+}
+
+#wheelchair-accessible-checkbox + label {
+  background-image: url("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/wheelchair_accessible_icon_uzvgyd.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 110px;
+  height: 35px;
+  text-align: right;
+  padding: 10px;
+}
+
+#food-menu-checkbox + label {
+  background-image: url("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/food_menu_icon_q524b5.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 110px;
+  height: 35px;
+  text-align: right;
+  padding: 7px;
 }
 
 .checkbox + label:hover {
@@ -104,5 +175,14 @@
 }
 
 .view-container {
+  display: flex;
+}
+
+.show-flex-box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.index-columns {
   display: flex;
 }
