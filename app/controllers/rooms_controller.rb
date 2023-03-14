@@ -1,28 +1,32 @@
 class RoomsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :load_entities
 
 
   def index
     @rooms = Room.all
+    @room_messages = RoomMessage.all
   end
 
   def show
+    @room = Room.find(params[:id])
     @room_message = RoomMessage.new room: @room
     @room_messages = @room.room_messages.includes(:user)
   end
 
   def new
     @room = Room.new
+    @pub = Pub.find(params[:pub_id].to_i)
   end
 
   def create
     @room = Room.new permitted_parameters
-
+    # @room.pub = params[:pub_id]
+    @pub = Pub.find(params[:pub_id].to_i)
+    @room.pub = @pub
     if @room.save
       flash[:success] = "Room #{@room.name} was created successfully"
-      redirect_to rooms_path
+      redirect_to pub_path(@pub)
     else
       render :new
     end
@@ -40,11 +44,10 @@ class RoomsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def load_entities
-    @rooms = Room.all
-    @room = Room.find(params[:id]) if params[:id]
+    @room = Room.find(pub_id: params[:pub_id])
   end
 
   def permitted_parameters

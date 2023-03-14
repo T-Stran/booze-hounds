@@ -1,17 +1,18 @@
-<div class="containerr">
-  <br>
-  <div class="view-page-top">
-        <h1> <strong> <%= @pub.name %> </strong></h1>
-        <p></p>
-        <br>
-        <p></p>
-      </div>
-<%= link_to "Enter chat now!", rooms_path(@room), class: "btn-primary" %>
-<%# Pub image and information %>
-     <div class="show-flex-box">
-            <%= cl_image_tag @pub.photo.key, class:"pub-image-card-show" %>
+<br>
+<div class="view-page-top">
+  <div class="view-container">
+    <div class="containerr">
+      <h1><%= @pub.name %></h1>
+      <p></p>
+      <% unless @pub.room.nil? %>
+        <%= link_to "Enter chat now!", pub_room_path(@pub, @pub.room), class: "chat-link" %>
+      <% else %>
+        <%= link_to "Create a room!", new_pub_room_path(@pub), class: "chat-link" %>
+      <% end %>
+      <br>
+      <p></p>
+      <div class="show-card">
 
-      <div class="show-card-text">
         <img class="" src="#" alt="">
         <div class="card-body">
             <h4 class="card-title"><strong> <%= @pub.name %> </strong></h4>
@@ -21,9 +22,16 @@
             <h5 class="card-text"><strong> Description:  </strong>  <%= @pub.description %></p></h5>
             <br>
 
-          <div class="local-review-buttons">
-            <% if user_signed_in? %>
-                <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
+
+
+<%# reviews section %>
+      <div class="review-card">
+        <div class="show-card">
+          <div class="conatinerr">
+              <h2>Reviews</h2>
+              <% if user_signed_in? %>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
+                
                   <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
