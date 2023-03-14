@@ -26,6 +26,4 @@ Rails.application.routes.draw do
   end
 
   resources :favourites, only: :destroy
-
-
 end
