@@ -9,9 +9,11 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @pub = Pub.find(params[:pub_id])
     @room = Room.find(params[:id])
     @room_message = RoomMessage.new room: @room
     @room_messages = @room.room_messages.includes(:user)
+
   end
 
   def new
