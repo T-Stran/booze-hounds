@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :pubs do
-  resources :reviews
-  resources :locals
-  resources :chats
+    resources :reviews
+    resources :locals
+    resources :rooms
+    resources :room_messages
   end
   get "pubs/:id", to: "pubs#random"
   get "dogs/new", to: "dogs#new"
@@ -25,8 +26,4 @@ Rails.application.routes.draw do
   end
 
   resources :favourites, only: :destroy
-
-  resources :room_messages
-
-  resources :rooms
 end
