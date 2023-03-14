@@ -1,15 +1,14 @@
 <div class="containerr">
   <br>
   <div class="view-page-top">
+    <div class="show-flex-box">
     <h1><%= @pub.name %></h1>
-      <p></p>
       <% unless @pub.room.nil? %>
         <%= link_to "Enter chat now!", pub_room_path(@pub, @pub.room), class: "chat-link" %>
       <% else %>
         <%= link_to "Create a room!", new_pub_room_path(@pub), class: "chat-link" %>
       <% end %>
-      <br>
-      <p></p>
+    </div>
   </div>
 
 
@@ -137,22 +136,22 @@
           </div>
         <div class="icon-filter-card">
           <% if @pub.garden? %>
-            <%= cl_image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/garden_icon_ia0e5w.png" %>
+            <%= cl_image_tag("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/garden_icon_ia0e5w.png") %>
           <% end %>
           <% if @pub.non_alcoholic_drinks_selection? %>
-            <%= cl_image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/non_alcoholic_selection_icon_wjvx3v.png"%>
+            <%= cl_image_tag("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/non_alcoholic_selection_icon_wjvx3v.png")%>
           <% end %>
           <% if @pub.live_sport? %>
-            <%= cl_image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/live_sport_icon_iqrj1u.png"%>
+            <%= cl_image_tag("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/live_sport_icon_iqrj1u.png")%>
           <% end %>
           <% if @pub.wheelchair_accessible? %>
-            <%= cl_image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/wheelchair_accessible_icon_uzvgyd.png"%>
+            <%= cl_image_tag("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/wheelchair_accessible_icon_uzvgyd.png")%>
           <% end %>
           <% if @pub.food_menu? %>
-            <%= cl_image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/food_menu_icon_q524b5.png"%>
+            <%= cl_image_tag("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/food_menu_icon_q524b5.png")%>
           <% end %>
           <% if @pub.parking? %>
-            <%= cl_image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/parking_icon_nlwurh.png" %>
+            <%= cl_image_tag("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678716835/BoozeHounds/pubs/filters/parking_icon_nlwurh.png") %>
           <% end %>
         </div>
 
@@ -210,7 +209,7 @@
             </div>
           <% end %>
         <% else %>
-          <h5> Be the first to add a local</h5>
+          <p> Be the first to add a local</p>
         <% end %>
     </div>
   </div>

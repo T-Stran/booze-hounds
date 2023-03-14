@@ -12,7 +12,6 @@ gem "sprockets-rails"
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
-gem 'redis'
 gem 'gemoji'
 
 
