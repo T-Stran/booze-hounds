@@ -16,32 +16,32 @@
   <%= form_with method: "GET", id: "filter-checkbox", class: "filtering" do |f| %>
     <%= f.submit class: "submit-button", value: "Filter:" %>
     <div>
-      <%= f.label :garden  %>
-      <%= f.check_box :garden, class: "checkbox", id: "garden-checkbox" %>
+      <%= f.check_box :garden, class: "checkbox", id: "garden" %>
+      <%= f.label :garden %>
     </div>
     <div>
+      <%= f.check_box :parking, class: "checkbox", id: "parking" %>
       <%= f.label :parking %>
-      <%= f.check_box :parking, class: "checkbox", id: "parking-checkbox" %>
     </div>
     <div>
+      <%= f.check_box :live_sport, class: "checkbox", id: "live_sport" %>
       <%= f.label :live_sport %>
-      <%= f.check_box :live_sport, class: "checkbox", id: "live-sport-checkbox" %>
     </div>
     <div>
+      <%= f.check_box :non_alcoholic_drinks, class: "checkbox", id: "non_alcoholic_drinks_selection" %>
       <%= f.label :non_alcoholic_drinks, "NA Drinks" %>
-      <%= f.check_box :non_alcoholic_drinks, class: "checkbox", id: "non-alcoholic-drinks-selection-checkbox" %>
     </div>
     <div>
-      <%= f.label :accessiblity %>
-      <%= f.check_box :accessiblity, class: "checkbox", id: "wheelchair-accessible-checkbox" %>
+      <%= f.check_box :wheelchair_accessible, class: "checkbox", id: "wheelchair_accessible" %>
+      <%= f.label :wheelchair_accessible, "Accessible" %>
     </div>
     <div>
+      <%= f.check_box :food_menu, class: "checkbox", id: "food_menu" %>
       <%= f.label :food_menu %>
-      <%= f.check_box :food_menu, class: "checkbox", id: "food-menu-checkbox" %>
     </div>
   <% end %>
-  <br>
 
+  <br>
 
   We have found <em><%= @pubs.length %></em> results for your search of:
   <% filter_results = params.keys.select { |key| params[key] == "1" } %>
