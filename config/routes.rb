@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :pubs do
-    resources :reviews
-    resources :locals
-    resources :chats
+  resources :reviews
+  resources :locals
+  resources :chats
   end
   get "pubs/:id", to: "pubs#random"
   get "dogs/new", to: "dogs#new"
@@ -29,6 +29,4 @@ Rails.application.routes.draw do
   resources :room_messages
 
   resources :rooms
-
-
 end
