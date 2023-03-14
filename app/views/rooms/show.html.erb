@@ -1,6 +1,30 @@
+<div class="container2">
+
+	<div class="bird-container bird-container--one">
+		<div class="bird bird--one"></div>
+	</div>
+
+	<div class="bird-container bird-container--two">
+		<div class="bird bird--two"></div>
+	</div>
+
+	<div class="bird-container bird-container--three">
+		<div class="bird bird--three"></div>
+	</div>
+
+	<div class="bird-container bird-container--four">
+		<div class="bird bird--four"></div>
+	</div>
+
+</div>
+
+
+
+
+
 <div class="container-chat">
   <h1>
-    <%= @room.name %> Chat
+    <%= link_to "<- Back", pub_path(@pub), class: "btn btn-primary"  %> <%= @room.name %> Chat
   </h1>
   <br>
 
@@ -14,22 +38,23 @@
         </div>
       </div>
 
-
-      <%= simple_form_for @room_message, html: { data: { action: "turbo:submit-end->room-subscription#resetForm" } } do |form| %>
-        <div class="input-group mt-3">
-          <%= form.input :message, as: :string,
-                                  wrapper: false,
-                                  label: false,
-                                  input_html: {
-                                    class: 'chat-input'
-                                  } %>
-          <div class="input-group-append">
-            <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
+      <div class = "container room">
+        <%= simple_form_for @room_message, html: { data: { action: "turbo:submit-end->room-subscription#resetForm" } } do |form| %>
+          <div class="input-group mt-4">
+            <%= form.input :message, as: :string,
+                                    wrapper: false,
+                                    label: false,
+                                    input_html: {
+                                      class: 'chat-input'
+                                    } %>
+            <div class="input-group-append">
+              <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
+            </div>
           </div>
-        </div>
 
-        <%= form.input :room_id, as: :hidden %>
-      <% end %>
+          <%= form.input :room_id, as: :hidden %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
