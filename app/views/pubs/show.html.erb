@@ -133,7 +133,7 @@
           <% else %>
             <p> Sign in to add a Local</p>
           <% end %>
-          <%=  link_to "Add to Favourites", add_favourite_path(@pub), class: "btn-primary"%>
+          <%=  link_to "Add to Favourites", pub_favourites_path(@pub), data: {turbo_method: :post}, class: "btn-primary"%>
           </div>
         <div class="icon-filter-card">
           <% if @pub.garden? %>
