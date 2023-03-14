@@ -57,3 +57,18 @@
     </div>
   </div>
 </div>
+
+
+<div class="container room"
+  data-controller="room-subscription"
+  data-room-subscription-room-id-value="<%= @room.id %>"
+>
+
+  <div class="room_messages" data-room-subscription-target="room_messages">
+</div>
+
+<div class="room_messages" data-room-subscription-target="room_messages">
+  <% @room.room_messages.each do |message| %>
+    <%# <%= render "room_messages/room_message", message: message %>
+  <% end %>
+</div>
