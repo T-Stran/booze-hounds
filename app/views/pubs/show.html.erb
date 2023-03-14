@@ -12,10 +12,12 @@
       <p></p>
   </div>
 
+
+
+
 <%# Pub image and information %>
     <div class="show-flex-box">
             <%= cl_image_tag @pub.photo.key, class:"pub-image-card-show" %>
-
       <div class="show-card-text">
         <img class="" src="#" alt="">
         <div class="card-body">
@@ -25,15 +27,9 @@
             <br>
             <h5 class="card-text"><strong> Description:  </strong>  <%= @pub.description %></p></h5>
             <br>
-
-<%# reviews section %>
-      <div class="review-card">
-        <div class="show-card">
-          <div class="conatinerr">
-              <h2>Reviews</h2>
-              <% if user_signed_in? %>
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
-
+          <div class="local-review-buttons">
+            <% if user_signed_in? %>
+                <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
                   <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -167,6 +163,16 @@
   <%# reviews section %>
   <br>
 
+
+
+
+
+
+
+
+
+
+
     <div class="flex-box-local-reviews">
         <div class="flex-box-review">
           <h2>Reviews</h2>
@@ -188,8 +194,6 @@
               <p> Be the first to add a review </p>
             <% end %>
         </div>
-
-
   <%# Locals code, do not interfere! %>
     <div class="flex-box-local">
       <h2>Locals</h2>
@@ -215,22 +219,4 @@
     </div>
     </div>
   </div>
-</div>
-
-<div class="icon-filter-card">
-  <% if @pub.garden? %>
-    <%= image_tag "/app/assets/images/filter_icons/garden_icon.png" %>
-  <% end %>
-  <% if @pub.non_alcoholic_drinks_selection? %>
-    <%= image_tag "/app/assets/images/filter_icons/non_alcoholic_selection_icon.png"%>
-  <% end %>
-  <% if @pub.live_sport? %>
-    <%= image_tag "/app/assets/images/filter_icons/live_sport_icon.png"%>
-  <% end %>
-  <% if @pub.wheelchair_accessible? %>
-    <%= image_tag "/app/assets/images/filter_icons/wheelchair_accessible_icon.png"%>
-  <% end %>
-  <% if @pub.food_menu? %>
-   <%= image_tag "/app/assets/images/filter_icons/food_menu_icon.png"%>
-  <% end %>
 </div>
