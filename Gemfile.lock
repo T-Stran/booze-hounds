@@ -280,6 +280,7 @@ GEM
     zeitwerk (2.6.7)
 
 PLATFORMS
+  arm64-darwin-21
   arm64-darwin-22
   x86_64-darwin-21
 
@@ -301,7 +302,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
-  redis (~> 4.0)
+  redis
   sassc-rails
   selenium-webdriver
   simple_form!
