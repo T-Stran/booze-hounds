@@ -28,8 +28,8 @@
       <%= f.label :live_sport %>
     </div>
     <div>
-      <%= f.check_box :non_alcoholic_drinks, class: "checkbox", id: "non_alcoholic_drinks_selection" %>
-      <%= f.label :non_alcoholic_drinks, "NA Drinks" %>
+      <%= f.check_box :non_alcoholic_drinks_selection, class: "checkbox", id: "non_alcoholic_drinks_selection" %>
+      <%= f.label :non_alcoholic_drinks_selection, "NA Drinks" %>
     </div>
     <div>
       <%= f.check_box :wheelchair_accessible, class: "checkbox", id: "wheelchair_accessible" %>
@@ -46,8 +46,7 @@
   We have found <em><%= @pubs.length %></em> results for your search of:
   <% filter_results = params.keys.select { |key| params[key] == "1" } %>
   <% filter_results %>
-  <em><%= filter_results.map(&:capitalize).join(", ") %></em>
-  <%# { |word| word.gsub('_', ' ') } %>
+  <em><%= filter_results.map {|word| word.split("_").map(&:capitalize).join(" ") }.join(", ") %></em>
   <div class="index-columns">
     <div class="row justify-content-center">
       <% @pubs.each do |pub| %>
