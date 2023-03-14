@@ -3,10 +3,7 @@
     <%= @room.name %> Chat
   </h1>
   <br>
-  <div class="row">
-    <div class="col-10 col-md-3 mb-3">
-      <%= render partial: 'rooms' %>
-    </div>
+
 
     <div class="col">
       <div class="chat">
@@ -14,6 +11,8 @@
           <div class="chat-message-container">
             <div class="row no-gutters">
               <div class="col-auto text-center">
+
+
 
                 <% if room_message.user.photo.attached? %>
                   <%= cl_image_tag room_message.user.photo.key, class: "avatar" %>
@@ -57,4 +56,19 @@
       <% end %>
     </div>
   </div>
+</div>
+
+
+<div class="container room"
+  data-controller="room-subscription"
+  data-room-subscription-room-id-value="<%= @room.id %>"
+>
+
+  <div class="room_messages" data-room-subscription-target="room_messages">
+</div>
+
+<div class="room_messages" data-room-subscription-target="room_messages">
+  <% @room.room_messages.each do |message| %>
+    <%# <%= render "room_messages/room_message", message: message %>
+  <% end %>
 </div>
