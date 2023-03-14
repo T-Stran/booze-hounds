@@ -1,7 +1,7 @@
 class DogsController < ApplicationController
 
   def index
-    @dogs = Dog.where(user_id: current_user.id)
+    @dogs = Dog.where(user: current_user)
     @dog = Dog.new
   end
 
