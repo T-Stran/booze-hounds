@@ -15,18 +15,30 @@
   <br>
   <%= form_with method: "GET", id: "filter-checkbox", class: "filtering" do |f| %>
     <%= f.submit class: "submit-button", value: "Filter:" %>
-    <%= f.check_box :garden, class: "checkbox", id: "garden-checkbox" %>
-    <%= f.label :garden %>
-    <%= f.check_box :parking, class: "checkbox", id: "parking-checkbox" %>
-    <%= f.label :parking %>
-    <%= f.check_box :live_sport, class: "checkbox", id: "live-sport-checkbox" %>
-    <%= f.label :live_sport %>
-    <%= f.check_box :NA_drinks, class: "checkbox", id: "non-alcoholic-drinks-selection-checkbox" %>
-    <%= f.label :NA_drinks %>
-    <%= f.check_box :accessiblity, class: "checkbox", id: "wheelchair-accessible-checkbox" %>
-    <%= f.label :accessiblity %>
-    <%= f.check_box :food_menu, class: "checkbox", id: "food-menu-checkbox" %>
-    <%= f.label :food_menu %>
+    <div>
+      <%= f.label :garden  %>
+      <%= f.check_box :garden, class: "checkbox", id: "garden-checkbox" %>
+    </div>
+    <div>
+      <%= f.label :parking %>
+      <%= f.check_box :parking, class: "checkbox", id: "parking-checkbox" %>
+    </div>
+    <div>
+      <%= f.label :live_sport %>
+      <%= f.check_box :live_sport, class: "checkbox", id: "live-sport-checkbox" %>
+    </div>
+    <div>
+      <%= f.label :non_alcoholic_drinks, "NA Drinks" %>
+      <%= f.check_box :non_alcoholic_drinks, class: "checkbox", id: "non-alcoholic-drinks-selection-checkbox" %>
+    </div>
+    <div>
+      <%= f.label :accessiblity %>
+      <%= f.check_box :accessiblity, class: "checkbox", id: "wheelchair-accessible-checkbox" %>
+    </div>
+    <div>
+      <%= f.label :food_menu %>
+      <%= f.check_box :food_menu, class: "checkbox", id: "food-menu-checkbox" %>
+    </div>
   <% end %>
   <br>
 

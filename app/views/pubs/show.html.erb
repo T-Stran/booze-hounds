@@ -1,4 +1,3 @@
-
 <div class="containerr">
   <br>
   <div class="view-page-top">
@@ -23,8 +22,6 @@
             <h5 class="card-text"><strong> Description:  </strong>  <%= @pub.description %></p></h5>
             <br>
 
-
-
 <%# reviews section %>
       <div class="review-card">
         <div class="show-card">
@@ -32,7 +29,7 @@
               <h2>Reviews</h2>
               <% if user_signed_in? %>
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
-                
+
                   <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -196,7 +193,7 @@
 
 <div class="icon-filter-card">
   <% if @pub.garden? %>
-    <%= image_tag "garden_icon.png" %>
+    <%= image_tag "/app/assets/images/filter_icons/garden_icon.png" %>
   <% end %>
   <% if @pub.non_alcoholic_drinks_selection? %>
     <%= image_tag "/app/assets/images/filter_icons/non_alcoholic_selection_icon.png"%>

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reviews
     resources :locals
     resources :rooms
-      resources :room_messages
+    resources :room_messages
   end
   get "pubs/:id", to: "pubs#random"
   get "dogs/new", to: "dogs#new"
