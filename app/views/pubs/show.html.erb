@@ -1,7 +1,7 @@
-<br>
-<div class="view-page-top">
-  <div class="view-container">
-    <div class="containerr">
+
+<div class="containerr">
+  <br>
+  <div class="view-page-top">
       <h1><%= @pub.name %></h1>
       <p></p>
       <% unless @pub.room.nil? %>
@@ -12,6 +12,7 @@
       <br>
       <p></p>
       <div class="show-card">
+
 
         <img class="" src="#" alt="">
         <div class="card-body">
@@ -135,7 +136,7 @@
           <% else %>
             <p> Sign in to add a Local</p>
           <% end %>
-          <%=  link_to "Add to Favourites!", add_favourite_path(@pub), class: "btn-primary"%>
+          <%=  link_to "Add to Favourites", add_favourite_path(@pub), class: "btn-primary"%>
         </div>
         </div>
       </div>
@@ -186,10 +187,27 @@
         <% end %>
     </div>
   </div>
-
       <%= link_to "<-- Back", pubs_path, class: "btn btn-primary"  %>
       </div>
     </div>
     </div>
   </div>
+</div>
+
+<div class="icon-filter-card">
+  <% if @pub.garden? %>
+    <%= image_tag "garden_icon.png" %>
+  <% end %>
+  <% if @pub.non_alcoholic_drinks_selection? %>
+    <%= image_tag "/app/assets/images/filter_icons/non_alcoholic_selection_icon.png"%>
+  <% end %>
+  <% if @pub.live_sport? %>
+    <%= image_tag "/app/assets/images/filter_icons/live_sport_icon.png"%>
+  <% end %>
+  <% if @pub.wheelchair_accessible? %>
+    <%= image_tag "/app/assets/images/filter_icons/wheelchair_accessible_icon.png"%>
+  <% end %>
+  <% if @pub.food_menu? %>
+   <%= image_tag "/app/assets/images/filter_icons/food_menu_icon.png"%>
+  <% end %>
 </div>
