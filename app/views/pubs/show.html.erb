@@ -1,8 +1,7 @@
-
 <div class="containerr">
   <br>
   <div class="view-page-top">
-      <h1><%= @pub.name %></h1>
+    <h1><%= @pub.name %></h1>
       <p></p>
       <% unless @pub.room.nil? %>
         <%= link_to "Enter chat now!", pub_room_path(@pub, @pub.room), class: "chat-link" %>
@@ -11,9 +10,13 @@
       <% end %>
       <br>
       <p></p>
-      <div class="show-card">
+  </div>
 
+<%# Pub image and information %>
+    <div class="show-flex-box">
+            <%= cl_image_tag @pub.photo.key, class:"pub-image-card-show" %>
 
+      <div class="show-card-text">
         <img class="" src="#" alt="">
         <div class="card-body">
             <h4 class="card-title"><strong> <%= @pub.name %> </strong></h4>
@@ -23,15 +26,9 @@
             <h5 class="card-text"><strong> Description:  </strong>  <%= @pub.description %></p></h5>
             <br>
 
-
-
-<%# reviews section %>
-      <div class="review-card">
-        <div class="show-card">
-          <div class="conatinerr">
-              <h2>Reviews</h2>
-              <% if user_signed_in? %>
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
+          <div class="local-review-buttons">
+            <% if user_signed_in? %>
+                <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
 
                   <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -137,11 +134,30 @@
             <p> Sign in to add a Local</p>
           <% end %>
           <%=  link_to "Add to Favourites", add_favourite_path(@pub), class: "btn-primary"%>
+          </div>
+        <div class="icon-filter-card">
+          <% if @pub.garden? %>
+            <%= image_tag "/app/assets/images/filter_icons/garden_icon.png" %>
+          <% end %>
+          <% if @pub.non_alcoholic_drinks_selection? %>
+            <%= image_tag "/app/assets/images/filter_icons/non_alcoholic_selection_icon.png"%>
+          <% end %>
+          <% if @pub.live_sport? %>
+            <%= image_tag "/app/assets/images/filter_icons/live_sport_icon.png"%>
+          <% end %>
+          <% if @pub.wheelchair_accessible? %>
+            <%= image_tag "/app/assets/images/filter_icons/wheelchair_accessible_icon.png"%>
+          <% end %>
+          <% if @pub.food_menu? %>
+          <%= image_tag "/app/assets/images/filter_icons/food_menu_icon.png"%>
+          <% end %>
         </div>
+
         </div>
       </div>
     </div>
-  <div class="card-body-button" ><%# reviews section %>
+  <div class="card-body-button" >
+  <%# reviews section %>
   <br>
 
     <div class="flex-box-local-reviews">

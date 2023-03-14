@@ -5,41 +5,17 @@
   <br>
 
 
-    <div class="col">
-      <div class="chat">
-        <% @room_messages.each do |room_message| %>
-          <div class="chat-message-container">
-            <div class="row no-gutters">
-              <div class="col-auto text-center">
-
-
-
-                <% if room_message.user.photo.attached? %>
-                  <%= cl_image_tag room_message.user.photo.key, class: "avatar" %>
-                <% else %>
-                  <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678190796/BoozeHounds/dropdown_oddycz.png", class: "avatar" %>
-                <% end %>
-              </div>
-
-              <div class="col">
-                <div class="message-content">
-                  <p class="mb-1">
-                    <%= room_message.message %>
-                  </p>
-
-                  <div class="text-right">
-                    <small>
-                      <%= room_message.created_at %>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
+    <div class="col" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>">
+      <div class="container room">
+        <div class="room_messages chat" data-room-subscription-target="messages">
+          <% @room_messages.each do |room_message| %>
+            <%= render "room_messages/room_message", room_message: room_message %>
+          <% end %>
+        </div>
       </div>
 
-      <%= simple_form_for @room_message, remote: true do |form| %>
+
+      <%= simple_form_for @room_message, html: { data: { action: "turbo:submit-end->room-subscription#resetForm" } } do |form| %>
         <div class="input-group mt-3">
           <%= form.input :message, as: :string,
                                   wrapper: false,
@@ -56,19 +32,4 @@
       <% end %>
     </div>
   </div>
-</div>
-
-
-<div class="container room"
-  data-controller="room-subscription"
-  data-room-subscription-room-id-value="<%= @room.id %>"
->
-
-  <div class="room_messages" data-room-subscription-target="room_messages">
-</div>
-
-<div class="room_messages" data-room-subscription-target="room_messages">
-  <% @room.room_messages.each do |message| %>
-    <%# <%= render "room_messages/room_message", message: message %>
-  <% end %>
 </div>
