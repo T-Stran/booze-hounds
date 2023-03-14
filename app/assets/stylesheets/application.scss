@@ -11,8 +11,7 @@
 @import "components/index";
 @import "pages/index";
 
-@import "components/card";
-@import "components/containerr";
+
 
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 @import "components/chat";
@@ -67,4 +66,3 @@ body {
 .h5 {
   margin-top: 60px;
 }
-

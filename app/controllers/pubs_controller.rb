@@ -4,7 +4,6 @@ class PubsController < ApplicationController
 
     # @pub = Pub.new
     # @pubs = Pub.all
-
     if params[:search].present?
       Query.create(title: params[:search])
       @search = Geocoder.search(params[:search]).first
@@ -22,12 +21,13 @@ class PubsController < ApplicationController
 
     elsif list_condition
 
-      @query = Query.last.title
-      @search = Geocoder.search(@query).first
-      @pubs = Pub.near([@search.coordinates[0], @search.coordinates[1]], 0.5)
+      # @query = Query.last.title
+      # @search = Geocoder.search(@query).first
+      # @pubs = Pub.near([@search.coordinates[0], @search.coordinates[1]], 0.5)
+      @pubs = Pub.all
       selected_filters = params.keys.select { |key| params[key] == "1" }
       selected_filters.each { |f| @pubs = @pubs.where(f => true) }
-      #  not in use @pubs = Pub.where("name ILIKE ?", "%#{query_string}%")
+      # @pubs = Pub.where("name ILIKE ?", "%#{query_string}%")
     else
       @pubs = Pub.all
     end
