@@ -350,6 +350,7 @@
 .local-review-buttons {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   }
 
 .pub-image-card-show {
@@ -362,6 +363,7 @@
   display: flex;
   justify-content: space-between;
   margin: 3.5%;
+  margin-top: 2%;
 }
 .page-title{
   margin-top: 5px;
@@ -370,6 +372,7 @@
 .view-page-top{
   display: flex;
   justify-content: space-between;
+  margin-right: 0.5%;
 }
 .icon-filter-card {
   display: flex;

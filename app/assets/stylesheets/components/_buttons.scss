@@ -22,18 +22,18 @@ border: 1px solid black;
 //   text-decoration: none;
 // }
 
-.a .btn{
-  background-color: #f2c747d4(0, 0, 0, 0);
-  border-radius: 100px;
-  border-color: black(255, 255, 255);
-  box-shadow: 0px 0px 15px black(255, 0, 0);
-  margin-bottom: 10px;
-  color: black(10, 255, 5);
-  border: 1px solid black;
-  background: #D8D4F2;
-  color: #000;
-  text-decoration: none;
-}
+// .a .btn{
+//   background-color: #f2c747d4(0, 0, 0, 0);
+//   border-radius: 100px;
+//   border-color: black(255, 255, 255);
+//   box-shadow: 0px 0px 15px black(255, 0, 0);
+//   margin-bottom: 10px;
+//   color: black(10, 255, 5);
+//   border: 1px solid black;
+//   background: #D8D4F2;
+//   color: #000;
+//   text-decoration: none;
+// }
 
 a chat-link{
   background-color: #f2c747d4(0, 0, 0, 0);
@@ -57,9 +57,9 @@ a chat-link{
 }
 
 .btn:hover{
-color: white;
-transition: 0.35s;
-border: 1px solid white;
+  color: white;
+  transition: 0.35s;
+  border: 1px solid white;
 }
 
 .btn-primary:hover{
@@ -68,15 +68,15 @@ border: 1px solid white;
   }
 
 .btn-dark{
-color: black;
-background-color: #f9b04bd4;
-border-top-right-radius: 25px;
-border-bottom-right-radius: 25px;
-border-top-left-radius: 0px;
-border-bottom-left-radius: 0px;
-height: 50px;
-border: 1px solid #ced4da;
-width: 150px;
+  color: black;
+  background-color: #f9b04bd4;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  height: 50px;
+  border: 1px solid #ced4da;
+  width: 150px;
 }
 
 .btn-dark:hover {
@@ -84,8 +84,8 @@ width: 150px;
 }
 
 .btn-dice {
-border-radius: 0px;
-margin: auto auto;
+  border-radius: 0px;
+  margin: auto auto;
 }
 
 .fa-dice{
@@ -111,8 +111,23 @@ margin: auto auto;
   font-size: large;
 }
 
+.btn-primary-chat{
+  background-color: #f2c747d4(0, 0, 0, 0);
+  border-radius: 0.3pc;
+  border-color: black(255, 255, 255);
+  box-shadow: 0px 0px 15px black(255, 0, 0);
+  margin-bottom: 10px;
+  color: black(10, 255, 5);
+  border: 1px solid black;
+  background: #D8D4F2;
+  color: #000;
+  text-decoration: none;
+  padding: 0.4pc;
+  font-size: large;
+}
+
 .btn-primary-delete{
-  background-color: #f9b04bd4(0, 0, 0, 0);
+  background-color: #f2c747d4(0, 0, 0, 0);
   border-radius: 0.3pc;
   border-color: black(255, 255, 255);
   box-shadow: 0px 0px 15px black(255, 0, 0);
@@ -125,6 +140,7 @@ margin: auto auto;
   padding: 0.4pc;
   font-size: large;
 }
+
 
 .btn-primary:hover {
   background-color: #f2c747d4(0, 0, 0, 0);
