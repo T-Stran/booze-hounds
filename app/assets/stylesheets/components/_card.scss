@@ -131,7 +131,7 @@
   background-size: cover;
   background-position: center;
   height: auto;
-  width: 40pc;
+  width: 48%;
   border-radius: 10px;
   box-shadow: 0 0 2px rgba(0,0,0,1);
   display: flex;
@@ -139,7 +139,7 @@
   justify-content: space-around;
   font-size: 22px;
   color: black;
-  margin: 25px;
+  margin: 0%;
   margin-top: 0px;
   border: 1px, solid, white;
   transition: 0.35s;
@@ -173,7 +173,7 @@
 
 .flex-box-local-reviews{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 85pc;
   margin-right: 0px
 }
@@ -252,21 +252,6 @@
   line-height: 3.75rem;
   flex: 0;
   width: 100%;
-}
-.chat-link {
-  text-decoration: none;
-  color: black;
-  transition: 0.3s;
-  padding: 10px;
-  border-radius: 5px;
-  justify-content: left;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-.chat-link:hover {
-  transition: 0.3s;
-  color: black;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  text-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-body-button {
@@ -368,7 +353,7 @@
   }
 
 .pub-image-card-show {
-  width: 40pc;
+  width: 48%;
   height: 22pc;
   border-radius: 10px
 }
@@ -376,11 +361,11 @@
 .flex-box-dogs {
   display: flex;
   justify-content: space-between;
-  margin: 15px;
+  margin: 3.5%;
 }
 .page-title{
   margin-top: 5px;
-  margin-left: 20px;
+  margin-left: 0.5%;
 }
 .view-page-top{
   display: flex;
