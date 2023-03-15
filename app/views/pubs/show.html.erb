@@ -1,14 +1,15 @@
 <div class="containerr">
   <br>
   <div class="view-page-top">
-    <div class="show-flex-box">
     <h1><%= @pub.name %></h1>
+      <p></p>
       <% unless @pub.room.nil? %>
-        <%= link_to "Enter chat now!", pub_room_path(@pub, @pub.room), class: "chat-link" %>
+        <%= link_to "Enter chat now!", pub_room_path(@pub, @pub.room), class: "btn btn-primary" %>
       <% else %>
-        <%= link_to "Create a room!", new_pub_room_path(@pub), class: "chat-link" %>
+        <%= link_to "Open room!", new_pub_room_path(@pub), class: "chat-link" %>
       <% end %>
-    </div>
+      <br>
+      <p></p>
   </div>
 
 
@@ -138,9 +139,11 @@
           <% end %>
           <% if @pub.non_alcoholic_drinks_selection? %>
             <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/non_alcoholic_selection_icon_c3xvkf.png" %>
+
           <% end %>
 
           <% if @pub.live_sport? %>
+
             <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/live_sport_icon_f230vm.png" %>
           <% end %>
           <% if @pub.wheelchair_accessible? %>
@@ -151,6 +154,7 @@
           <% end %>
           <% if @pub.parking? %>
             <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/parking_icon_pvcftz.png"  %>
+
           <% end %>
         </div>
 
@@ -198,7 +202,7 @@
             </div>
           <% end %>
         <% else %>
-          <p> Be the first to add a local</p>
+          <h5> Be the first to add a local</h5>
         <% end %>
     </div>
   </div>
