@@ -20,11 +20,12 @@ class PubsController < ApplicationController
       # selected_filters.each { |f| @pubs = @pubs.where(f == true && "name ILIKE ?", "%#{params[:query]}%") }
 
     elsif list_condition
+      # THIS IS TO MAKE THE FILTERS APPLY ONLY AROUND THE GIVEN POSTCODE
+      @query = Query.last.title
+      @search = Geocoder.search(@query).first
+      @pubs = Pub.near([@search.coordinates[0], @search.coordinates[1]], 0.5)
 
-      # @query = Query.last.title
-      # @search = Geocoder.search(@query).first
-      # @pubs = Pub.near([@search.coordinates[0], @search.coordinates[1]], 0.5)
-      @pubs = Pub.all
+      # @pubs = Pub.all
       selected_filters = params.keys.select { |key| params[key] == "1" }
       selected_filters.each { |f| @pubs = @pubs.where(f => true) }
       # @pubs = Pub.where("name ILIKE ?", "%#{query_string}%")
