@@ -253,21 +253,6 @@
   flex: 0;
   width: 100%;
 }
-.chat-link {
-  text-decoration: none;
-  color: black;
-  transition: 0.3s;
-  padding: 10px;
-  border-radius: 5px;
-  justify-content: left;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-.chat-link:hover {
-  transition: 0.3s;
-  color: black;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  text-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
 
 .card-body-button {
   width: 84pc;

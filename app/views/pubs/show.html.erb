@@ -4,9 +4,9 @@
     <div class="show-flex-box">
     <h1><%= @pub.name %></h1>
       <% unless @pub.room.nil? %>
-        <%= link_to "Enter chatroom!", pub_room_path(@pub, @pub.room), class: "chat-link" %>
+        <%= link_to "Enter chatroom!", pub_room_path(@pub, @pub.room), class: "btn-primary" %>
       <% else %>
-        <%= link_to "Enter chatroom!", new_pub_room_path(@pub), class: "chat-link" %>
+        <%= link_to "Enter chatroom!", new_pub_room_path(@pub), class: "btn-primary" %>
       <% end %>
     </div>
   </div>

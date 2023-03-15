@@ -3,7 +3,7 @@
   <h1> My Dogs</h1>
   </div>
   <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addDog">
-    Add a new dog
+    Add furry friend
   </button>
 </div>
 
@@ -14,7 +14,7 @@
         <% if dog.photo.attached? %>
           <%= cl_image_tag dog.photo.key, height: 50, width: 50, class: "img-dog" %>
         <% else %>
-          <p> attach a photo of a dog </p>
+          <p> Attach a photo of a dog </p>
         <% end %>
         <br>
         <br>
@@ -57,7 +57,7 @@
                           required: true %>
               </div>
               <div class="form-actions">
-                <%= f.button :submit, "Add dog" %>
+                <%= f.button :submit, "Add friend" %>
               </div>
             <% end %>
         </div>
