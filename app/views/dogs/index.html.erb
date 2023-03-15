@@ -1,6 +1,6 @@
 <div class="flex-box-dogs">
   <div class="page-title">
-  <h1> All Dogs</h1>
+  <h1> My Dogs</h1>
   </div>
   <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addDog">
     Add a new dog
@@ -23,8 +23,8 @@
         <h6><strong>Profession:</strong> <%= dog.proffession %></h6>
         <h6><strong>Age:</strong> <%= dog.age %></h6>
         <div class="local-review-buttons justify-content-space-around">
+          <%= link_to "Edit info", edit_dog_path(dog), class: "btn btn-primary m-2"%>
           <%= link_to "Remove", dog_path(dog), class: "btn btn-primary m-2 ", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-          <%= link_to "Update", edit_dog_path(dog), class: "btn btn-primary m-2"%>
         </div>
       </div>
     <% end %>
@@ -50,14 +50,14 @@
                 <%= f.input :age %>
               </div>
               <div class="form-bar">
-                <%= f.input :proffession %>
+                <%= f.input :proffession, label: 'Profession' %>
               </div>
               <div class="form-bar">
                 <%= f.input :photo, as: :file,
                           required: true %>
               </div>
               <div class="form-actions">
-                <%= f.button :submit, "Create dog" %>
+                <%= f.button :submit, "Add dog" %>
               </div>
             <% end %>
         </div>
