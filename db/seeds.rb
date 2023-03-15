@@ -14,28 +14,20 @@ require 'net/http'
 require 'openssl'
 
 pub_photos = %w[
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375905/BoozeHounds/pubs/pubs/the_old_bank_bwlxik.png
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/the_temple_bar_t5aalp.webp
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/the_Stara_lwhjl1.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/gus_o-conners_yndvn5.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/o_riley_conways_jmllxh.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/the_star_mib1pf.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/the_castle_inn_ew5yyo.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375904/BoozeHounds/pubs/pubs/nags_head_sigyrm.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/the_ship_jmuqux.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/sherlock_holmes_jgyhle.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/black_pub_h0kulx.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/the_old_toll_bar_efhzye.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678375903/BoozeHounds/pubs/pubs/the_netherton_mfmv3r.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377765/BoozeHounds/pubs/pubs/pubs%202/the_chandos_chud8p.webp
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377762/BoozeHounds/pubs/pubs/pubs%202/the_city_inn_s0uu0z.png
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377761/BoozeHounds/pubs/pubs/pubs%202/sir_john_cockle_xdj4t1.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377761/BoozeHounds/pubs/pubs/pubs%202/horeshoe_yuchpp.png
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377761/BoozeHounds/pubs/pubs/pubs%202/the_sevens_gdlduq.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377761/BoozeHounds/pubs/pubs/pubs%202/the_woodman_qhlh4p.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377760/BoozeHounds/pubs/pubs/pubs%202/the_beer_shop_c7yzfs.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377760/BoozeHounds/pubs/pubs/pubs%202/railway_tavern_bwftbk.jpg
-  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678377760/BoozeHounds/pubs/pubs/pubs%202/shenanigans_pq0mwk.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810407/Booze/the_temple_bar_t5aalp_cpkybx.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810407/Booze/the_old_bank_bwlxik_vm6v54.png
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810407/Booze/the_Stara_lwhjl1_tdzhcz.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/the_ship_jmuqux_avl7pv.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810407/Booze/the_star_mib1pf_jgv3ko.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/the_netherton_mfmv3r_wdhwhw.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/the_old_toll_bar_efhzye_cfhxzn.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/the_castle_inn_ew5yyo_unkhgf.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/sherlock_holmes_jgyhle_dmohbo.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/angel_and_crown_npxdyp_drpk4x.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/nags_head_sigyrm_r1eyln.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/gus_o-conners_yndvn5_htqpl5.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/haggon_horses_yxznsc_pfh5rh.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810407/Booze/the_temple_bar_t5aalp_cpkybx.webp
 ]
 # url = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.534359%2C%20-0.076776&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&language=en")
 # url1 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radius=10&radiusUnit=km&language=en")

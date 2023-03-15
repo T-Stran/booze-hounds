@@ -42,8 +42,7 @@
   <% end %>
 
   <br>
-
-  We have found <em><%= @pubs.length %></em> results for your search of:
+  For postcode: <%= Query.last.title.upcase %>. We have found <em><%= @pubs.length %></em> results for your search of:
   <% filter_results = params.keys.select { |key| params[key] == "1" } %>
   <% filter_results %>
   <em><%= filter_results.map {|word| word.split("_").map(&:capitalize).join(" ") }.join(", ") %></em>
@@ -53,10 +52,23 @@
         <%= link_to pub_path(pub), class:"card col-5" do %>
             <%= cl_image_tag pub.photo.key, class:"pub-image-card" %>
             <p class="pub-info-card" id="pub-name" ><strong><%= pub.name %></strong></p>
-            <p class="pub-info-card"><strong>Opening/Closing times:</strong> <%= pub.opening_time %>am - <%= pub.closing_time %>pm</p>
-            <p class="pub-info-card"><strong>Description:</strong> <%= pub.description %></p>
-            <p class="pub-info-card"><strong>Address:</strong> <%= pub.address %></p>
-            <p class="pub-info-card"><strong>Phone number:</strong> <%= pub.phone_number %></p>
+            <p class="pub-info-card" id="pub-times" >Opening/Closing times:
+            <small>
+            <% if pub.opening_time < Time.now.hour %>
+              <% if pub.closing_time - Time.now.hour == 1 %>
+                <%= "Closing soon" %>
+              <% else %>
+                <%= "Open" %>
+              <% end %>
+            <% else %>
+              <% if pub.opening_time - Time.now.hour == 1 %>
+                <%= "Opening soon" %>
+              <% else %>
+                <%= "Closed" %>
+              <% end %>
+            <% end %>
+            </small>
+            </p>
         <% end %>
 
       <% end %>
