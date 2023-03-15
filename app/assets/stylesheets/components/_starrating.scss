@@ -73,7 +73,7 @@ position: absolute;
 .rating a:hover ~ a,
 .rating a:focus,
 .rating a:focus ~ a		{
-  color: orange;
+  color: #f4d16b;
   cursor: pointer;
 }
 .rating2 {
@@ -81,4 +81,8 @@ position: absolute;
 }
 .rating2 a {
   float:none
+}
+
+.rating3 {
+  color: #f4d16b;
 }
