@@ -17,12 +17,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto">
-      <li class="btn-dice">
+      <li class="btn-dice" data_toggle="tooltip" data_placement="bottom" title="Randomize a pub?">
         <% if Pub.all.first %>
           <% min = Pub.all.first.id %>
           <% max = Pub.all.last.id %>
           <% random = rand(min..max) %>
-          <%= link_to "", pub_path(random), class: "nav-link fa-solid fa-dice" %>
+          <%= link_to "", pub_path(random), class: "nav-link fa-solid fa-dice"  %>
         <% end %>
       </li>
 
