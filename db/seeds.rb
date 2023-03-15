@@ -93,7 +93,7 @@ CSV.foreach(filepath) do |row|
                 pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample,
                 garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample,
                 wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample,
-                phone_number: "07#{rand(10**8)}")
+                phone_number: "07#{rand(10**9)}")
   file = URI.open(pub_photos.sample)
   pub.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
   pub.save!
