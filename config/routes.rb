@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :pubs do
+    resources :favourites, only: :create
     resources :reviews
     resources :locals
     resources :rooms
@@ -18,12 +19,9 @@ Rails.application.routes.draw do
   resources :dogs
   post "room_messages", to: "room_messages#create"
 
-  get "pubs/:id/favourites", to: "favourites#add_favourite", as: :add_favourite
 
   resources :users do
     resources :favourites, only: :index
-    resources :favourites, only: :destroy
   end
-
   resources :favourites, only: :destroy
 end

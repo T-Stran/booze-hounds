@@ -2,7 +2,7 @@
   justify-content: space-between;
   display: flex;
   background: #fcfbfa;
-  height: 4pc;
+  height: 3.77pc;
   font-family: 'Montserrat Alternates', sans-serif;
   position: fixed;
   top: 0;
@@ -11,33 +11,22 @@
   z-index: 10;
   padding-right: 3pc;
   padding-left: 3pc;
+
 }
 
 .navbar-lewagon h1{
   display: flex;
   font-family: 'Montserrat Alternates', sans-serif;
   margin-left: 0px;
-
 }
-
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
-
 .navbar-lewagon .navbar-brand img {
   display: flex;
   width: 350px;
-  height: 50px;
+  height: 3pc;
 }
-
 .navbar-nav me-auto{
   display: inline-block
-}
-
-.nav-width {
-  width: 105px;
-  text-align: left;
-}
-.nav-item {
-  margin-right: 0px;
 }

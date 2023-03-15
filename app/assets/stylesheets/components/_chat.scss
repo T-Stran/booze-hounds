@@ -10,7 +10,6 @@ avatar {
 .room-nav-link {
   border: 1px solid lighten($primary, 40%);
   background: lighten($primary, 45%);
-
   & + .room-nav-link {
     border-top: 0 none;
   }
@@ -42,4 +41,8 @@ avatar {
 
 .container-fluid {
   margin-left: 20px;
+}
+
+.nav-link {
+  margin-right: 0.7pc;
 }

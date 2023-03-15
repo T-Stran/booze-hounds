@@ -182,7 +182,6 @@
   display: flex;
   flex-direction: column;
 }
-
 .flex-box-review{
   display: flex;
   flex-direction: column;
@@ -227,7 +226,6 @@
   font-weight: bold;
   margin: 0;
 }
-
 .card-local p {
   font-size: 12px;
   line-height: 1.4;
@@ -246,7 +244,6 @@
   align-items: center;
   margin-bottom: 15px;
 }
-
 .card-view-title {
   position: relative;
   align-items: center;
@@ -256,7 +253,6 @@
   flex: 0;
   width: 100%;
 }
-
 .chat-link {
   text-decoration: none;
   color: black;
@@ -266,7 +262,6 @@
   justify-content: left;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-
 .chat-link:hover {
   transition: 0.3s;
   color: black;
@@ -287,7 +282,6 @@
   font-size: 12px;
   transition: 0.3s;
 }
-
 .card-body-button > a:hover {
   transition: 0.3s;
   color: black;
@@ -295,27 +289,21 @@
   text-shadow: 0 0 15px rgba(0,0,0,0.2);
   transition: 0.3s;
 }
-
 .review-card {
   margin-top: 103px;
   margin-left: 200px;
 }
-
 .locals-card {
   margin-left: 50px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 .card-view-locals > h5 {
   margin-left: 50px;
 }
-
 .back-button {
   margin-left: 50px;
 }
-
-
 // .show-card{
 //   background-color: white;
 //   background-size: cover;
@@ -336,9 +324,7 @@
 //   padding: 0;
 //   overflow: hidden;
 //   border: none;
-
 // }
-
 .img-dog{
   border-radius: 50%;
   position: absolute;
@@ -348,8 +334,6 @@
   width: 125px;
   height: 125px;
 }
-
-
 .card-dog{
   background: white;
   background-size: cover;
@@ -371,7 +355,6 @@
   text-align: center;
   position: relative;
 }
-
 // .card-dog:hover {
 //   transition: 0.35s;
 //   color: rgba(0,0,0,1);
@@ -379,8 +362,6 @@
 //   height: 360px;
 //   width: 415px;
 // }
-
-
 .local-review-buttons {
   display: flex;
   justify-content: space-around;
@@ -397,17 +378,14 @@
   justify-content: space-between;
   margin: 15px;
 }
-
 .page-title{
   margin-top: 5px;
   margin-left: 20px;
 }
-
 .view-page-top{
   display: flex;
   justify-content: space-between;
 }
-
 .icon-filter-card {
   display: flex;
   justify-content: space-evenly;
