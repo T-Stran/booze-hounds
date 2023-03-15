@@ -42,8 +42,8 @@ pub_photos = %w[
 
 # urls = [url, url1, url2, url3, url4, url5, url6, url7, url8, url9]
 
-opening = [9, 10, 11]
-closing = [11, 12]
+opening = [9, 10, 11, 12, 13]
+closing = [21, 22, 23]
 pub_description = ["Fashionably updated Victorian pub with wood floors, big windows and rotating list of unusual beers.",
                    "The perfect place to eat and enjoy freshly brewed, hyper local, award-winning craft beers.",
                    "Cool, vibrant bar on 4 floors with lounges, sofas and roof terrace, serving burgers and pizza.",
@@ -93,7 +93,7 @@ CSV.foreach(filepath) do |row|
                 pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample,
                 garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample,
                 wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample,
-                phone_number: "07#{rand(10**8)}")
+                phone_number: "07#{rand(10**9)}")
   file = URI.open(pub_photos.sample)
   pub.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
   pub.save!
