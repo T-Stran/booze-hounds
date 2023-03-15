@@ -23,9 +23,8 @@
             <h4 class="card-title"><strong> <%= @pub.name %> </strong></h4>
             <br>
             <h5 class="card-text"><strong> Address:  </strong>  <%= @pub.address %></p></h5>
-            <br>
             <h5 class="card-text"><strong> Description:  </strong>  <%= @pub.description %></p></h5>
-            <br>
+            <h5 class="card-text"><strong> Phone Number:  </strong>  <%= @pub.phone_number %></p></h5>
           <div class="local-review-buttons">
             <% if user_signed_in? %>
                 <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
@@ -161,16 +160,6 @@
 
   <%# reviews section %>
   <br>
-
-
-
-
-
-
-
-
-
-
 
     <div class="flex-box-local-reviews">
         <div class="flex-box-review">
