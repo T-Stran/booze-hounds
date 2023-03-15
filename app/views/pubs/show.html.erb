@@ -2,18 +2,13 @@
   <br>
   <div class="view-page-top">
     <h1><%= @pub.name %></h1>
-      <p></p>
       <% unless @pub.room.nil? %>
-        <%= link_to "Enter chatroom!", pub_room_path(@pub, @pub.room), class: "btn-primary" %>
+        <%= link_to "Enter chatroom!", pub_room_path(@pub, @pub.room), class: "btn-primary-delete" %>
       <% else %>
-        <%= link_to "Enter chatroom!", new_pub_room_path(@pub), class: "btn-primary" %>
+        <%= link_to "Enter chatroom!", new_pub_room_path(@pub), class: "btn-primary-delete" %>
       <% end %>
-      <br>
-      <p></p>
+
   </div>
-
-
-
 
 <%# Pub image and information %>
     <div class="show-flex-box">
@@ -27,43 +22,11 @@
             <h5 class="card-text"><strong> Description:  </strong>  <%= @pub.description %></p></h5>
             <h5 class="card-text"><strong> Phone Number:  </strong>  <%= @pub.phone_number %></p></h5>
           <div class="local-review-buttons">
-            <% if user_signed_in? %>
-                <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
-                  <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="reviewModalLabel">Leave a review</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                          <div class="modal-body">
-                            <%= simple_form_for([@pub, @review]) do |f| %>
-                              <div class="form-bar">
-                                <%= f.input :content %>
-                              </div>
-                                <%= f.label :rating %>
-                              <div class="form-bar rating">
-                                <input name="review[rating]" id="e5" type="radio" value="5"><label for="e5">★</label>
-                                <input name="review[rating]" id="e4" type="radio" value="4"><label for="e4">★</label>
-                                <input name="review[rating]" id="e3" type="radio" value="3"><label for="e3">★</label>
-                                <input name="review[rating]" id="e2" type="radio" value="2"><label for="e2">★</label>
-                                <input name="review[rating]" id="e1" type="radio" value="1"><label for="e1">★</label>
-                              </div>
-                              <div class="form-actions">
-                                <%= f.submit  class: "btn-new"%>
-                              </div>
-                            <% end %>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-              <% else %>
-                <p> You need to sign in to create a review </p>
-            <% end %>
+
           <% if user_signed_in? %>
             <% if current_user.dogs.present? %>
               <%# this button adds a local %>
-              <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#localModal">
+              <button type="button" class="btn-primary-delete" data-bs-toggle="modal" data-bs-target="#localModal">
                 Add a Local
               </button>
                 <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="localModal" aria-hidden="true">
@@ -71,7 +34,6 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="localModal">Add a Local</h1>
-                        <button type="btn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                         <div class="modal-body">
                           <%= simple_form_for [@pub, Local.new] do |f| %>
@@ -82,7 +44,6 @@
                               <%= f.input :photo, as: :file %>
                             </div>
                             <div class="modal-footer">
-                              <button type="btn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                               <%= f.submit "Add your local", class: "btn btn-primary" %>
                             </div>
                           <% end %>
@@ -99,7 +60,6 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="addDog">Add a new dog</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
                         <%= simple_form_for([@dog]) do |f| %>
@@ -131,7 +91,43 @@
           <% else %>
             <p> Sign in to add a Local</p>
           <% end %>
-          <%=  link_to "Add to Favourites", pub_favourites_path(@pub), data: {turbo_method: :post}, class: "btn-primary"%>
+          <% if user_signed_in? %>
+                <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal"> Leave a review </button>
+                  <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="reviewModalLabel">Leave a review</h1>
+                        </div>
+                          <div class="modal-body">
+                            <%= simple_form_for([@pub, @review]) do |f| %>
+                              <div class="form-bar">
+                                <%= f.input :content %>
+                              </div>
+                                <%= f.label :rating %>
+                              <div class="form-bar rating">
+                                <input name="review[rating]" id="e5" type="radio" value="5"><label for="e5">★</label>
+                                <input name="review[rating]" id="e4" type="radio" value="4"><label for="e4">★</label>
+                                <input name="review[rating]" id="e3" type="radio" value="3"><label for="e3">★</label>
+                                <input name="review[rating]" id="e2" type="radio" value="2"><label for="e2">★</label>
+                                <input name="review[rating]" id="e1" type="radio" value="1"><label for="e1">★</label>
+                              </div>
+                              <div class="form-actions">
+                                <%= f.submit  class: "btn-new"%>
+                              </div>
+                            <% end %>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              <% else %>
+                <p> You need to sign in to create a review </p>
+              <% end %>
+            <% unless current_user.favourites.where(pub_id: @pub.id).empty?%>
+              <h2 class="added mr-3"><%= "⭐"%></h2>
+            <% else %>
+             <h2> <%=  link_to "★", pub_favourites_path(@pub), data: {turbo_method: :post}, class: "favourite-star mr-3"%> </h2>
+            <% end %>
           </div>
         <div class="icon-filter-card">
           <% if @pub.garden? %>
@@ -139,10 +135,8 @@
           <% end %>
           <% if @pub.non_alcoholic_drinks_selection? %>
             <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/non_alcoholic_selection_icon_c3xvkf.png" %>
-
           <% end %>
           <% if @pub.live_sport? %>
-
             <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/live_sport_icon_f230vm.png" %>
           <% end %>
           <% if @pub.wheelchair_accessible? %>
@@ -153,12 +147,12 @@
           <% end %>
           <% if @pub.parking? %>
             <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/parking_icon_pvcftz.png"  %>
-
           <% end %>
         </div>
         </div>
       </div>
     </div>
+
 
   <%# reviews section %>
   <br>
