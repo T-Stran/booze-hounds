@@ -4,3 +4,20 @@
   color:rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
 }
+
+// .modal-header {
+//   background-color: #f2c747d4(0, 0, 0, 0);
+// }
+
+.modal-header-color{
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bs-modal-header-padding);
+  border-bottom: var(--bs-modal-header-border-width) solid var(--bs-modal-header-border-color);
+  border-top-left-radius: var(--bs-modal-inner-border-radius);
+  border-top-right-radius: var(--bs-modal-inner-border-radius);
+  background: #f2c747d4;
+
+}

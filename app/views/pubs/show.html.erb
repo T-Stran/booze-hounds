@@ -3,9 +3,9 @@
   <div class="view-page-top">
     <h1><%= @pub.name %></h1>
       <% unless @pub.room.nil? %>
-        <%= link_to "Enter chatroom!", pub_room_path(@pub, @pub.room), class: "btn-primary" %>
+        <%= link_to "Enter chatroom!", pub_room_path(@pub, @pub.room), class: "btn-primary-chat" %>
       <% else %>
-        <%= link_to "Enter chatroom!", new_pub_room_path(@pub), class: "btn-primary" %>
+        <%= link_to "Enter chatroom!", new_pub_room_path(@pub), class: "btn-primary-chat" %>
       <% end %>
 
   </div>
@@ -21,7 +21,28 @@
             <h5 class="card-text"><strong> Address:  </strong>  <%= @pub.address %></p></h5>
             <h5 class="card-text"><strong> Description:  </strong>  <%= @pub.description %></p></h5>
             <h5 class="card-text"><strong> Phone Number:  </strong>  <%= @pub.phone_number %></p></h5>
-          <div class="local-review-buttons">
+
+        <div class="icon-filter-card">
+          <% if @pub.garden? %>
+            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/garden_icon_fq2yax.png" %>
+          <% end %>
+          <% if @pub.non_alcoholic_drinks_selection? %>
+            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/non_alcoholic_selection_icon_c3xvkf.png" %>
+          <% end %>
+          <% if @pub.live_sport? %>
+            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/live_sport_icon_f230vm.png" %>
+          <% end %>
+          <% if @pub.wheelchair_accessible? %>
+            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/wheelchair_accessible_icon_cvbims.png" %>
+          <% end %>
+          <% if @pub.food_menu? %>
+            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/food_menu_icon_enpf49.png" %>
+          <% end %>
+          <% if @pub.parking? %>
+            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/parking_icon_pvcftz.png"  %>
+          <% end %>
+        </div>
+        <div class="local-review-buttons">
 
           <% if user_signed_in? %>
             <% if current_user.dogs.present? %>
@@ -32,7 +53,7 @@
                 <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="localModal" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
-                      <div class="modal-header">
+                      <div class="modal-header-color">
                         <h1 class="modal-title fs-5" id="localModal">Add a Local</h1>
                       </div>
                         <div class="modal-body">
@@ -44,7 +65,7 @@
                               <%= f.input :photo, as: :file %>
                             </div>
                             <div class="modal-footer">
-                              <%= f.submit "Add your local", class: "btn btn-primary" %>
+                              <%= f.submit "Add your local", class: "btn btn-primary-chat" %>
                             </div>
                           <% end %>
                         </div>
@@ -58,7 +79,7 @@
                 <div class="modal fade" id="addDog" tabindex="-1" aria-labelledby="addDog" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
-                      <div class="modal-header">
+                      <div class="modal-header-color">
                         <h1 class="modal-title fs-5" id="addDog">Add a new dog</h1>
                       </div>
                       <div class="modal-body">
@@ -80,7 +101,7 @@
                                       required: true %>
                           </div>
                           <div class="form-actions">
-                            <%= f.button :submit, "Create dog" %>
+                            <%= f.button :submit, "Add your dog" %>
                           </div>
                         <% end %>
                       </div>
@@ -96,7 +117,7 @@
                   <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header-color">
                           <h1 class="modal-title fs-5" id="reviewModalLabel">Leave a review</h1>
                         </div>
                           <div class="modal-body">
@@ -113,7 +134,7 @@
                                 <input name="review[rating]" id="e1" type="radio" value="1"><label for="e1">★</label>
                               </div>
                               <div class="form-actions">
-                                <%= f.submit  class: "btn-new"%>
+                                <%= f.submit  class: "btn-primary-chat", label: "Leave review" %>
                               </div>
                             <% end %>
                           </div>
@@ -121,7 +142,7 @@
                     </div>
                   </div>
               <% else %>
-                <p> You need to sign in to create a review </p>
+                <p> You need to sign in to leave a review </p>
               <% end %>
             <% unless current_user.favourites.where(pub_id: @pub.id).empty?%>
               <h2 class="added mr-3"><%= "⭐"%></h2>
@@ -129,26 +150,6 @@
              <h2> <%=  link_to "★", pub_favourites_path(@pub), data: {turbo_method: :post}, class: "favourite-star mr-3"%> </h2>
             <% end %>
           </div>
-        <div class="icon-filter-card">
-          <% if @pub.garden? %>
-            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/garden_icon_fq2yax.png" %>
-          <% end %>
-          <% if @pub.non_alcoholic_drinks_selection? %>
-            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/non_alcoholic_selection_icon_c3xvkf.png" %>
-          <% end %>
-          <% if @pub.live_sport? %>
-            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/live_sport_icon_f230vm.png" %>
-          <% end %>
-          <% if @pub.wheelchair_accessible? %>
-            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/wheelchair_accessible_icon_cvbims.png" %>
-          <% end %>
-          <% if @pub.food_menu? %>
-            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/food_menu_icon_enpf49.png" %>
-          <% end %>
-          <% if @pub.parking? %>
-            <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/parking_icon_pvcftz.png"  %>
-          <% end %>
-        </div>
         </div>
       </div>
     </div>
@@ -168,7 +169,7 @@
                   <h6> <%= review.content %> </h6>
                   <br>
                   <h6><% review.rating.to_i.times do %></h6>
-                      <span>★</span>
+                      <span>⭐</span>
                       <% end %>
                   </p>
                 </div>
@@ -198,7 +199,7 @@
         <% end %>
     </div>
   </div>
-      <%= link_to "<-- Back", pubs_path, class: "btn btn-primary"  %>
+      <%= link_to "<-- Back", pubs_path, class: "btn btn-primary-delete"  %>
       </div>
     </div>
     </div>
