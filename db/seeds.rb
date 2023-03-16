@@ -95,41 +95,59 @@ end
 
 puts "Pubs created"
 
-dave = User.create!(
+dave = User.new(
   email: "dave@dave.com",
   password: "daveisking",
   username: "KingDave"
 )
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678970217/Booze/Profile%20pics/dave_lnwgkz.jpg")
+dave.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+dave.save!
 
-julio = User.create!(
+julio = User.new(
   email: "julio@julio.com",
   password: "julio123",
   username: "JulioCoolio"
 )
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678970217/Booze/Profile%20pics/Julio_ms6vfq.jpg")
+julio.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+julio.save!
 
-atticus = User.create!(
+atticus = User.new(
   email: "atticus@atticus.com",
   password: "att456",
   username: "Attaboy"
 )
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678970217/Booze/Profile%20pics/atticus_vocmai.jpg")
+atticus.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+atticus.save!
 
-stella = User.create(
+stella = User.new(
   email: "stella@stella.com",
   password: "stelltastic",
   username: "AStellaADay"
 )
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678970217/Booze/Profile%20pics/stella_fmuczx.jpg")
+stella.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+stella.save!
 
-lauren = User.create(
+lauren = User.new(
   email: "lauren@lauren.com",
   password: "laurenwhite",
   username: "LDog"
 )
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678970217/Booze/Profile%20pics/lauren_vvtqps.jpg")
+lauren.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+lauren.save!
 
-samantha = User.create(
+samantha = User.new(
   email: "samantha@samantha.com",
   password: "samsam",
   username: "Samanth247"
 )
+file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678970217/Booze/Profile%20pics/samantha_zvdbyj.jpg")
+samantha.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
+samantha.save!
 
 puts "Users created"
 
