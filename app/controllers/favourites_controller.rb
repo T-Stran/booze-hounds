@@ -14,7 +14,7 @@ class FavouritesController < ApplicationController
     @pub = Pub.find(params[:pub_id])
     @favourite.pub = @pub
     if @favourite.save
-      redirect_to pub_path(@pub), notice: "The pub was sucesfully added to favourites"
+      redirect_to pub_path(@pub), notice: "The pub was successfully added to favourites"
     end
   end
 
@@ -26,7 +26,7 @@ class FavouritesController < ApplicationController
   #   @favourite.pub_id = @pub.id
 
   #   if @favourite.save!
-  #     redirect_to pub_path(@pub), notice: "The pub was sucesfully added to favourites"
+  #     redirect_to pub_path(@pub), notice: "The pub was successfully added to favourites"
   #   end
   # end
 

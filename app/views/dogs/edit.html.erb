@@ -1,6 +1,7 @@
 
 <div class= "form-containerr">
   <div class= "form-inputs">
+
     <h2><strong>Update your pupper</strong> </h2>
       <%= simple_form_for([@dog]) do |f| %>
         <div class="form-bar">
@@ -24,4 +25,6 @@
         </div>
       <% end %>
   </div>
+
+  <%# <%= link_to "Remove", dog_path(dog), class: "btn-primary-delete m-2 ", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 </div>

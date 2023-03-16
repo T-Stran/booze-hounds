@@ -63,8 +63,10 @@
                             <div class="form-bar">
                               <%= f.input :photo, as: :file %>
                             </div>
-                            <div class="modal-footer">
+                             <div class="modal-footer">
+                                <div class="form-actions">
                               <%= f.submit "Add your local", class: "btn btn-primary-chat" %>
+                              </div>
                             </div>
                           <% end %>
                         </div>
@@ -132,9 +134,10 @@
                                 <input name="review[rating]" id="e2" type="radio" value="2"><label for="e2">★</label>
                                 <input name="review[rating]" id="e1" type="radio" value="1"><label for="e1">★</label>
                               </div>
-                              <div class="form-actions">
-                                <%= f.submit  class: "btn-primary-chat", label: "Leave review" %>
-                              </div>
+                              <div class="modal-footer"></div>
+                                <div class="form-actions">
+                                  <%= f.submit  class: "btn btn-primary-chat", label: "Leave review" %>
+                                </div>
                             <% end %>
                           </div>
                       </div>
