@@ -7,7 +7,6 @@
       <% else %>
         <%= link_to "Enter chatroom!", new_pub_room_path(@pub), class: "btn-primary-chat" %>
       <% end %>
-
   </div>
 
 <%# Pub image and information %>
@@ -47,7 +46,7 @@
           <% if user_signed_in? %>
             <% if current_user.dogs.present? %>
               <%# this button adds a local %>
-              <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#localModal">
+              <button type="button" class="btn-primary-delete" data-bs-toggle="modal" data-bs-target="#localModal">
                 Add a Local
               </button>
                 <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="localModal" aria-hidden="true">
