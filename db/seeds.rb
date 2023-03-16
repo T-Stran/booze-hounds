@@ -65,6 +65,8 @@ pub_description = ["Fashionably updated Victorian pub with wood floors, big wind
 
 puts "Destroying everything"
 RoomMessage.destroy_all
+Local.destroy_all
+Query.destroy_all
 Dog.destroy_all
 User.destroy_all
 Pub.destroy_all
