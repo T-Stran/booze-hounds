@@ -148,7 +148,7 @@ samantha = User.new(
 file = URI.open("https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678970217/Booze/Profile%20pics/samantha_zvdbyj.jpg")
 samantha.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
 samantha.save!
-
+s
 puts "Users created"
 
 # DOG SEED
