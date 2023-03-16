@@ -28,19 +28,28 @@ pub_photos = %w[
   https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/gus_o-conners_yndvn5_htqpl5.jpg
   https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810406/Booze/haggon_horses_yxznsc_pfh5rh.jpg
   https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810407/Booze/the_temple_bar_t5aalp_cpkybx.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/the_light_dragoon_yzyvgq.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959124/Booze/Pubs/Irish_pub_dghlu4.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959124/Booze/Pubs/Lauders_gxjkmj.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959124/Booze/Pubs/Lord_wargrave_djyaax.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/the_light_dragoon_yzyvgq.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/Chruchill_arms_jcpsia.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/the_cambridge_muart2.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/The_shrelock_holmes_kr6cyi.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/the_camel_suobc2.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678810407/Booze/the_Stara_lwhjl1_tdzhcz.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/The_Spread_Eagle_xfzgul.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/Chruchill_arms_jcpsia.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/The_old_bell_xvlszh.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959126/Booze/Pubs/The-Red-Lion-Mayfair-SW1_dgkaov.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959125/Booze/Pubs/The_White_Swan_ljh96b.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959126/Booze/Pubs/The_Wilmington_x4up70.webp
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959126/Booze/Pubs/The_two_sportsmen_mjzceg.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959126/Booze/Pubs/The-Crown-and-Anchor_jynn0p.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959126/Booze/Pubs/ye_old_watling_q8ouzc.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959126/Booze/Pubs/The_windmill_xb7xgl.jpg
+  https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678959127/Booze/Pubs/The-Red-Lion-and-Pineapple-Pub-in-Acton-Photo-Google-Maps_gae2rf.png
 ]
-# url = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.534359%2C%20-0.076776&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&language=en")
-# url1 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radius=10&radiusUnit=km&language=en")
-# url2 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.52823812500374%2C%20-0.07807314749853018%2C%20-0.07693326900676305&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-# url3 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.532860606366484%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-# url4 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53871450324322%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-# url5 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53871450324322%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radiusUnit=km&language=en")
-# url6 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.5335831709218%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radiusUnit=km&language=en")
-# url7 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.5335831709218%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-# url8 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53766272720548%2C%20-0.09112269928287485%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=restaurants&radiusUnit=km&language=en")
-# url9 = URI("https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=51.53766272720548%2C%20-0.09112269928287485%2C%20-0.06497159400156856%2C%20-0.07554002316082299%2C%20-0.07689292315605466&key=#{ENV['TRIPADVISOR_API_KEY']}&category=attractions&radiusUnit=km&language=en")
-
-# urls = [url, url1, url2, url3, url4, url5, url6, url7, url8, url9]
 
 opening = [9, 10, 11, 12, 13]
 closing = [21, 22, 23]
@@ -56,33 +65,16 @@ pub_description = ["Fashionably updated Victorian pub with wood floors, big wind
 
 puts "Destroying everything"
 RoomMessage.destroy_all
+Room.destroy_all
+Favourite.destroy_all
+Review.destroy_all
+Local.destroy_all
+Query.destroy_all
 Dog.destroy_all
 User.destroy_all
 Pub.destroy_all
 puts "Everything destroyed"
 puts "Generating DB"
-
-# urls.each do |url_select|
-#   http = Net::HTTP.new(url_select.host, url_select.port)
-#   http.use_ssl = true
-
-#   request = Net::HTTP::Get.new(url_select)
-#   request["accept"] = 'application/json'
-
-#   response = http.request(request)
-#   obj = JSON.parse(response.read_body)
-
-
-#   obj["data"].each do |line|
-#     pub = Pub.new(name: line["name"], address: line["address_obj"]["street1"], postcode: line["address_obj"]["postalcode"], description: pub_description.sample, opening_time: opening.sample, closing_time: closing.sample, phone_number: line["location_id"], pool_table: [true, false].sample, non_alcoholic_drinks_selection: [true, false].sample, garden: [true, false].sample, parking: [true, false].sample, live_sport: [true, false].sample, wheelchair_accessible: [true, false].sample, food_menu: [true, false].sample)
-#     file = URI.open(pub_photos.sample)
-#     pub.photo.attach(io: file, filename: "nes.jpeg", content_type: "image/jpeg")
-#     pub.save!
-#   end
-# end
-
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'open_pubs_hackney.csv'))
-# puts csv_text
 
 
 filepath = Rails.root.join('db', 'pubs.csv')
