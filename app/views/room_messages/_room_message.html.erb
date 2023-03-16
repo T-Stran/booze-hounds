@@ -17,7 +17,7 @@
 
         <div class="text-right">
           <small>
-            <%= room_message.created_at %>
+            <%=time_ago_in_words(room_message.created_at)%>  ago
           </small>
         </div>
       </div>
