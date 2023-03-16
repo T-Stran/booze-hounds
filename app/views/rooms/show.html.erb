@@ -19,12 +19,13 @@
 </div>
 
 
-<div class="container-chat">
-  <h1>
-     <%= @room.name %> Chat
-  </h1>
+<div class="containerr-chat">
+  <div class="chat-header"> </div>
+    <h1>
+       <%= @room.name %> Chat
+    </h1>
   <br>
-
+  </div>
 
     <div class="col" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>">
       <div class="container room">
@@ -51,9 +52,10 @@
           </div>
           <%= form.input :room_id, as: :hidden %>
         <% end %>
-      </div>
-
-    </div>
-<%= link_to "<- Back", pub_path(@pub), class: "btn btn-primary-delete"  %>
+    <%= link_to "<- Back", pub_path(@pub), class: "btn btn-primary-delete ml-3"  %>
+   </div>
   </div>
+</div>
+
+
 </div>

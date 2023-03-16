@@ -24,7 +24,6 @@
         <h6><strong>Age:</strong> <%= dog.age %></h6>
         <div class="local-review-buttons justify-content-space-around">
           <%= link_to "Edit info", edit_dog_path(dog), class: "btn btn-primary m-2"%>
-          <%= link_to "Remove", dog_path(dog), class: "btn-primary-delete m-2 ", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
         </div>
       </div>
     <% end %>
@@ -56,6 +55,7 @@
                 <%= f.input :photo, as: :file,
                           required: true %>
               </div>
+              <div class="modal-footer"> </div>
               <div class="form-actions">
                 <%= f.button :submit, "Add friend", class: "btn-primary-chat"%>
               </div>
