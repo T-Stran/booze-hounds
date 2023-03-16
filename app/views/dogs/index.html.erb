@@ -2,7 +2,7 @@
   <div class="page-title">
   <h1> My Dogs</h1>
   </div>
-  <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addDog">
+  <button type="button" class="btn btn-primary-chat m-3" data-bs-toggle="modal" data-bs-target="#addDog">
     Add furry friend
   </button>
 </div>
@@ -34,7 +34,7 @@
 <div class="modal fade" id="addDog" tabindex="-1" aria-labelledby="addDogLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header-color">
         <h1 class="modal-title fs-5" id="addDogLabel">Add a new dog</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -57,7 +57,7 @@
                           required: true %>
               </div>
               <div class="form-actions">
-                <%= f.button :submit, "Add friend" %>
+                <%= f.button :submit, "Add friend", class: "btn-primary-chat"%>
               </div>
             <% end %>
         </div>
