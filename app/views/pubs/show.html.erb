@@ -3,9 +3,9 @@
   <div class="view-page-top">
     <h1><%= @pub.name %></h1>
       <% unless @pub.room.nil? %>
-        <%= link_to "Enter chatroom!", pub_room_path(@pub, @pub.room), class: "btn-primary" %>
+        <%= link_to "Enter chatroom!", pub_room_path(@pub, @pub.room), class: "btn-primary-delete" %>
       <% else %>
-        <%= link_to "Enter chatroom!", new_pub_room_path(@pub), class: "btn-primary" %>
+        <%= link_to "Enter chatroom!", new_pub_room_path(@pub), class: "btn-primary-delete" %>
       <% end %>
 
   </div>
@@ -26,7 +26,7 @@
           <% if user_signed_in? %>
             <% if current_user.dogs.present? %>
               <%# this button adds a local %>
-              <button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#localModal">
+              <button type="button" class="btn-primary-delete" data-bs-toggle="modal" data-bs-target="#localModal">
                 Add a Local
               </button>
                 <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="localModal" aria-hidden="true">
@@ -129,7 +129,7 @@
              <h2> <%=  link_to "★", pub_favourites_path(@pub), data: {turbo_method: :post}, class: "favourite-star mr-3"%> </h2>
             <% end %>
           </div>
-        <div class="icon-filter-card">
+        <div class="icon-filter-card mt-3">
           <% if @pub.garden? %>
             <%= image_tag "https://res.cloudinary.com/dfi8ju7lr/image/upload/v1678876894/Booze/Pubs/Filter-icons/garden_icon_fq2yax.png" %>
           <% end %>

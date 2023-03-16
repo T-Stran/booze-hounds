@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   resources :dogs
   post "room_messages", to: "room_messages#create"
 
-
   resources :users do
     resources :favourites, only: :index
   end

@@ -1,30 +1,24 @@
-<div class="containerr mt-4">
-  <h1>Your Favourites</h1>
-
-
-  <div class="index-columns">
-    <div class="fave-container">
-      <% @favourites.each do |favourite| %>
-        <ol>
-        <div class="card m-4">
-          <div class="card-header p-3">
-              <div class="card-body">
-                <h4><%=favourite.pub.name%></h4>
-                <% if favourite.pub.photo.attached? %>
-                  <%= cl_image_tag favourite.pub.photo.key, height: '150', width: '200' %>
-                <% else %>
-                  <img src="https://media.sketchfab.com/models/0e97fb0190244216a056909bbd749b9f/thumbnails/77649cbaea4849aeb3c98a70547c39ba/ef0475805a5a4442a15e3b681a0ec389.jpeg", height: '150', width: '200'>
-                <% end %>
-                <p></p>
-                <h6>Address: <%= favourite.pub.address %></h6>
-                <h6>Description: <%= favourite.pub.description %></h6>
-                <h6>Phone Number: <%= favourite.pub.phone_number %></h6>
-                <%= link_to "Remove from Favourites", favourite_path(favourite), class: "btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn" %>
-        </div>
-          </div>
-            </div>
-              </ol>
-          <% end %>
-   </div>
+<div class="containerr">
+  <div class="page-title mt-3">
+    <h1>Your Favourite Pubs</h1>
   </div>
+
+
+    <div class="row">
+      <% @favourites.each do |favourite| %>
+        <div class="card--favourite-final">
+          <%= link_to pub_path(favourite.pub), class:"card-fav2" do %>
+            <h4 class="text-center"><%=favourite.pub.name%></h4>
+              <% if favourite.pub.photo.attached? %>
+                <%= cl_image_tag favourite.pub.photo.key, class: "favourite--image" %>
+              <% else %>
+                <img src="https://media.sketchfab.com/models/0e97fb0190244216a056909bbd749b9f/thumbnails/77649cbaea4849aeb3c98a70547c39ba/ef0475805a5a4442a15e3b681a0ec389.jpeg", height: "150", width: "200">
+              <% end %>
+            <p></p>
+            <%= favourite.pub.address %>
+            <%= link_to "🗑", favourite_path(favourite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary-fav" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 </div>

@@ -42,7 +42,7 @@
   <% end %>
 
   <br>
-  For postcode: <strong><%= Query.last.title.upcase %></strong>. We have found <em><%= @pubs.length %></em> results for your search of:
+  For postcode: <%= Query.last.title.upcase %>. We have found <em><%= @pubs.length %></em> results for your search of:
   <% filter_results = params.keys.select { |key| params[key] == "1" } %>
   <% filter_results %>
   <em><%= filter_results.map {|word| word.split("_").map(&:capitalize).join(" ") }.join(", ") %></em>
