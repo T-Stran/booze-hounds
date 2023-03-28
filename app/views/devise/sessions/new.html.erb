@@ -18,8 +18,8 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in"%>
-    <div class="btn"><a href="/users/sign_up"> Create an account</a></div>
+      <%= f.button :submit, "Login", class:"btn-primary-delete"%>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn-primary-chat" %>
     </div>
 
   </div>
