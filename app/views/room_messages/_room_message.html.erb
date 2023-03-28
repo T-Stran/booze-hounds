@@ -1,12 +1,12 @@
 <div class="chat-message-container">
   <div class="row no-gutters">
     <div class="col-auto text-center">
-
       <% if room_message.user.photo.attached? %>
         <%= cl_image_tag room_message.user.photo.key, class: "avatar" %>
       <% else %>
         <%= image_tag "dog-avatar", class: "avatar" %>
       <% end %>
+      <%= room_message.user.username %>
     </div>
 
     <div class="col">
