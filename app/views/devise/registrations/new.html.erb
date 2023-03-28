@@ -12,6 +12,12 @@
                     autofocus: true,
                     input_html: { autocomplete: "email" }%>
         </div>
+        <div class="form-bar">
+          <%= f.input :username,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "username"} %>
+        </div>
       <div class="form-bar">
         <%= f.input :password,
                     required: true,
@@ -23,12 +29,7 @@
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
       </div>
-      <div class="form-bar">
-        <%= f.input :username,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "username"} %>
-      </div>
+
       <div class="form-bar">
         <%= f.input :photo, as: :file,
                     required: false %>
@@ -36,7 +37,7 @@
 
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, "Sign up", class:"btn-primary-chat" %>
       </div>
     <% end %>
   </div>
