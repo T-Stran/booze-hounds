@@ -4,7 +4,7 @@ Love pubs? Love dogs? Then you're in the right place.
 
 BoozeHounds allows users to find good, dog-friendly pubs in their neighbourhood, as well as filter these pubs by certain criteria and interact with their local community.
 
-## Visit www.boozehounds.dog and have a sniff around!
+## Visit [BoozeHounds](www.boozehounds.dog) and have a sniff around!
 
 ### Motivation
 The motivation for BoozeHounds came whilst trying to find out accurate information about which pubs were suitable for a dog on a friday night. Realising that to find out, you would have to contact pubs directly, my team and I decided to create BoozeHounds.
