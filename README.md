@@ -13,7 +13,7 @@ The motivation for BoozeHounds came whilst trying to find out accurate informati
 Please feel free to sign up for an account, or use the login details username: dave@dave.com password: daveisking.
 
 ### Build
-BoozeHounds was built using Ruby 3.1.2p20 and Rails 7.0.4.3 by 
+BoozeHounds was built using Ruby 3.1.2p20 and Rails 7.0.4.3 by [Tom Stranack](https://github.com/T-Stran), [James Corfe](https://github.com/jdc338), [Jerome Junkeer](https://github.com/JJunkeer), [Oliver Chesney](https://github.com/Oliver-Chesney) and [Daniel Ferree](https://github.com/dferree).
 
 ### Guide
 1. From the landing page, search the postcode you hope to find a pub in.
