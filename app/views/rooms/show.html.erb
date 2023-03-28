@@ -31,7 +31,7 @@
       <div class="container room">
         <div class="room_messages chat" data-room-subscription-target="messages">
           <% @room_messages.each do |room_message| %>
-            <%= room_message.user.username %>
+            <%# <%= room_message.user.username %> 
             <%= render "room_messages/room_message", room_message: room_message %>
           <% end %>
         </div>
